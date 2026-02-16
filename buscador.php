@@ -43,7 +43,7 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
                 <div class="budget-actions">
                     <button onclick="openMarginModal('whatsapp')" class="btn-whatsapp">📲 WhatsApp Cliente</button>
                     <button onclick="sendOrderToCVTools()" class="btn-order">🏭 Pedir a CV Tools</button>
-                    <button onclick="clearBudget()" class="btn-danger">🗑️ Borrar</button>
+                    <button onclick="clearBudget()" class="btn-danger">🗑️ Borrar Todo</button>
                 </div>
             </div>
         </div>
@@ -58,21 +58,6 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
             <br><br>
             <button onclick="confirmMarginAction()" class="btn-confirm">Generar</button>
             <button onclick="closeMarginModal()">Cerrar</button>
-        </div>
-    </div>
-
-    <!-- POP-UP PERSONALIZADO DE STOCK (SIN NÚMEROS) -->
-    <div id="stock-warning-modal" class="modal hidden">
-        <div class="stock-warning-content">
-            <div class="warning-icon">⚠️</div>
-            <h3>Stock Insuficiente</h3>
-            <p id="stock-warning-msg">No disponemos de stock suficiente para cubrir la cantidad solicitada en este momento.</p>
-            <div class="contact-info">
-                Para consultar disponibilidad o plazos de entrega, contacte con nuestra oficina:
-                <br>
-                <a href="tel:962920132" class="phone-link">📞 962 920 132</a>
-            </div>
-            <button onclick="closeStockWarning()" class="btn-close-warning">Entendido</button>
         </div>
     </div>
 
