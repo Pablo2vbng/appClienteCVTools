@@ -12,26 +12,27 @@ const budgetItemsContainer = document.getElementById('budget-items-container');
 
 let pendingAction = null; 
 
-// --- LÓGICA DE STOCK OCULTO Y POP-UP ---
+// --- FUNCIÓN AÑADIR CON AVISO DISCRETO ---
 function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal, stockText, realStock) {
     let qty = parseInt(qtyInput) || 1;
     let available = parseInt(realStock) || 0;
 
-    // VALIDACIÓN: 50% de stock (sin mostrar el stock total)
+    // VALIDACIÓN: 50% de stock (Totalmente oculto al cliente)
     if (available > 0 && available < 900000) { 
         let limiteMaximo = Math.floor(available / 2);
         if (qty > limiteMaximo) {
-            showStockWarning(limiteMaximo); // Mostramos el pop-up chulo
+            showStockWarning(); // Mostrar pop-up sin pasar ningún número
             return;
         }
-    } else if (available === 0 && stockText === "Sin stock") {
-        alert("⚠️ No hay unidades disponibles actualmente.");
+    } else if (available === 0 && stockText.includes("Sin stock")) {
+        showStockWarning(); // También usamos el pop-up para "Sin Stock"
         return;
     }
 
     const existing = budget.find(i => i.ref === ref);
-    if (existing) { existing.qty += qty; } 
-    else {
+    if (existing) { 
+        existing.qty += qty; 
+    } else {
         budget.push({
             ref, desc, stdPrice, qty,
             netInfo, minQty, netPriceVal, stockText: stockText || "Consultar"
@@ -41,8 +42,8 @@ function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal
     animateFab();
 }
 
-function showStockWarning(max) {
-    document.getElementById('stock-warning-msg').innerHTML = `El stock actual es <strong>${max} unidades</strong>. Solo puede añadir la cantidad señalada`;
+function showStockWarning() {
+    // El mensaje es fijo, no damos ninguna pista de cuánto stock hay
     stockWarningModal.classList.remove('hidden');
 }
 
@@ -50,7 +51,7 @@ function closeStockWarning() {
     stockWarningModal.classList.add('hidden');
 }
 
-// --- RESTO DE FUNCIONES (Sin cambios) ---
+// --- RESTO DE LÓGICA DE PRESUPUESTO ---
 function removeFromBudget(index) {
     budget.splice(index, 1);
     updateBudgetUI();
@@ -97,6 +98,7 @@ function updateBudgetUI() {
 }
 
 function toggleBudgetModal() { if(budgetModal) budgetModal.classList.toggle('hidden'); }
+
 function animateFab() {
     const fab = document.getElementById('budget-fab');
     if(fab) { fab.style.transform = 'scale(1.2)'; setTimeout(() => fab.style.transform = 'scale(1)', 200); }
@@ -107,6 +109,7 @@ function openMarginModal(action) {
     pendingAction = action; 
     marginModal.classList.remove('hidden');
 }
+
 function closeMarginModal() { marginModal.classList.add('hidden'); }
 
 function confirmMarginAction() {
@@ -127,13 +130,15 @@ function generateClientText(margin) {
         total += pvpTotal;
         text += `📦 *${item.desc}*\n   Ref: ${item.ref}\n   Cant: ${item.qty} x ${pvpUnit.toFixed(2)} €\n   Subtotal: ${pvpTotal.toFixed(2)} €\n\n`;
     });
-    text += `--------------------------------\n💶 *TOTAL: ${total.toFixed(2)} €*\n(Impuestos no incluidos)\n\n📥 *Fichas Técnicas:*\n${URL_FICHAS_WEB}`;
+    text += `--------------------------------\n💶 *TOTAL: ${total.toFixed(2)} €*\n(Impuestos no incluidos)\n\n📥 *Descarga Fichas Técnicas:*\n${URL_FICHAS_WEB}`;
     return text;
 }
 
 function sendClientWhatsApp(margin) {
     const text = generateClientText(margin);
-    navigator.clipboard.writeText(text).then(() => alert("✅ Copiado. Pégalo en el WhatsApp de tu cliente."));
+    navigator.clipboard.writeText(text).then(() => {
+        alert("✅ Copiado. El presupuesto está listo para pegar en WhatsApp.");
+    });
 }
 
 function sendClientEmail(margin) {
@@ -143,6 +148,7 @@ function sendClientEmail(margin) {
 
 function sendOrderToCVTools() {
     if (budget.length === 0) return alert("Carrito vacío.");
+    if (!confirm("¿Deseas enviar este pedido a CV Tools?")) return;
     let text = `HOLA CVTOOLS, SOLICITO EL SIGUIENTE MATERIAL:\n\n`;
     let total = 0;
     budget.forEach(item => {
@@ -150,6 +156,6 @@ function sendOrderToCVTools() {
         total += cost.total;
         text += `[${item.ref}] ${item.desc} -> ${item.qty} uds\n`;
     });
-    text += `\nTotal Coste (Neto): ${total.toFixed(2)} €\n\nDatos de mi empresa:\n(Escribir aquí nombre)\n`;
+    text += `\nTotal Coste (Neto): ${total.toFixed(2)} €\n\nDatos de mi empresa:\n(Completar aquí)\n`;
     window.location.href = `mailto:${EMAIL_PEDIDOS}?subject=NUEVO PEDIDO WEB&body=${encodeURIComponent(text)}`;
 }

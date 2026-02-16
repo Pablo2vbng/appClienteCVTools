@@ -29,10 +29,10 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
         </main>
     </div>
 
-    <!-- Botón Carrito -->
+    <!-- Botón Carrito Flotante -->
     <div id="budget-fab" class="budget-fab" onclick="toggleBudgetModal()">🛒 <span id="budget-count">0</span></div>
 
-    <!-- Modal Carrito -->
+    <!-- Modal Carrito Principal -->
     <div id="budget-modal" class="modal hidden">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleBudgetModal()">&times;</span>
@@ -49,7 +49,7 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
         </div>
     </div>
 
-    <!-- Modal Margen -->
+    <!-- Modal Margen Comercial -->
     <div id="margin-modal" class="modal hidden">
         <div class="margin-modal-content">
             <h3>Margen Comercial</h3>
@@ -61,14 +61,15 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
         </div>
     </div>
 
-    <!-- 🔥 NUEVO POP-UP PERSONALIZADO DE STOCK 🔥 -->
+    <!-- POP-UP PERSONALIZADO DE STOCK (SIN NÚMEROS) -->
     <div id="stock-warning-modal" class="modal hidden">
         <div class="stock-warning-content">
             <div class="warning-icon">⚠️</div>
-            <h3>Límite de pedido alcanzado</h3>
-            <p id="stock-warning-msg">Para este artículo, el pedido máximo permitido es de <strong>0</strong> unidades.</p>
+            <h3>Stock Insuficiente</h3>
+            <p id="stock-warning-msg">No disponemos de stock suficiente para cubrir la cantidad solicitada en este momento.</p>
             <div class="contact-info">
-                Para cantidades superiores o plazos de entrega, contacte con nuestra oficina:<br>
+                Para consultar disponibilidad o plazos de entrega, contacte con nuestra oficina:
+                <br>
                 <a href="tel:962920132" class="phone-link">📞 962 920 132</a>
             </div>
             <button onclick="closeStockWarning()" class="btn-close-warning">Entendido</button>

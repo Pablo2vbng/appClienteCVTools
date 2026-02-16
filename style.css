@@ -261,3 +261,76 @@ button[class^="btn-"] { padding: 12px; border: none; border-radius: 8px; color: 
 .btn-close-warning:hover {
     background: #000;
 }
+
+/* --- MODAL DE AVISO DE STOCK --- */
+#stock-warning-modal .stock-warning-content {
+    background: white;
+    max-width: 380px;
+    margin: 18vh auto;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    border-top: 10px solid #e67e22; /* Color naranja de aviso */
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.warning-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.stock-warning-content h3 {
+    color: #2c3e50;
+    margin: 0 0 15px 0;
+    font-size: 1.5rem;
+}
+
+.stock-warning-content p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.contact-info {
+    background: #fff9f0;
+    padding: 15px;
+    border-radius: 12px;
+    color: #856404;
+    font-size: 0.95em;
+    margin-bottom: 25px;
+    border: 1px solid #ffeeba;
+}
+
+.phone-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #007aff;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.btn-close-warning {
+    background: #34495e;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+.btn-close-warning:hover {
+    background: #2c3e50;
+    transform: translateY(-2px);
+}
