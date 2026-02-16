@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador y Pedidos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-precios">
+    
+    <div class="container">
+        <!-- HEADER -->
+        <header class="main-header">
+            <div class="logo-container">
+                <img src="img/cvtools.png" alt="CV Tools" class="provider-logo">
+            </div>
+            <h1>Buscador y Presupuestos</h1>
+        </header>
+
+        <main>
+            <div id="search-wrapper">
+                 <input type="text" id="searchInput" placeholder="Buscar referencia...">
+                 <p class="stock-disclaimer">ℹ️ Stock actualizado a las 09:00 AM.</p>
+            </div>
+
+            <!-- RESULTADOS -->
+            <div id="resultsContainer"></div>
+            
+            <a href="index.html" class="back-link">← Volver al menú</a>
+        </main>
+    </div>
+
+    <!-- BOTÓN FLOTANTE -->
+    <div id="budget-fab" class="budget-fab" onclick="toggleBudgetModal()">
+        🛒 <span id="budget-count">0</span>
+    </div>
+
+    <!-- MODAL CARRITO -->
+    <div id="budget-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal" onclick="toggleBudgetModal()" style="float:right; cursor:pointer; font-size:1.5rem;">&times;</span>
+            <h2>Resumen del Pedido</h2>
+            <div id="budget-items-container" style="overflow-y:auto; flex-grow:1; margin-bottom:10px;"><p class="empty-msg">Vacío.</p></div>
+            <div class="budget-footer">
+                <p class="total-display">Total Coste (Neto): <span id="budget-total">0.00</span> €</p>
+                <div class="budget-actions">
+                    <!-- BOTONES CORREGIDOS CON SUBTÍTULO -->
+                    <button onclick="openMarginModal('whatsapp')" class="btn-whatsapp">
+                        <span>📲 WhatsApp</span>
+                        <span class="btn-subtitle">con presupuesto a cliente (indicar margen)</span>
+                    </button>
+                    
+                    <button onclick="openMarginModal('email')" class="btn-email">
+                        <span>📧 Correo</span>
+                        <span class="btn-subtitle">con presupuesto a cliente (indicar margen)</span>
+                    </button>
+                    
+                    <button onclick="sendOrderToCVTools()" class="btn-order">
+                        <span>🏭 Pedido CVTools</span>
+                    </button>
+                    
+                    <button onclick="clearBudget()" class="btn-danger btn-danger-full">
+                        <span>🗑️ Borrar Todo</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL MARGEN -->
+    <div id="margin-modal" class="modal hidden">
+        <div class="margin-modal-content">
+            <span class="close-modal" onclick="closeMarginModal()" style="float:right; cursor:pointer;">&times;</span>
+            <h3>Margen Comercial</h3>
+            <div class="margin-input-wrapper">
+                <input type="number" id="margin-input" class="margin-input" value="30" min="0">
+                <span style="font-size:1.2rem; font-weight:bold;">%</span>
+            </div>
+            <button onclick="confirmMarginAction()" class="btn-confirm">Generar y Enviar</button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="logic/presupuesto.js"></script>
+    <script src="logic/script.js"></script>
+</body>
+</html>
