@@ -29,10 +29,10 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
         </main>
     </div>
 
-    <!-- Botón Carrito Flotante -->
+    <!-- Botón Carrito -->
     <div id="budget-fab" class="budget-fab" onclick="toggleBudgetModal()">🛒 <span id="budget-count">0</span></div>
 
-    <!-- Modal Carrito Principal -->
+    <!-- Modal Carrito -->
     <div id="budget-modal" class="modal hidden">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleBudgetModal()">&times;</span>
@@ -43,13 +43,13 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
                 <div class="budget-actions">
                     <button onclick="openMarginModal('whatsapp')" class="btn-whatsapp">📲 WhatsApp Cliente</button>
                     <button onclick="sendOrderToCVTools()" class="btn-order">🏭 Pedir a CV Tools</button>
-                    <button onclick="clearBudget()" class="btn-danger">🗑️ Borrar Todo</button>
+                    <button onclick="clearBudget()" class="btn-danger">🗑️ Borrar</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal Margen Comercial -->
+    <!-- Modal Margen -->
     <div id="margin-modal" class="modal hidden">
         <div class="margin-modal-content">
             <h3>Margen Comercial</h3>
@@ -58,6 +58,21 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
             <br><br>
             <button onclick="confirmMarginAction()" class="btn-confirm">Generar</button>
             <button onclick="closeMarginModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- 🔥 POP-UP PERSONALIZADO (SIN STOCK / LÍMITE) 🔥 -->
+    <div id="stock-warning-modal" class="modal hidden">
+        <div class="stock-warning-content">
+            <div class="warning-icon">⚠️</div>
+            <h3>Disponibilidad Limitada</h3>
+            <p>No disponemos de stock suficiente para cubrir la cantidad solicitada en este momento.</p>
+            <div class="contact-info">
+                Para consultar el plazo de entrega o disponibilidad, contacte con nuestra oficina:
+                <br>
+                <a href="tel:962920132" class="phone-link">📞 962 920 132</a>
+            </div>
+            <button onclick="closeStockWarning()" class="btn-close-warning">Entendido</button>
         </div>
     </div>
 

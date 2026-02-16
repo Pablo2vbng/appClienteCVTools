@@ -1,6 +1,5 @@
 // logic/script.js
 
-// CARGAMOS LA TARIFA ASIGNADA AL USUARIO
 const TARIFF_FILE = window.USER_TARIFF || 'Tarifa_General.json'; 
 const searchInput = document.getElementById('searchInput');
 const resultsContainer = document.getElementById('resultsContainer');
@@ -48,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     } catch (error) {
         console.error(error);
-        resultsContainer.innerHTML = '<p style="text-align:center; padding:20px; color:red;">Error cargando datos del servidor.</p>';
+        resultsContainer.innerHTML = '<p style="text-align:center; padding:20px; color:red;">Error cargando datos.</p>';
     }
 });
 
@@ -72,16 +71,13 @@ function displayResults(products) {
         let netoRaw = p.CONDICIONES_NETO || p.CONDICION_NETO_GC || '';
         let netVal = extractNetPrice(netoRaw);
 
-        // STOCK LÓGICA
         const sInfo = stockMap.get(String(p.Referencia));
         let sHtml = '<div class="stock-badge stock-ko">📞 Consultar</div>';
         let stockDisponibleNum = 0; 
         let stockTextoParaPresupuesto = "Consultar";
 
         if (sInfo) {
-            // Limpiamos el stock de cualquier caracter no numérico (por si viene "1.200")
             stockDisponibleNum = parseInt(String(sInfo.Stock).replace(/\D/g, '')) || 0;
-            
             if (sInfo.Estado === 'si') {
                 sHtml = stockDisponibleNum > 0 
                     ? '<div class="stock-badge stock-ok">✅ En stock</div>' 
@@ -89,8 +85,8 @@ function displayResults(products) {
                 stockTextoParaPresupuesto = stockDisponibleNum > 0 ? "En stock" : "Sin stock";
             } else if (sInfo.Estado === 'fab') {
                 sHtml = '<div class="stock-badge stock-fab">🏭 3-5 días</div>';
-                stockTextoParaPresupuesto = "🏭 3-5 días";
-                stockDisponibleNum = 999999; // Infinito para fabricación
+                stockTextoParaPresupuesto = "3-5 días";
+                stockDisponibleNum = 999999;
             }
         }
 

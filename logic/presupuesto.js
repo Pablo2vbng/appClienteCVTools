@@ -6,42 +6,48 @@ const EMAIL_PEDIDOS = "pedidos@cvtools.com";
 let budget = [];
 const budgetModal = document.getElementById('budget-modal');
 const marginModal = document.getElementById('margin-modal');
+const stockWarningModal = document.getElementById('stock-warning-modal');
 const budgetCountSpan = document.getElementById('budget-count');
 const budgetItemsContainer = document.getElementById('budget-items-container');
 
 let pendingAction = null; 
 
-// --- FUNCIÓN AÑADIR (PERMISIVA CON COLETILLA) ---
+// --- FUNCIÓN AÑADIR (CON BLOQUEO Y POPUP) ---
 function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal, stockText, realStock) {
     let qty = parseInt(qtyInput) || 1;
     let available = parseInt(realStock) || 0;
-    let finalStockText = stockText;
 
-    // DETERMINAR SI AÑADIMOS LA COLETILLA "SIN STOCK"
-    // Regla: si pide más de la mitad del stock o el stock es 0 (y no es fabricación)
-    if (available < 900000) { 
+    // VALIDACIÓN: 50% de stock
+    if (available > 0 && available < 900000) { 
         let limiteMaximo = Math.floor(available / 2);
-        if (qty > limiteMaximo || available === 0) {
-            finalStockText = "❌ SIN STOCK (Consultar plazo)";
+        if (qty > limiteMaximo) {
+            showStockWarning(); // Mostramos el pop-up y no añadimos
+            return;
         }
+    } else if (available === 0 && stockText.includes("Sin stock")) {
+        showStockWarning(); 
+        return;
     }
 
     const existing = budget.find(i => i.ref === ref);
     if (existing) { 
-        existing.qty += qty;
-        // Si al sumar unidades sobrepasamos stock, actualizamos el texto
-        if (available < 900000 && existing.qty > Math.floor(available / 2)) {
-            existing.stockText = "❌ SIN STOCK (Consultar plazo)";
-        }
+        existing.qty += qty; 
     } else {
         budget.push({
             ref, desc, stdPrice, qty,
-            netInfo, minQty, netPriceVal, 
-            stockText: finalStockText
+            netInfo, minQty, netPriceVal, stockText: stockText || "Consultar"
         });
     }
     updateBudgetUI();
     animateFab();
+}
+
+function showStockWarning() {
+    if (stockWarningModal) stockWarningModal.classList.remove('hidden');
+}
+
+function closeStockWarning() {
+    if (stockWarningModal) stockWarningModal.classList.add('hidden');
 }
 
 function removeFromBudget(index) {
@@ -71,15 +77,11 @@ function updateBudgetUI() {
     budget.forEach((item, index) => {
         const cost = calculateItemCost(item);
         subtotal += cost.total;
-        
-        // Estilo especial si no hay stock
-        const stockStyle = item.stockText.includes("SIN STOCK") ? 'color:#d9534f; font-weight:bold;' : 'color:#555;';
-
         html += `
             <div class="budget-item">
                 <div class="budget-item-info">
                     <strong>${item.desc}</strong>
-                    <br><span style="font-size:0.85em; ${stockStyle}">${item.ref} | ${item.stockText}</span>
+                    <br><span style="font-size:0.8em; color:#555">${item.ref} | ${item.stockText}</span>
                 </div>
                 <div style="text-align:right">
                     <div>${item.qty} x ${cost.unit.toFixed(2)}€</div>
@@ -94,7 +96,6 @@ function updateBudgetUI() {
 }
 
 function toggleBudgetModal() { if(budgetModal) budgetModal.classList.toggle('hidden'); }
-
 function animateFab() {
     const fab = document.getElementById('budget-fab');
     if(fab) { fab.style.transform = 'scale(1.2)'; setTimeout(() => fab.style.transform = 'scale(1)', 200); }
@@ -105,7 +106,6 @@ function openMarginModal(action) {
     pendingAction = action; 
     marginModal.classList.remove('hidden');
 }
-
 function closeMarginModal() { marginModal.classList.add('hidden'); }
 
 function confirmMarginAction() {
@@ -124,15 +124,7 @@ function generateClientText(margin) {
         const pvpUnit = cost.unit * (1 + (margin / 100));
         const pvpTotal = pvpUnit * item.qty;
         total += pvpTotal;
-        
-        text += `📦 *${item.desc}*\n   Ref: ${item.ref}\n   Cant: ${item.qty} x ${pvpUnit.toFixed(2)} €\n`;
-        
-        // Añadir aviso de stock al mensaje final si corresponde
-        if (item.stockText.includes("SIN STOCK")) {
-            text += `   ⚠️ _${item.stockText}_\n`;
-        }
-        
-        text += `   Subtotal: ${pvpTotal.toFixed(2)} €\n\n`;
+        text += `📦 *${item.desc}*\n   Ref: ${item.ref}\n   Cant: ${item.qty} x ${pvpUnit.toFixed(2)} €\n   Subtotal: ${pvpTotal.toFixed(2)} €\n\n`;
     });
     text += `--------------------------------\n💶 *TOTAL: ${total.toFixed(2)} €*\n(Impuestos no incluidos)\n\n📥 *Fichas Técnicas:*\n${URL_FICHAS_WEB}`;
     return text;
@@ -141,7 +133,7 @@ function generateClientText(margin) {
 function sendClientWhatsApp(margin) {
     const text = generateClientText(margin);
     navigator.clipboard.writeText(text).then(() => {
-        alert("✅ Copiado. El presupuesto incluye los avisos de stock si los hubiera.");
+        alert("✅ Copiado. El presupuesto está en tu portapapeles.");
     });
 }
 
@@ -152,15 +144,14 @@ function sendClientEmail(margin) {
 
 function sendOrderToCVTools() {
     if (budget.length === 0) return alert("Carrito vacío.");
+    if (!confirm("¿Deseas enviar este pedido a CV Tools?")) return;
     let text = `HOLA CVTOOLS, SOLICITO EL SIGUIENTE MATERIAL:\n\n`;
     let total = 0;
     budget.forEach(item => {
         const cost = calculateItemCost(item);
         total += cost.total;
-        text += `[${item.ref}] ${item.desc} -> ${item.qty} uds`;
-        if (item.stockText.includes("SIN STOCK")) text += " (SIN STOCK)";
-        text += "\n";
+        text += `[${item.ref}] ${item.desc} -> ${item.qty} uds\n`;
     });
-    text += `\nTotal Coste (Neto): ${total.toFixed(2)} €\n\nDatos de mi empresa:\n(Completar aquí)\n`;
+    text += `\nTotal Coste (Neto): ${total.toFixed(2)} €\n\nDatos de mi empresa:\n(Escribir aquí)\n`;
     window.location.href = `mailto:${EMAIL_PEDIDOS}?subject=NUEVO PEDIDO WEB&body=${encodeURIComponent(text)}`;
 }
