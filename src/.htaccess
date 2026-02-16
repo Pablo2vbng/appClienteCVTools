@@ -1,0 +1,12 @@
+<Files "*.json">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Allow from all
+    </IfModule>
+</Files>
+
+# Esto permite que el navegador lea los archivos desde tu web
+Header set Access-Control-Allow-Origin "*"
