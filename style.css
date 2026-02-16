@@ -198,3 +198,66 @@ button[class^="btn-"] { padding: 12px; border: none; border-radius: 8px; color: 
 .fab-contact:hover { transform: scale(1.1); }
 .fab-whatsapp { background-color: #25D366; }
 .fab-phone { background-color: #007aff; }
+
+/* --- ESTILOS POP-UP STOCK WARNING --- */
+.stock-warning-content {
+    background: white;
+    max-width: 400px;
+    margin: 15vh auto;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    border-top: 10px solid #f39c12;
+}
+
+.warning-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.stock-warning-content h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.stock-warning-content p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    background: #fdf2e9;
+    padding: 15px;
+    border-radius: 10px;
+    color: #856404;
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    border: 1px solid #ffeeba;
+}
+
+.phone-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007aff;
+    text-decoration: none;
+}
+
+.btn-close-warning {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-close-warning:hover {
+    background: #000;
+}

@@ -6,10 +6,10 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador - CV Tools</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        // ✅ PASAMOS LA TARIFA ASIGNADA DE PHP A JAVASCRIPT
         window.USER_TARIFF = "<?php echo $_SESSION['cliente_tarifa']; ?>";
     </script>
 </head>
@@ -43,6 +43,7 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
                 <div class="budget-actions">
                     <button onclick="openMarginModal('whatsapp')" class="btn-whatsapp">📲 WhatsApp Cliente</button>
                     <button onclick="sendOrderToCVTools()" class="btn-order">🏭 Pedir a CV Tools</button>
+                    <button onclick="clearBudget()" class="btn-danger">🗑️ Borrar</button>
                 </div>
             </div>
         </div>
@@ -51,12 +52,26 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
     <!-- Modal Margen -->
     <div id="margin-modal" class="modal hidden">
         <div class="margin-modal-content">
-            <h3>Poner Margen a tu Cliente</h3>
-            <p>Introduce el margen (%) que quieres sumar a tu coste para el presupuesto.</p>
+            <h3>Margen Comercial</h3>
+            <p>Introduce el margen (%) para tu cliente.</p>
             <input type="number" id="margin-input" value="30" style="width:80px; padding:10px;"> %
             <br><br>
-            <button onclick="confirmMarginAction()" class="btn-confirm">Copiado y Generado</button>
-            <button onclick="closeMarginModal()">Cancelar</button>
+            <button onclick="confirmMarginAction()" class="btn-confirm">Generar</button>
+            <button onclick="closeMarginModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- 🔥 NUEVO POP-UP PERSONALIZADO DE STOCK 🔥 -->
+    <div id="stock-warning-modal" class="modal hidden">
+        <div class="stock-warning-content">
+            <div class="warning-icon">⚠️</div>
+            <h3>Límite de pedido alcanzado</h3>
+            <p id="stock-warning-msg">Para este artículo, el pedido máximo permitido es de <strong>0</strong> unidades.</p>
+            <div class="contact-info">
+                Para cantidades superiores o plazos de entrega, contacte con nuestra oficina:<br>
+                <a href="tel:962920132" class="phone-link">📞 962 920 132</a>
+            </div>
+            <button onclick="closeStockWarning()" class="btn-close-warning">Entendido</button>
         </div>
     </div>
 

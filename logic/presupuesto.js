@@ -6,32 +6,32 @@ const EMAIL_PEDIDOS = "pedidos@cvtools.com";
 let budget = [];
 const budgetModal = document.getElementById('budget-modal');
 const marginModal = document.getElementById('margin-modal');
+const stockWarningModal = document.getElementById('stock-warning-modal');
 const budgetCountSpan = document.getElementById('budget-count');
 const budgetItemsContainer = document.getElementById('budget-items-container');
 
 let pendingAction = null; 
 
-// --- FUNCIÓN AÑADIR (RESTRICTIVA) ---
+// --- LÓGICA DE STOCK OCULTO Y POP-UP ---
 function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal, stockText, realStock) {
     let qty = parseInt(qtyInput) || 1;
     let available = parseInt(realStock) || 0;
 
-    // VALIDACIÓN ESTRICTA DE STOCK
-    if (available > 0 && available < 999998) { 
+    // VALIDACIÓN: 50% de stock (sin mostrar el stock total)
+    if (available > 0 && available < 900000) { 
         let limiteMaximo = Math.floor(available / 2);
         if (qty > limiteMaximo) {
-            alert(`⚠️ CANTIDAD NO PERMITIDA\n\nNo podemos suministrar más de la mitad de nuestro stock actual por pedido web.\n\nStock disponible: ${available} uds.\nMáximo permitido: ${limiteMaximo} uds.\n\nPor favor, ajusta la cantidad o contacta con nosotros.`);
-            return; // Bloquea el añadido
+            showStockWarning(limiteMaximo); // Mostramos el pop-up chulo
+            return;
         }
     } else if (available === 0 && stockText === "Sin stock") {
-        alert("⚠️ No hay unidades disponibles de este artículo.");
+        alert("⚠️ No hay unidades disponibles actualmente.");
         return;
     }
 
     const existing = budget.find(i => i.ref === ref);
-    if (existing) { 
-        existing.qty += qty; 
-    } else {
+    if (existing) { existing.qty += qty; } 
+    else {
         budget.push({
             ref, desc, stdPrice, qty,
             netInfo, minQty, netPriceVal, stockText: stockText || "Consultar"
@@ -41,6 +41,16 @@ function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal
     animateFab();
 }
 
+function showStockWarning(max) {
+    document.getElementById('stock-warning-msg').innerHTML = `Para este artículo, el pedido máximo permitido es de <strong>${max} unidades</strong>.`;
+    stockWarningModal.classList.remove('hidden');
+}
+
+function closeStockWarning() {
+    stockWarningModal.classList.add('hidden');
+}
+
+// --- RESTO DE FUNCIONES (Sin cambios) ---
 function removeFromBudget(index) {
     budget.splice(index, 1);
     updateBudgetUI();
@@ -65,7 +75,6 @@ function updateBudgetUI() {
     if (budgetCountSpan) budgetCountSpan.textContent = budget.length;
     let subtotal = 0;
     let html = '';
-
     budget.forEach((item, index) => {
         const cost = calculateItemCost(item);
         subtotal += cost.total;
@@ -74,7 +83,6 @@ function updateBudgetUI() {
                 <div class="budget-item-info">
                     <strong>${item.desc}</strong>
                     <br><span style="font-size:0.8em; color:#555">${item.ref} | ${item.stockText}</span>
-                    ${cost.isNet ? '<br><span style="color:green; font-size:0.7em">✅ Neto aplicado</span>' : ''}
                 </div>
                 <div style="text-align:right">
                     <div>${item.qty} x ${cost.unit.toFixed(2)}€</div>
@@ -83,7 +91,6 @@ function updateBudgetUI() {
                 <button class="remove-btn" onclick="removeFromBudget(${index})">&times;</button>
             </div>`;
     });
-
     if (budgetItemsContainer) budgetItemsContainer.innerHTML = budget.length ? html : '<p class="empty-msg">Tu carrito está vacío.</p>';
     const totalDisplay = document.getElementById('budget-total');
     if (totalDisplay) totalDisplay.textContent = subtotal.toFixed(2);
@@ -95,23 +102,16 @@ function animateFab() {
     if(fab) { fab.style.transform = 'scale(1.2)'; setTimeout(() => fab.style.transform = 'scale(1)', 200); }
 }
 
-// --- MARGEN Y ENVÍO ---
 function openMarginModal(action) {
     if (budget.length === 0) return alert("El carrito está vacío.");
     pendingAction = action; 
     marginModal.classList.remove('hidden');
 }
-
-function closeMarginModal() {
-    marginModal.classList.add('hidden');
-    pendingAction = null;
-}
+function closeMarginModal() { marginModal.classList.add('hidden'); }
 
 function confirmMarginAction() {
     const input = document.getElementById('margin-input');
-    let margin = parseFloat(input.value);
-    if (isNaN(margin) || margin < 0) margin = 0;
-
+    let margin = parseFloat(input.value) || 0;
     if (pendingAction === 'whatsapp') { sendClientWhatsApp(margin); } 
     else if (pendingAction === 'email') { sendClientEmail(margin); }
     closeMarginModal();
@@ -133,9 +133,7 @@ function generateClientText(margin) {
 
 function sendClientWhatsApp(margin) {
     const text = generateClientText(margin);
-    navigator.clipboard.writeText(text).then(() => {
-        alert("✅ ¡Copiado!\n\nEl presupuesto está en tu portapapeles.\nAhora abre WhatsApp y pégalo en el chat de tu cliente.");
-    });
+    navigator.clipboard.writeText(text).then(() => alert("✅ Copiado. Pégalo en el WhatsApp de tu cliente."));
 }
 
 function sendClientEmail(margin) {
@@ -145,7 +143,6 @@ function sendClientEmail(margin) {
 
 function sendOrderToCVTools() {
     if (budget.length === 0) return alert("Carrito vacío.");
-    if (!confirm("¿Generar pedido interno para CVTools?")) return;
     let text = `HOLA CVTOOLS, SOLICITO EL SIGUIENTE MATERIAL:\n\n`;
     let total = 0;
     budget.forEach(item => {
@@ -153,6 +150,6 @@ function sendOrderToCVTools() {
         total += cost.total;
         text += `[${item.ref}] ${item.desc} -> ${item.qty} uds\n`;
     });
-    text += `\nTotal Coste (Neto): ${total.toFixed(2)} €\n\nDatos de mi empresa:\n(Escribir aquí nombre o CIF)\n`;
+    text += `\nTotal Coste (Neto): ${total.toFixed(2)} €\n\nDatos de mi empresa:\n(Escribir aquí nombre)\n`;
     window.location.href = `mailto:${EMAIL_PEDIDOS}?subject=NUEVO PEDIDO WEB&body=${encodeURIComponent(text)}`;
 }
