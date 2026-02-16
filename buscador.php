@@ -50,16 +50,25 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
     </div>
 
     <!-- Modal Margen -->
-    <div id="margin-modal" class="modal hidden">
-        <div class="margin-modal-content">
+<!-- Modal Margen Comercial  -->
+<div id="margin-modal" class="modal hidden">
+    <div class="margin-modal-content">
+        <div class="margin-header">
             <h3>Margen Comercial</h3>
-            <p>Introduce el margen (%) para tu cliente.</p>
-            <input type="number" id="margin-input" value="30" style="width:80px; padding:10px;"> %
-            <br><br>
-            <button onclick="confirmMarginAction()" class="btn-confirm">Generar</button>
-            <button onclick="closeMarginModal()">Cerrar</button>
+            <p>Introduce el margen (%) que quieres sumar a tu coste para generar el presupuesto.</p>
+        </div>
+        
+        <div class="margin-input-container">
+            <input type="number" id="margin-input" value="30" min="0">
+            <span class="percentage-symbol">%</span>
+        </div>
+
+        <div class="margin-actions-grid">
+            <button onclick="confirmMarginAction()" class="btn-confirm-margin">Generar Presupuesto</button>
+            <button onclick="closeMarginModal()" class="btn-close-margin">Cerrar</button>
         </div>
     </div>
+</div>
 
     <!-- 🔥 POP-UP PERSONALIZADO (SIN STOCK / LÍMITE) 🔥 -->
     <div id="stock-warning-modal" class="modal hidden">

@@ -334,3 +334,102 @@ button[class^="btn-"] { padding: 12px; border: none; border-radius: 8px; color: 
     background: #2c3e50;
     transform: translateY(-2px);
 }
+
+/* --- ESTILOS MEJORADOS MODAL MARGEN --- */
+.margin-modal-content {
+    background: white;
+    max-width: 350px;
+    margin: 20vh auto;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.margin-header h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.margin-header p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.margin-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.margin-input-container input {
+    width: 80px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+}
+
+.margin-input-container input:focus {
+    border-color: #28a745;
+}
+
+.percentage-symbol {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Contenedor de botones para que midan lo mismo */
+.margin-actions-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Botón Generar (Verde) */
+.btn-confirm-margin {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-confirm-margin:hover {
+    background: #218838;
+}
+
+/* Botón Cerrar (Gris Elegante) */
+.btn-close-margin {
+    background: #f8f9fa;
+    color: #666;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-close-margin:hover {
+    background: #e9ecef;
+    color: #333;
+    border-color: #ccc;
+}
+
+.btn-confirm-margin:active, .btn-close-margin:active {
+    transform: scale(0.98);
+}
