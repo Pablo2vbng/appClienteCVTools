@@ -65,7 +65,7 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
             </form>
 
             <div style="text-align:center;">
-                <a href="index.html" class="back-link">← Volver al menú principal</a>
+                <a href="index.php" class="back-link">← Volver al menú principal</a>
             </div>
         </main>
     </div>

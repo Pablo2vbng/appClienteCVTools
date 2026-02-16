@@ -24,7 +24,7 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
         <!-- MENÚ PRINCIPAL -->
         <main class="menu-grid">
             <!-- 1. Buscador y Pedidos -->
-            <a href="buscador.html" class="menu-card card-1">
+            <a href="buscador.php" class="menu-card card-1">
                 <h2>🛒 Presupuestos, pedidos y stocks</h2>
                 <p>Consulta precios netos, stock en tiempo real y realiza presupuestos <strong> (incluso a tus clientes indicando el margen).</strong></p>
             </a>
@@ -45,13 +45,13 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
             </div>
 
             <!-- 3. Fichas Técnicas -->
-            <a href="fichas.html" class="menu-card card-5">
+            <a href="fichas.php" class="menu-card card-5">
                 <h2>📄 Fichas Técnicas</h2>
                 <p>Buscador rápido de fichas técnicas y certificados.</p>
             </a>
             
             <!-- 4. Garantías -->
-            <a href="garantias.html" class="menu-card card-2">
+            <a href="garantias.php" class="menu-card card-2">
                 <h2>⚠️ Gestión de Garantías</h2>
                 <p>Tramitar devoluciones e incidencias.</p>
             </a>
