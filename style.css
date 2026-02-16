@@ -431,5 +431,5 @@ button[class^="btn-"] { padding: 12px; border: none; border-radius: 8px; color: 
 }
 
 .btn-confirm-margin:active, .btn-close-margin:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
