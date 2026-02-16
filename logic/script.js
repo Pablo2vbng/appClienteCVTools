@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const tariffData = await tariffRes.json();
         const sheet = Object.keys(tariffData)[0];
         allProducts = tariffData[sheet];
-        console.log("App cargada con tarifa:", TARIFF_FILE);
 
     } catch (error) {
         console.error(error);
@@ -69,28 +68,20 @@ function displayResults(products) {
     let html = '';
     
     products.forEach((p, idx) => {
-        // BUSCADOR DE PRECIOS MEJORADO (Busca en todas las posibles columnas de los JSON)
-        let precioStd = parseFloat(
-            p.PRECIO_GRUPO1 || 
-            p.PRECIO_ESTANDAR || 
-            p.PRECIO_GRUPO3 || 
-            p.PRECIO_CECOFERSA || 
-            p.PRECIO || 
-            p.Tarifa || 
-            0
-        );
-
+        let precioStd = parseFloat(p.PRECIO_GRUPO1 || p.PRECIO_ESTANDAR || p.PRECIO_GRUPO3 || p.PRECIO_CECOFERSA || p.PRECIO || 0);
         let netoRaw = p.CONDICIONES_NETO || p.CONDICION_NETO_GC || '';
         let netVal = extractNetPrice(netoRaw);
 
-        // STOCK
+        // STOCK LÓGICA
         const sInfo = stockMap.get(String(p.Referencia));
         let sHtml = '<div class="stock-badge stock-ko">📞 Consultar</div>';
-        let stockDisponibleNum = 0; // Para la validación
+        let stockDisponibleNum = 0; 
         let stockTextoParaPresupuesto = "Consultar";
 
         if (sInfo) {
-            stockDisponibleNum = parseInt(sInfo.Stock) || 0;
+            // Limpiamos el stock de cualquier caracter no numérico (por si viene "1.200")
+            stockDisponibleNum = parseInt(String(sInfo.Stock).replace(/\D/g, '')) || 0;
+            
             if (sInfo.Estado === 'si') {
                 sHtml = stockDisponibleNum > 0 
                     ? '<div class="stock-badge stock-ok">✅ En stock</div>' 
@@ -98,8 +89,8 @@ function displayResults(products) {
                 stockTextoParaPresupuesto = stockDisponibleNum > 0 ? "En stock" : "Sin stock";
             } else if (sInfo.Estado === 'fab') {
                 sHtml = '<div class="stock-badge stock-fab">🏭 3-5 días</div>';
-                stockTextoParaPresupuesto = "3-5 días";
-                stockDisponibleNum = 999; // Permitimos pedir si es fabricación
+                stockTextoParaPresupuesto = "🏭 3-5 días";
+                stockDisponibleNum = 999999; // Infinito para fabricación
             }
         }
 

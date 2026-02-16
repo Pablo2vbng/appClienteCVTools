@@ -11,18 +11,21 @@ const budgetItemsContainer = document.getElementById('budget-items-container');
 
 let pendingAction = null; 
 
-// --- FUNCIÓN AÑADIR CON VALIDACIÓN DE STOCK AL 50% ---
-function addToBudget(ref, desc, stdPrice, qty, netInfo, minQty, netPriceVal, stockText, realStock) {
-    qty = parseInt(qty) || 1;
-    
-    // REGLA DE NEGOCIO: No permitir pedir más del 50% del stock disponible
-    // (Solo aplica si el stock es limitado, si es 999 o similar lo permitimos)
-    if (realStock > 0 && realStock < 900) { 
-        const limite = Math.floor(realStock / 2);
-        if (qty > limite) {
-            alert(`⚠️ No hay suficiente stock disponible para esa cantidad.\n\nStock actual: ${realStock} unidades.\nMáximo permitido por pedido: ${limite} unidades.`);
-            return; // Bloqueamos la acción
+// --- FUNCIÓN AÑADIR (RESTRICTIVA) ---
+function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal, stockText, realStock) {
+    let qty = parseInt(qtyInput) || 1;
+    let available = parseInt(realStock) || 0;
+
+    // VALIDACIÓN ESTRICTA DE STOCK
+    if (available > 0 && available < 999998) { 
+        let limiteMaximo = Math.floor(available / 2);
+        if (qty > limiteMaximo) {
+            alert(`⚠️ CANTIDAD NO PERMITIDA\n\nNo podemos suministrar más de la mitad de nuestro stock actual por pedido web.\n\nStock disponible: ${available} uds.\nMáximo permitido: ${limiteMaximo} uds.\n\nPor favor, ajusta la cantidad o contacta con nosotros.`);
+            return; // Bloquea el añadido
         }
+    } else if (available === 0 && stockText === "Sin stock") {
+        alert("⚠️ No hay unidades disponibles de este artículo.");
+        return;
     }
 
     const existing = budget.find(i => i.ref === ref);
@@ -81,7 +84,7 @@ function updateBudgetUI() {
             </div>`;
     });
 
-    if (budgetItemsContainer) budgetItemsContainer.innerHTML = budget.length ? html : '<p class="empty-msg">Vacío</p>';
+    if (budgetItemsContainer) budgetItemsContainer.innerHTML = budget.length ? html : '<p class="empty-msg">Tu carrito está vacío.</p>';
     const totalDisplay = document.getElementById('budget-total');
     if (totalDisplay) totalDisplay.textContent = subtotal.toFixed(2);
 }
