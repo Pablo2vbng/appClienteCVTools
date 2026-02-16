@@ -42,7 +42,7 @@ function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal
 }
 
 function showStockWarning(max) {
-    document.getElementById('stock-warning-msg').innerHTML = `Para este artículo, el pedido máximo permitido es de <strong>${max} unidades</strong>.`;
+    document.getElementById('stock-warning-msg').innerHTML = `El stock actual es <strong>${max} unidades</strong>. Solo puede añadir la cantidad señalada`;
     stockWarningModal.classList.remove('hidden');
 }
 
