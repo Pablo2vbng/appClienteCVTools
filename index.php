@@ -37,12 +37,12 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
             <div class="menu-card" style="background: #fdfdfd; border: 1px dashed #ddd;">
                 <h2 style="color:#333">📥 Descargas</h2>
                 <a href="https://drive.google.com/file/d/1hGIb-8DpEWCIAgVW5xJ3a23ugO5PZuOO/view" target="_blank" style="color:var(--primary); display:block; margin: 10px 0; text-decoration:none; font-weight:500;">📖 Catálogo PDF</a>
-                <a href="https://docs.google.com/spreadsheets/d/1DhbKMFnJCfqO9ujj9d4Z8eezPCAPth0nZ0qPMMcWLbQ/edit" target="_blank" style="color:var(--primary); text-decoration:none; font-weight:500;">📊 Tu Tarifa Excel</a>
+                <a href="https://docs.google.com/spreadsheets/d/1WmcdS9oIkeHoBFg1eASZi73PimpaYuDj/edit?usp=sharing&ouid=101336923529478372586&rtpof=true&sd=true" target="_blank" style="color:var(--primary); text-decoration:none; font-weight:500;">📊 Tu Tarifa Excel</a>
             </div>
         </main>
 
         <div style="background: #e7f3ff; padding: 20px; border-radius: 15px; margin-top: 30px; text-align: center; color: #0056b3;">
-            <strong>🚀 Crecemos Juntos:</strong> Esta App es una herramienta colaborativa. Tu éxito es el nuestro.
+            <strong>Crecemos Juntos:</strong> Esta App es una herramienta colaborativa. Tu éxito es el nuestro.
         </div>
 
         <footer class="site-footer">
