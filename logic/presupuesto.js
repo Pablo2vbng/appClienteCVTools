@@ -12,6 +12,20 @@ const budgetItemsContainer = document.getElementById('budget-items-container');
 
 let pendingAction = null; 
 
+// --- NUEVO: Cargar carrito de localStorage al iniciar ---
+document.addEventListener('DOMContentLoaded', () => {
+    const savedCart = localStorage.getItem('cvtools_cart');
+    if (savedCart) {
+        budget = JSON.parse(savedCart);
+        updateBudgetUI();
+    }
+});
+
+// --- NUEVO: Función para guardar en localStorage ---
+function saveCartToStorage() {
+    localStorage.setItem('cvtools_cart', JSON.stringify(budget));
+}
+
 // --- FUNCIÓN AÑADIR (HÍBRIDA: AVISA PERO AÑADE) ---
 function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal, stockText, realStock) {
     let qty = parseInt(qtyInput) || 1;
@@ -50,6 +64,7 @@ function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal
     }
     
     updateBudgetUI();
+    saveCartToStorage(); // <-- Guardamos cambios
     animateFab();
 }
 
@@ -64,12 +79,14 @@ function closeStockWarning() {
 function removeFromBudget(index) {
     budget.splice(index, 1);
     updateBudgetUI();
+    saveCartToStorage(); // <-- Guardamos cambios
 }
 
 function clearBudget() {
     if(confirm('¿Borrar todo el carrito?')) {
         budget = [];
         updateBudgetUI();
+        localStorage.removeItem('cvtools_cart'); // <-- Limpiamos storage
         toggleBudgetModal();
     }
 }
@@ -166,18 +183,44 @@ function sendClientEmail(margin) {
     window.location.href = `mailto:?subject=Presupuesto Materiales&body=${encodeURIComponent(body)}`;
 }
 
-function sendOrderToCVTools() {
+// --- MODIFICADO: Ahora guarda en DB y luego abre el mail ---
+async function sendOrderToCVTools() {
     if (budget.length === 0) return alert("Carrito vacío.");
     if (!confirm("¿Deseas enviar este pedido a CV Tools?")) return;
+
+    let totalNeto = 0;
     let text = `HOLA CVTOOLS, SOLICITO EL SIGUIENTE MATERIAL:\n\n`;
-    let total = 0;
+    
     budget.forEach(item => {
         const cost = calculateItemCost(item);
-        total += cost.total;
+        totalNeto += cost.total;
         text += `[${item.ref}] ${item.desc} -> ${item.qty} uds`;
         if (item.stockText.includes("SIN STOCK")) text += " (SIN STOCK)";
         text += "\n";
     });
-    text += `\nTotal Coste (Neto): ${total.toFixed(2)} €\n\nDatos de mi empresa:\n(Escribir aquí)\n`;
+
+    text += `\nTotal Coste (Neto): ${totalNeto.toFixed(2)} €\n\nDatos de mi empresa:\n(Escribir aquí)\n`;
+
+    // 1. Intentar guardar en historial Base de Datos
+    try {
+        await fetch('logic/guardar_pedido.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                total: totalNeto,
+                items: budget
+            })
+        });
+    } catch (error) {
+        console.error("No se pudo guardar en el historial, pero el correo se enviará igualmente.");
+    }
+
+    // 2. Abrir correo
     window.location.href = `mailto:${EMAIL_PEDIDOS}?subject=NUEVO PEDIDO WEB&body=${encodeURIComponent(text)}`;
+
+    // 3. Limpiar carrito tras pedido exitoso
+    budget = [];
+    localStorage.removeItem('cvtools_cart');
+    updateBudgetUI();
+    toggleBudgetModal();
 }

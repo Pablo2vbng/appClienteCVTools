@@ -42,6 +42,23 @@ require_once 'logic/db.php';
                 $ins = $conn->prepare("INSERT INTO usuarios_clientes (nombre, email, empresa, telefono, comentario, password, estado) VALUES (?, ?, ?, ?, ?, ?, 'pendiente')");
                 
                 if ($ins->execute([$nombre, $email, $empresa, $telefono, $comentario, $password_hashed])) {
+                    
+                    // --- NUEVO: Enviar notificación por email a Pablo ---
+                    $to = "pablo@cvtools.es";
+                    $subject = "NUEVO REGISTRO APP CLIENTES: " . $empresa;
+                    $message = "Hola Pablo,\n\nSe ha recibido una nueva solicitud de registro:\n\n" .
+                               "Empresa: " . $empresa . "\n" .
+                               "Nombre: " . $nombre . "\n" .
+                               "Email: " . $email . "\n" .
+                               "Teléfono: " . $telefono . "\n" .
+                               "Comentario: " . $comentario . "\n\n" .
+                               "Puedes validar este cliente en el panel de administración.";
+                    $headers = "From: no-reply@cvtools.es"; // Correo remitente (mejor si es de tu dominio)
+                    
+                    // Intentamos enviar el correo (si el servidor lo permite)
+                    @mail($to, $subject, $message, $headers);
+                    // ----------------------------------------------------
+
                     echo '<div style="background:var(--pastel-green); color:var(--pastel-green-text); padding:15px; border-radius:10px; margin-bottom:15px; font-size:0.95em; border:1px solid #c3e6cb;">
                             <strong>✅ ¡Solicitud Enviada!</strong><br>
                             Hemos recibido tus datos. Un administrador validará tu cuenta y te asignará la tarifa correspondiente en breve.
