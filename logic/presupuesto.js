@@ -12,7 +12,7 @@ const budgetItemsContainer = document.getElementById('budget-items-container');
 
 let pendingAction = null; 
 
-// --- NUEVO: Cargar carrito de localStorage al iniciar ---
+// Cargar carrito de localStorage al iniciar
 document.addEventListener('DOMContentLoaded', () => {
     const savedCart = localStorage.getItem('cvtools_cart');
     if (savedCart) {
@@ -21,19 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- NUEVO: Función para guardar en localStorage ---
 function saveCartToStorage() {
     localStorage.setItem('cvtools_cart', JSON.stringify(budget));
 }
 
-// --- FUNCIÓN AÑADIR (HÍBRIDA: AVISA PERO AÑADE) ---
 function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal, stockText, realStock) {
     let qty = parseInt(qtyInput) || 1;
     let available = parseInt(realStock) || 0;
     let finalStockText = stockText;
     let mostrarAviso = false;
 
-    // VALIDACIÓN: Si pide más del 50% o no hay stock
     if (available < 900000) { 
         let limiteMaximo = Math.floor(available / 2);
         if (qty > limiteMaximo || available === 0) {
@@ -42,16 +39,11 @@ function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal
         }
     }
 
-    // SI HAY PROBLEMA DE STOCK, MOSTRAMOS EL POP-UP ELEGANTE
-    if (mostrarAviso) {
-        showStockWarning();
-    }
+    if (mostrarAviso) { showStockWarning(); }
 
-    // AÑADIR AL CARRITO (NO BLOQUEAMOS CON RETURN)
     const existing = budget.find(i => i.ref === ref);
     if (existing) { 
         existing.qty += qty;
-        // Si al acumular pasamos el límite, marcamos como sin stock
         if (available < 900000 && existing.qty > Math.floor(available / 2)) {
             existing.stockText = "❌ SIN STOCK (Consultar plazo)";
         }
@@ -64,29 +56,24 @@ function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal
     }
     
     updateBudgetUI();
-    saveCartToStorage(); // <-- Guardamos cambios
+    saveCartToStorage();
     animateFab();
 }
 
-function showStockWarning() {
-    if (stockWarningModal) stockWarningModal.classList.remove('hidden');
-}
-
-function closeStockWarning() {
-    if (stockWarningModal) stockWarningModal.classList.add('hidden');
-}
+function showStockWarning() { if (stockWarningModal) stockWarningModal.classList.remove('hidden'); }
+function closeStockWarning() { if (stockWarningModal) stockWarningModal.classList.add('hidden'); }
 
 function removeFromBudget(index) {
     budget.splice(index, 1);
     updateBudgetUI();
-    saveCartToStorage(); // <-- Guardamos cambios
+    saveCartToStorage();
 }
 
 function clearBudget() {
     if(confirm('¿Borrar todo el carrito?')) {
         budget = [];
         updateBudgetUI();
-        localStorage.removeItem('cvtools_cart'); // <-- Limpiamos storage
+        localStorage.removeItem('cvtools_cart');
         toggleBudgetModal();
     }
 }
@@ -105,8 +92,6 @@ function updateBudgetUI() {
     budget.forEach((item, index) => {
         const cost = calculateItemCost(item);
         subtotal += cost.total;
-        
-        // Estilo rojo si no hay stock
         const stockStyle = item.stockText.includes("SIN STOCK") ? 'color:#d9534f; font-weight:bold;' : 'color:#555;';
 
         html += `
@@ -158,13 +143,8 @@ function generateClientText(margin) {
         const pvpUnit = cost.unit * (1 + (margin / 100));
         const pvpTotal = pvpUnit * item.qty;
         total += pvpTotal;
-        
         text += `📦 *${item.desc}*\n   Ref: ${item.ref}\n   Cant: ${item.qty} x ${pvpUnit.toFixed(2)} €\n`;
-        
-        if (item.stockText.includes("SIN STOCK")) {
-            text += `   ⚠️ _${item.stockText}_\n`;
-        }
-        
+        if (item.stockText.includes("SIN STOCK")) text += `   ⚠️ _${item.stockText}_\n`;
         text += `   Subtotal: ${pvpTotal.toFixed(2)} €\n\n`;
     });
     text += `--------------------------------\n💶 *TOTAL: ${total.toFixed(2)} €*\n(Impuestos no incluidos)\n\n📥 *Fichas Técnicas:*\n${URL_FICHAS_WEB}`;
@@ -183,7 +163,7 @@ function sendClientEmail(margin) {
     window.location.href = `mailto:?subject=Presupuesto Materiales&body=${encodeURIComponent(body)}`;
 }
 
-// --- MODIFICADO: Ahora guarda en DB y luego abre el mail ---
+// FUNCIÓN CORREGIDA PARA GUARDAR Y ENVIAR
 async function sendOrderToCVTools() {
     if (budget.length === 0) return alert("Carrito vacío.");
     if (!confirm("¿Deseas enviar este pedido a CV Tools?")) return;
@@ -201,24 +181,18 @@ async function sendOrderToCVTools() {
 
     text += `\nTotal Coste (Neto): ${totalNeto.toFixed(2)} €\n\nDatos de mi empresa:\n(Escribir aquí)\n`;
 
-    // 1. Intentar guardar en historial Base de Datos
+    // Guardar en Base de Datos (URL relativa a buscador.php)
     try {
         await fetch('logic/guardar_pedido.php', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                total: totalNeto,
-                items: budget
-            })
+            body: JSON.stringify({ total: totalNeto, items: budget })
         });
-    } catch (error) {
-        console.error("No se pudo guardar en el historial, pero el correo se enviará igualmente.");
-    }
+    } catch (error) { console.error("Error guardado"); }
 
-    // 2. Abrir correo
+    // Enviar Email
     window.location.href = `mailto:${EMAIL_PEDIDOS}?subject=NUEVO PEDIDO WEB&body=${encodeURIComponent(text)}`;
 
-    // 3. Limpiar carrito tras pedido exitoso
+    // Limpiar carrito
     budget = [];
     localStorage.removeItem('cvtools_cart');
     updateBudgetUI();

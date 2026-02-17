@@ -24,12 +24,6 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
                 <p>Consulta precios netos, disponibilidad y crea presupuestos para tus clientes.</p>
             </a>
 
-            <!-- NUEVO: CARD DE HISTORIAL -->
-            <a href="mis_pedidos.php" class="menu-card">
-                <h2>📦 Mis Pedidos</h2>
-                <p>Consulta tu historial de compras y repite pedidos con un solo clic.</p>
-            </a>
-
             <a href="fichas.php" class="menu-card">
                 <h2>📄 Fichas Técnicas</h2>
                 <p>Descarga toda la documentación y certificados de nuestros productos.</p>
@@ -48,7 +42,7 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
         </main>
 
         <div style="background: #e7f3ff; padding: 20px; border-radius: 15px; margin-top: 30px; text-align: center; color: #0056b3;">
-            <strong>Crecemos Juntos:</strong> Esta App es una herramienta colaborativa. Tu éxito es el nuestro.
+            <strong>Crecemos Juntos:</strong> Esta App es una herramienta colaborativa. Tu éxito es el nuestro. Ayúdanos a mejorar con tus ideas
         </div>
 
         <footer class="site-footer">
