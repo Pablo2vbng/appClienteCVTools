@@ -24,6 +24,12 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
                 <p>Consulta precios netos, disponibilidad y crea presupuestos para tus clientes.</p>
             </a>
 
+            <!-- NUEVO: CARD DE HISTORIAL -->
+            <a href="mis_pedidos.php" class="menu-card">
+                <h2>📦 Mis Pedidos</h2>
+                <p>Consulta tu historial de compras y repite pedidos con un solo clic.</p>
+            </a>
+
             <a href="fichas.php" class="menu-card">
                 <h2>📄 Fichas Técnicas</h2>
                 <p>Descarga toda la documentación y certificados de nuestros productos.</p>

@@ -5,11 +5,32 @@ const searchInput = document.getElementById('searchInput');
 const resultsContainer = document.getElementById('resultsContainer');
 const PHOTOS_FILE = 'Foto_Articulos.json';
 
+// --- NUEVO: Botón Volver Arriba (Inyectado dinámicamente) ---
+const btnToTop = document.createElement('button');
+btnToTop.innerHTML = '↑';
+btnToTop.id = 'backToTop';
+// Estilos integrados para no depender del CSS de fuera
+btnToTop.style.cssText = "display:none; position:fixed; bottom:90px; right:20px; z-index:99; background:#007aff; color:white; border:none; width:50px; height:50px; border-radius:50%; font-size:24px; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,0.3); transition: 0.3s; opacity: 0.9;";
+
+document.body.appendChild(btnToTop);
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        btnToTop.style.display = "block";
+    } else {
+        btnToTop.style.display = "none";
+    }
+};
+
+btnToTop.onclick = function() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+};
+// -----------------------------------------------------------
+
 let allProducts = [];
 let stockMap = new Map();
 let photosMap = new Map();
 
-// --- Utilidades ---
 function extractMinQty(text) {
     if (!text || typeof text !== 'string') return 0;
     const match = text.toLowerCase().match(/(\d+)\s*(uds?|unid|pzs?|pza|cjs?)/);
@@ -21,7 +42,6 @@ function extractNetPrice(text) {
     return match ? parseFloat(match[1].replace(',', '.')) : 0;
 }
 
-// --- Carga de Datos ---
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const [stockRes, tariffRes, photosRes] = await Promise.all([
