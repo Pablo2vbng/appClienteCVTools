@@ -433,3 +433,252 @@ button[class^="btn-"] { padding: 12px; border: none; border-radius: 8px; color: 
 .btn-confirm-margin:active, .btn-close-margin:active {
     transform: scale(0.98);
 }
+/* --- VARIABLES Y RESET --- */
+:root {
+    --primary: #007aff;
+    --success: #28a745;
+    --danger: #d9534f;
+    --dark: #343a40;
+    --light: #f8f9fa;
+    --border: #dee2e6;
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+/* --- HEADER --- */
+.main-header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.provider-logo {
+    max-width: 150px;
+    height: auto;
+}
+
+h1 { font-size: 1.5rem; margin: 10px 0; color: var(--dark); }
+
+/* --- GRID DEL MENÚ (index.php) --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+    .menu-grid { grid-template-columns: 1fr 1fr; } /* Dos en tablet */
+}
+
+@media (min-width: 1024px) {
+    .menu-grid { grid-template-columns: 1fr 1fr 1fr; } /* Tres en PC */
+}
+
+.menu-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+}
+
+.menu-card:active { transform: scale(0.98); }
+
+/* --- BUSCADOR Y RESULTADOS (buscador.php) --- */
+#search-wrapper {
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--border);
+    border-radius: 30px;
+    font-size: 1rem;
+    box-shadow: var(--shadow);
+    outline: none;
+}
+
+#searchInput:focus { border-color: var(--primary); }
+
+/* TARJETAS DE PRODUCTO RESPONSIVAS */
+.product-card-single {
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: var(--shadow);
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    gap: 15px;
+}
+
+@media (min-width: 600px) {
+    .card-header { flex-direction: row; align-items: flex-start; } /* Horizontal en PC/Tablet */
+}
+
+.product-image-container {
+    width: 100%;
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.header-text h2 { font-size: 1.1rem; margin: 0 0 5px 0; }
+.ref-text { color: #888; font-size: 0.9rem; }
+
+/* BADGES */
+.stock-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.stock-ok { background: #d4edda; color: #155724; }
+.stock-ko { background: #f8d7da; color: #721c24; }
+.stock-fab { background: #fff3cd; color: #856404; }
+
+/* PRECIOS */
+.price-box {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.row-price { font-size: 1.1rem; }
+.row-neto { font-size: 0.9rem; color: #28a745; margin-top: 5px; }
+
+/* CONTROLES DE AÑADIR */
+.add-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.qty-input {
+    width: 70px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.add-budget-btn {
+    flex-grow: 1;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- MODALES RESPONSIVOS --- */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: flex-end; /* En móvil sale de abajo */
+    justify-content: center;
+    z-index: 1000;
+}
+
+@media (min-width: 600px) {
+    .modal { align-items: center; } /* En PC se centra */
+}
+
+.modal-content, .margin-modal-content, .stock-warning-content {
+    background: white;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 20px 20px 0 0; /* Bordes arriba en móvil */
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@media (min-width: 600px) {
+    .modal-content, .margin-modal-content, .stock-warning-content {
+        border-radius: 20px; /* Bordes completos en PC */
+        width: 90%;
+    }
+}
+
+/* CARRITO ITEMS */
+.budget-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.remove-btn { color: var(--danger); background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+
+/* BOTONES DEL CARRITO */
+.budget-actions { display: grid; gap: 10px; margin-top: 15px; }
+.btn-whatsapp { background: var(--success); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+.btn-order { background: var(--primary); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+.btn-danger { background: var(--light); color: var(--danger); border: 1px solid var(--danger); padding: 10px; border-radius: 10px; cursor: pointer; }
+
+/* MODAL MARGEN ESPECÍFICO */
+.margin-modal-content { text-align: center; padding: 30px; }
+.margin-input-container { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 20px 0; }
+.margin-input-container input { width: 80px; padding: 12px; border: 2px solid var(--border); border-radius: 10px; font-size: 1.2rem; text-align: center; }
+.margin-actions-grid { display: grid; gap: 10px; }
+.btn-confirm-margin { background: var(--success); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: bold; font-size: 1rem; cursor: pointer; }
+.btn-close-margin { background: var(--light); color: #666; border: 1px solid var(--border); padding: 12px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+
+/* FAB (BOTÓN FLOTANTE) */
+.budget-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--success);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center; align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    font-size: 1.5rem;
+    z-index: 900;
+}
+
+#budget-count { font-size: 0.9rem; font-weight: bold; margin-left: 2px; }
+
+/* UTILIDADES */
+.hidden { display: none !important; }
+.back-link { display: block; text-align: center; margin: 20px 0; color: #888; text-decoration: none; }
