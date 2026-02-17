@@ -331,3 +331,122 @@ a { text-decoration: none; color: inherit; }
     filter: brightness(1.1);
     transform: translateY(-1px);
 }
+/* =========================================
+   8. MODAL DE MARGEN COMERCIAL
+   ========================================= */
+
+/* El contenedor .modal ya tiene los estilos base en la sección 5, 
+   aquí personalizamos el contenido específico del margen */
+
+   .margin-modal-content {
+    text-align: center;
+    padding: 30px 25px;
+}
+
+.margin-header h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.4rem;
+    color: var(--dark);
+}
+
+.margin-header p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Contenedor del Input de porcentaje */
+.margin-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+#margin-input {
+    width: 110px;
+    height: 70px;
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    border: 2px solid var(--border);
+    border-radius: 18px;
+    color: var(--primary);
+    background: #f8f9fa;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#margin-input:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+}
+
+.percentage-symbol {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #adb5bd;
+}
+
+/* Grid de botones de acción */
+.margin-actions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.btn-confirm-margin {
+    background-color: var(--success);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+}
+
+.btn-confirm-margin:active {
+    transform: scale(0.97);
+}
+
+.btn-close-margin {
+    background-color: transparent;
+    color: #888;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-close-margin:hover {
+    background-color: #f8f9fa;
+    color: var(--dark);
+}
+
+/* Quitar flechas del input number para un look más limpio */
+#margin-input::-webkit-inner-spin-button,
+#margin-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#margin-input {
+    -moz-appearance: textfield;
+}
+
+/* Ajuste para tablets/PC */
+@media (min-width: 600px) {
+    .margin-actions-grid {
+        grid-template-columns: 2fr 1fr; /* Confirmar más ancho que Volver */
+    }
+    .btn-close-margin {
+        order: -1; /* Pone el botón volver a la izquierda en PC */
+    }
+}
