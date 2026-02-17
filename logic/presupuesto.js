@@ -1,7 +1,7 @@
 // logic/presupuesto.js
 
 const URL_FICHAS_WEB = "https://cvtoolssl.github.io/App_Cliente/fichas.html"; 
-const EMAIL_PEDIDOS = "pedidos@cvtools.com"; 
+const EMAIL_PEDIDOS = "pedidos@cvtools.es"; 
 
 let budget = [];
 const budgetModal = document.getElementById('budget-modal');
