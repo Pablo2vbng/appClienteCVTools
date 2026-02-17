@@ -2,104 +2,118 @@
 session_start();
 require_once 'logic/db.php';
 
-// 1. LOGIN ADMIN
-$ADMIN_USER = "Pablo2vbngdaw";
-$ADMIN_PASS = "Piramide73++%%";
-
-if (isset($_POST['admin_login'])) {
-    if ($_POST['user'] === $ADMIN_USER && $_POST['pass'] === $ADMIN_PASS) {
-        $_SESSION['admin_pablo'] = true;
-    } else { $error = "Credenciales incorrectas."; }
+// SEGURIDAD: Solo puede entrar si se logueó como admin
+if (!isset($_SESSION['admin_pablo'])) {
+    header("Location: login.php");
+    exit();
 }
 
-if (isset($_GET['logout'])) { unset($_SESSION['admin_pablo']); header("Location: admin_valida_clientes.php"); exit(); }
+// --- PROCESAR ACCIONES DEL CRUD ---
 
-// 2. MOSTRAR LOGIN SI NO ESTÁ LOGUEADO
-if (!isset($_SESSION['admin_pablo'])):
+// 1. ELIMINAR CLIENTE
+if (isset($_GET['delete_id'])) {
+    $stmt = $conn->prepare("DELETE FROM usuarios_clientes WHERE id = ? AND es_admin = 0");
+    $stmt->execute([$_GET['delete_id']]);
+    header("Location: admin_valida_clientes.php?msg=deleted");
+    exit();
+}
+
+// 2. ACTIVAR / ACTUALIZAR TARIFA
+if (isset($_POST['update_client'])) {
+    $stmt = $conn->prepare("UPDATE usuarios_clientes SET estado = 'activo', tarifa_asignada = ? WHERE id = ?");
+    $stmt->execute([$_POST['tarifa'], $_POST['client_id']]);
+    header("Location: admin_valida_clientes.php?msg=updated");
+    exit();
+}
+
+// CONSULTAR LISTADO (Pendientes primero, luego el resto)
+$stmt = $conn->query("SELECT * FROM usuarios_clientes WHERE es_admin = 0 ORDER BY estado ASC, fecha_registro DESC");
+$clientes = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Clientes - Admin</title>
+    <link rel="stylesheet" href="style.css?v=1.2">
     <style>
-        .login-box { max-width: 340px; margin: 80px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 10px; }
+        .admin-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 2px solid #ddd; margin-bottom: 20px; }
+        .client-card { background: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: relative; }
+        .status-badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
+        .status-pendiente { background: #fff3cd; color: #856404; }
+        .status-activo { background: #d4edda; color: #155724; }
+        .btn-delete { color: #d9534f; font-size: 0.8rem; text-decoration: underline; background: none; border: none; cursor: pointer; }
+        .crud-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        @media (min-width: 768px) { .crud-grid { grid-template-columns: 1fr 1fr; } }
     </style>
 </head>
-<body style="display:flex; align-items:center; justify-content:center; height:100vh; background:#eee;">
-    <div class="login-box">
-        <img src="img/cvtools.png" style="width:120px; margin-bottom:20px;">
-        <h3>Panel Control Clientes</h3>
-        <?php if(isset($error)) echo "<p style='color:red;font-size:0.8em;'>$error</p>"; ?>
-        <form method="POST">
-            <input type="text" name="user" placeholder="Usuario" required>
-            <input type="password" name="pass" placeholder="Contraseña" required>
-            <button type="submit" name="admin_login" class="btn-approve" style="background:var(--dark);">Entrar</button>
-        </form>
-    </div>
-</body>
-</html>
-<?php exit(); endif;
+<body style="background:#f8f9fa;">
 
-// 3. PROCESAR ALTA
-if (isset($_POST['activar_id'])) {
-    $stmt = $conn->prepare("UPDATE usuarios_clientes SET estado = 'activo', tarifa_asignada = ? WHERE id = ?");
-    $stmt->execute([$_POST['tarifa'], $_POST['activar_id']]);
-    header("Location: admin_valida_clientes.php"); exit();
-}
-
-$pendientes = $conn->query("SELECT * FROM usuarios_clientes WHERE estado = 'pendiente' ORDER BY fecha_registro DESC")->fetchAll();
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validación Clientes</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
     <div class="container">
-        <header class="admin-header" style="display:flex; justify-content:space-between; align-items:center;">
-            <img src="img/cvtools.png" style="width:100px;">
-            <a href="?logout=true" style="color:red; text-decoration:none; font-size:0.8em; border:1px solid red; padding:5px 10px; border-radius:5px;">Salir</a>
+        <header class="admin-header">
+            <img src="img/cvtools.png" style="width: 100px;">
+            <div>
+                <span style="font-size: 0.8rem; color:#666;">Sesión: Admin Pablo</span> | 
+                <a href="logout.php" style="color:red; font-weight:bold; font-size:0.8rem;">Cerrar</a>
+            </div>
         </header>
 
-        <h1>Validación de Clientes</h1>
+        <h1>Gestión de Clientes</h1>
 
-        <?php foreach($pendientes as $c): ?>
-            <div class="admin-card">
-                <div class="info-grid-admin">
-                    <div class="info-row"><strong>Nombre:</strong><span><?= $c['nombre'] ?></span></div>
-                    <div class="info-row"><strong>Empresa:</strong><span><?= $c['empresa'] ?></span></div>
-                    <div class="info-row"><strong>Email:</strong><span><?= $c['email'] ?></span></div>
-                    <div class="info-row"><strong>Teléfono:</strong><span><?= $c['telefono'] ?></span></div>
-                </div>
-
-                <div class="comment-box">
-                    <strong>Comentario / Grupo:</strong><br>
-                    <?= nl2br(htmlspecialchars($c['comentario'])) ?>
-                </div>
-
-                <form method="POST" class="tariff-select-container">
-                    <input type="hidden" name="activar_id" value="<?= $c['id'] ?>">
-                    <select name="tarifa" required>
-                        <option value="Tarifa_General.json">Tarifa General (Dto 50%)</option>
-                        <option value="Tarifa_Bigmat.json">Tarifa BigMat (Dto 50%)</option>
-                        <option value="Tarifa_Coferdroza.json">Tarifa Coferdroza (Dto 50%)</option>
-                        <option value="Tarifa_Neopro.json">Tarifa Neopro (Dto 52%)</option>
-                        <option value="Tarifa_Ehlis.json">Tarifa Ehlis (Dto 52%)</option>
-                        <option value="Tarifa_Cecofersa.json">Tarifa Cecofersa (Dto 52%)</option>
-                        <option value="Tarifa_Synergas.json">Tarifa Synergas (Dto 52%)</option>
-                        <option value="Tarifa_IndustrialPro.json">Tarifa Industrial Pro (Dto 52%)</option>
-                    </select>
-                    <button type="submit" class="btn-approve">✅ Validar y Activar</button>
-                </form>
+        <?php if(isset($_GET['msg'])): ?>
+            <div style="background:#d4edda; color:#155724; padding:10px; border-radius:8px; margin-bottom:20px; text-align:center; font-size:0.9rem;">
+                <?= ($_GET['msg'] == 'updated') ? '✅ Cliente actualizado correctamente.' : '🗑️ Cliente eliminado.' ?>
             </div>
-        <?php endforeach; if(!$pendientes) echo "<p style='text-align:center; padding:40px; color:#999;'>No hay altas pendientes.</p>"; ?>
-        
-        <a href="index.php" class="back-link">Volver al portal</a>
+        <?php endif; ?>
+
+        <div class="crud-grid">
+            <?php foreach($clientes as $c): ?>
+                <div class="client-card">
+                    <span class="status-badge status-<?= $c['estado'] ?>">
+                        <?= strtoupper($c['estado']) ?>
+                    </span>
+                    
+                    <h3 style="margin:0;"><?= htmlspecialchars($c['nombre']) ?></h3>
+                    <p style="font-size:0.85rem; color:#666; margin: 5px 0;">
+                        <strong>Empresa:</strong> <?= htmlspecialchars($c['empresa']) ?><br>
+                        <strong>Email:</strong> <?= htmlspecialchars($c['email']) ?><br>
+                        <strong>Tel:</strong> <?= htmlspecialchars($c['telefono']) ?>
+                    </p>
+
+                    <div style="background:#f0f7ff; padding:10px; border-radius:8px; font-size:0.8rem; margin:10px 0; color:#0056b3;">
+                        <strong>Comentario:</strong> <?= nl2br(htmlspecialchars($c['comentario'])) ?>
+                    </div>
+
+                    <form method="POST" style="margin-top:15px; border-top:1px solid #eee; padding-top:15px;">
+                        <input type="hidden" name="client_id" value="<?= $c['id'] ?>">
+                        <label style="font-size:0.75rem; font-weight:bold; display:block; margin-bottom:5px;">ASIGNAR TARIFA:</label>
+                        <div style="display:flex; gap:10px;">
+                            <select name="tarifa" style="flex-grow:1; padding:8px; border-radius:8px; border:1px solid #ccc;">
+                                <option value="Tarifa_General.json" <?= $c['tarifa_asignada'] == 'Tarifa_General.json' ? 'selected' : '' ?>>General (50%)</option>
+                                <option value="Tarifa_Bigmat.json" <?= $c['tarifa_asignada'] == 'Tarifa_Bigmat.json' ? 'selected' : '' ?>>BigMat</option>
+                                <option value="Tarifa_Neopro.json" <?= $c['tarifa_asignada'] == 'Tarifa_Neopro.json' ? 'selected' : '' ?>>Neopro (52%)</option>
+                                <option value="Tarifa_Ehlis.json" <?= $c['tarifa_asignada'] == 'Tarifa_Ehlis.json' ? 'selected' : '' ?>>Ehlis (52%)</option>
+                                <option value="Tarifa_Cecofersa.json" <?= $c['tarifa_asignada'] == 'Tarifa_Cecofersa.json' ? 'selected' : '' ?>>Cecofersa (52%)</option>
+                                <option value="Tarifa_Synergas.json" <?= $c['tarifa_asignada'] == 'Tarifa_Synergas.json' ? 'selected' : '' ?>>Synergas</option>
+                                <option value="Tarifa_IndustrialPro.json" <?= $c['tarifa_asignada'] == 'Tarifa_IndustrialPro.json' ? 'selected' : '' ?>>Industrial Pro</option>
+                                <option value="Tarifa_Grandes_Cuentas.json" <?= $c['tarifa_asignada'] == 'Tarifa_Grandes_Cuentas.json' ? 'selected' : '' ?>>Grandes Cuentas</option>
+                            </select>
+                            <button type="submit" name="update_client" style="background:#007aff; color:white; border:none; padding:8px 12px; border-radius:8px; font-weight:bold; cursor:pointer;">Guardar</button>
+                        </div>
+                    </form>
+
+                    <div style="text-align:right; margin-top:15px;">
+                        <a href="?delete_id=<?= $c['id'] ?>" onclick="return confirm('¿Eliminar a este cliente de forma permanente?')" class="btn-delete">Eliminar Cliente</a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <?php if(!$clientes) echo "<p style='text-align:center; padding:50px; color:#999;'>No hay clientes registrados.</p>"; ?>
+
+        <a href="index.php" class="back-link">← Ir al Buscador</a>
     </div>
+
 </body>
 </html>
