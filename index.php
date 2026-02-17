@@ -6,7 +6,7 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portal Cliente - CV Tools</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,38 +15,39 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
         <header class="main-header">
             <img src="img/cvtools.png" alt="CV Tools" class="provider-logo">
             <h1>Portal del Cliente</h1>
-            <p>Hola, <strong><?php echo $_SESSION['cliente_nombre']; ?></strong></p>
+            <p style="color:#666;">Bienvenido, <strong><?php echo $_SESSION['cliente_nombre']; ?></strong></p>
         </header>
 
         <main class="menu-grid">
             <a href="buscador.php" class="menu-card">
-                <h2 style="color:var(--primary)">🛒 Pedidos y Stock</h2>
-                <p>Consulta tus precios netos, stock real y genera presupuestos para tus clientes.</p>
+                <h2>🛒 Pedidos y Stock</h2>
+                <p>Consulta precios netos, disponibilidad y crea presupuestos para tus clientes.</p>
             </a>
 
             <a href="fichas.php" class="menu-card">
                 <h2>📄 Fichas Técnicas</h2>
-                <p>Descarga especificaciones y certificados de calidad de cada referencia.</p>
+                <p>Descarga toda la documentación y certificados de nuestros productos.</p>
             </a>
 
             <a href="garantias.php" class="menu-card">
-                <h2 style="color:var(--danger)">⚠️ Garantías</h2>
-                <p>Gestiona reclamaciones o incidencias de productos defectuosos.</p>
+                <h2>⚠️ Garantías</h2>
+                <p>Gestiona incidencias, devoluciones o reclamaciones de forma rápida.</p>
             </a>
-            
-            <div class="menu-card" style="grid-column: span 1;">
-                <h2>📥 Descargas</h2>
-                <a href="https://drive.google.com/file/d/1hGIb-8DpEWCIAgVW5xJ3a23ugO5PZuOO/view" target="_blank" style="display:block; margin-bottom:10px; color:var(--primary);">📖 Catálogo General PDF</a>
-                <a href="https://docs.google.com/spreadsheets/d/1DhbKMFnJCfqO9ujj9d4Z8eezPCAPth0nZ0qPMMcWLbQ/edit" target="_blank" style="color:var(--primary);">📊 Tu Tarifa Excel</a>
+
+            <div class="menu-card" style="background: #fdfdfd; border: 1px dashed #ddd;">
+                <h2 style="color:#333">📥 Descargas</h2>
+                <a href="https://drive.google.com/file/d/1hGIb-8DpEWCIAgVW5xJ3a23ugO5PZuOO/view" target="_blank" style="color:var(--primary); display:block; margin: 10px 0; text-decoration:none; font-weight:500;">📖 Catálogo PDF</a>
+                <a href="https://docs.google.com/spreadsheets/d/1DhbKMFnJCfqO9ujj9d4Z8eezPCAPth0nZ0qPMMcWLbQ/edit" target="_blank" style="color:var(--primary); text-decoration:none; font-weight:500;">📊 Tu Tarifa Excel</a>
             </div>
         </main>
 
-        <footer class="site-footer" style="text-align:center; padding-top:40px; border-top:1px solid #ddd; margin-top:40px;">
-            <p style="color:#666; font-size:0.9em; max-width:600px; margin: 0 auto 20px auto;">
-                <strong>🚀 Herramienta Colaborativa:</strong> Esta App está diseñada para crecer contigo. Tu feedback nos ayuda a mejorar.
-            </p>
-            <p><strong>CV Tools &copy; <?php echo date("Y"); ?></strong></p>
-            <a href="logout.php" style="color:var(--danger); text-decoration:none; font-weight:bold;">Cerrar Sesión</a>
+        <div style="background: #e7f3ff; padding: 20px; border-radius: 15px; margin-top: 30px; text-align: center; color: #0056b3;">
+            <strong>🚀 Crecemos Juntos:</strong> Esta App es una herramienta colaborativa. Tu éxito es el nuestro.
+        </div>
+
+        <footer class="site-footer">
+            <p>CV Tools &copy; <?php echo date("Y"); ?></p>
+            <a href="logout.php" class="logout-btn">Cerrar Sesión</a>
         </footer>
     </div>
 </body>
