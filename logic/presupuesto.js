@@ -127,34 +127,66 @@ function openMarginModal(action) {
 
 function closeMarginModal() { marginModal.classList.add('hidden'); }
 
-function confirmMarginAction() {
+async function confirmMarginAction() {
     const input = document.getElementById('margin-input');
     let margin = parseFloat(input.value) || 0;
+    let totalNeto = budget.reduce((acc, item) => acc + calculateItemCost(item).total, 0);
+
+    try {
+        await fetch('logic/guardar_datos.php', {
+            method: 'POST',
+            body: JSON.stringify({ tipo: 'presupuesto', total: totalNeto, items: budget, margen: margin })
+        });
+    } catch (e) { console.error("Error guardando presupuesto"); }
+
     if (pendingAction === 'whatsapp') { sendClientWhatsApp(margin); } 
     else if (pendingAction === 'email') { sendClientEmail(margin); }
     closeMarginModal();
 }
 
+// --- WHATSAPP MEJORADO (CON MÁS INFO) ---
 function generateClientText(margin) {
-    let text = `📄 *PRESUPUESTO*\n📅 Fecha: ${new Date().toLocaleDateString()}\n--------------------------------\n\n`;
-    let total = 0;
+    const now = new Date();
+    const fecha = now.toLocaleDateString();
+    const hora = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    let text = `*📄 PRESUPUESTO COMERCIAL*\n`;
+    text += `*📅 Fecha:* ${fecha}  *⏰ Hora:* ${hora}\n`;
+    text += `------------------------------------------\n\n`;
+    
+    let totalPVP = 0;
     budget.forEach(item => {
         const cost = calculateItemCost(item);
         const pvpUnit = cost.unit * (1 + (margin / 100));
         const pvpTotal = pvpUnit * item.qty;
-        total += pvpTotal;
-        text += `📦 *${item.desc}*\n   Ref: ${item.ref}\n   Cant: ${item.qty} x ${pvpUnit.toFixed(2)} €\n`;
-        if (item.stockText.includes("SIN STOCK")) text += `   ⚠️ _${item.stockText}_\n`;
-        text += `   Subtotal: ${pvpTotal.toFixed(2)} €\n\n`;
+        totalPVP += pvpTotal;
+        
+        text += `📦 *${item.desc}*\n`;
+        text += `   Ref: \`${item.ref}\`\n`;
+        text += `   Cant: ${item.qty} uds x ${pvpUnit.toFixed(2)} €\n`;
+        
+        if (item.stockText.includes("SIN STOCK")) {
+            text += `   ⚠️ _${item.stockText}_\n`;
+        } else {
+            text += `   ✅ _En stock para envío inmediato_\n`;
+        }
+        
+        text += `   *Subtotal: ${pvpTotal.toFixed(2)} €*\n\n`;
     });
-    text += `--------------------------------\n💶 *TOTAL: ${total.toFixed(2)} €*\n(Impuestos no incluidos)\n\n📥 *Fichas Técnicas:*\n${URL_FICHAS_WEB}`;
+
+    text += `------------------------------------------\n`;
+    text += `💰 *TOTAL PRESUPUESTO: ${totalPVP.toFixed(2)} €*\n`;
+    text += `_(Impuestos no incluidos)_\n\n`;
+    text += `📂 *Fichas Técnicas y Certificados:*\n${URL_FICHAS_WEB}\n\n`;
+    text += `_Presupuesto generado vía CV Tools App._`;
+    
     return text;
 }
 
 function sendClientWhatsApp(margin) {
     const text = generateClientText(margin);
     navigator.clipboard.writeText(text).then(() => {
-        alert("✅ Presupuesto copiado. Pégalo en el chat de tu cliente.");
+        alert("✅ Presupuesto guardado y copiado.\n\nAhora pégalo en el WhatsApp de tu cliente.");
     });
 }
 
@@ -163,36 +195,57 @@ function sendClientEmail(margin) {
     window.location.href = `mailto:?subject=Presupuesto Materiales&body=${encodeURIComponent(body)}`;
 }
 
-// FUNCIÓN CORREGIDA PARA GUARDAR Y ENVIAR
+// --- PEDIDO CV TOOLS MEJORADO (MAQUETACIÓN TIPO FACTURA) ---
 async function sendOrderToCVTools() {
     if (budget.length === 0) return alert("Carrito vacío.");
     if (!confirm("¿Deseas enviar este pedido a CV Tools?")) return;
 
+    const now = new Date();
     let totalNeto = 0;
-    let text = `HOLA CVTOOLS, SOLICITO EL SIGUIENTE MATERIAL:\n\n`;
     
-    budget.forEach(item => {
+    // Cabecera "Cool" para el cuerpo del mail
+    let text = `==========================================\n`;
+    text += `🚀 SOLICITUD DE PEDIDO - CV TOOLS WEB APP\n`;
+    text += `==========================================\n\n`;
+    text += `📅 FECHA: ${now.toLocaleDateString()}   ⏰ HORA: ${now.toLocaleTimeString()}\n`;
+    text += `------------------------------------------\n\n`;
+    text += `DESGLOSE DEL MATERIAL:\n\n`;
+
+    budget.forEach((item, index) => {
         const cost = calculateItemCost(item);
         totalNeto += cost.total;
-        text += `[${item.ref}] ${item.desc} -> ${item.qty} uds`;
-        if (item.stockText.includes("SIN STOCK")) text += " (SIN STOCK)";
-        text += "\n";
+        
+        text += `${index + 1}. [${item.ref}] ${item.desc}\n`;
+        text += `   CANTIDAD: ${item.qty} uds\n`;
+        text += `   PRECIO UNID: ${cost.unit.toFixed(2)} €\n`;
+        text += `   SUBTOTAL: ${cost.total.toFixed(2)} €\n`;
+        text += `   ESTADO: ${item.stockText}\n`;
+        text += `   --------------------------------------\n`;
     });
 
-    text += `\nTotal Coste (Neto): ${totalNeto.toFixed(2)} €\n\nDatos de mi empresa:\n(Escribir aquí)\n`;
+    text += `\n💰 TOTAL COSTE PEDIDO (NETO): ${totalNeto.toFixed(2)} €\n`;
+    text += `(Sujeto a confirmación de condiciones comerciales)\n\n`;
+    text += `------------------------------------------\n`;
+    text += `🏢 DATOS DEL CLIENTE SOLICITANTE:\n`;
+    text += `   Nombre: ____________________\n`;
+    text += `   Empresa: ___________________\n`;
+    text += `   Teléfono: __________________\n`;
+    text += `------------------------------------------\n\n`;
+    text += `Observaciones adicionales:\n\n\n`;
+    text += `Generado automáticamente por el Portal de Clientes CV Tools.`;
 
-    // Guardar en Base de Datos (URL relativa a buscador.php)
+    // 1. Guardar en Base de Datos (Pedidos)
     try {
-        await fetch('logic/guardar_pedido.php', {
+        await fetch('logic/guardar_datos.php', {
             method: 'POST',
-            body: JSON.stringify({ total: totalNeto, items: budget })
+            body: JSON.stringify({ tipo: 'pedido', total: totalNeto, items: budget })
         });
-    } catch (error) { console.error("Error guardado"); }
+    } catch (e) { console.error("Error guardando pedido"); }
 
-    // Enviar Email
-    window.location.href = `mailto:${EMAIL_PEDIDOS}?subject=NUEVO PEDIDO WEB&body=${encodeURIComponent(text)}`;
+    // 2. Abrir Mail
+    window.location.href = `mailto:${EMAIL_PEDIDOS}?subject=NUEVO PEDIDO WEB - CV TOOLS&body=${encodeURIComponent(text)}`;
 
-    // Limpiar carrito
+    // 3. Limpiar y cerrar
     budget = [];
     localStorage.removeItem('cvtools_cart');
     updateBudgetUI();
