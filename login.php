@@ -3,18 +3,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login Clientes - CV Tools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Acceso Clientes - CV Tools</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .auth-container { max-width: 400px; margin: 80px auto; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align:center; }
-        .auth-form input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        .btn-auth { width: 100%; padding: 14px; background: #007aff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
-    </style>
 </head>
-<body>
+<body class="auth-page">
+
     <div class="auth-container">
-        <img src="img/cvtools.png" alt="Logo" style="width: 140px; margin-bottom: 20px;">
-        <h2>Acceso Clientes</h2>
+        <header>
+            <img src="img/cvtools.png" alt="CV Tools" class="provider-logo" style="width: 150px; margin-bottom: 20px;">
+            <h2 style="margin-top:0;">Acceso Clientes</h2>
+            <p style="color:#666; font-size:0.9em;">Portal exclusivo para profesionales</p>
+        </header>
+
         <?php
         if ($_POST) {
             $stmt = $conn->prepare("SELECT * FROM usuarios_clientes WHERE email = ?");
@@ -24,19 +25,29 @@
                 if ($user['estado'] == 'activo') {
                     $_SESSION['cliente_id'] = $user['id'];
                     $_SESSION['cliente_nombre'] = $user['nombre'];
-                    $_SESSION['cliente_tarifa'] = $user['tarifa_asignada']; // Guardamos su tarifa
+                    $_SESSION['cliente_tarifa'] = $user['tarifa_asignada'];
                     header("Location: index.php");
                     exit();
-                } else { echo '<p style="color:red">Tu cuenta está pendiente de activación.</p>'; }
-            } else { echo '<p style="color:red">Credenciales incorrectas.</p>'; }
+                } else { 
+                    echo '<p style="color:var(--danger); font-size:0.9em; background:#fee; padding:10px; border-radius:8px;">⚠️ Tu cuenta está pendiente de activación por un administrador.</p>'; 
+                }
+            } else { 
+                echo '<p style="color:var(--danger); font-size:0.9em; background:#fee; padding:10px; border-radius:8px;">❌ Correo o contraseña incorrectos.</p>'; 
+            }
         }
         ?>
+
         <form method="POST" class="auth-form">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit" class="btn-auth">Entrar</button>
+            <input type="email" name="email" placeholder="Correo electrónico" required autocomplete="email">
+            <input type="password" name="password" placeholder="Contraseña" required autocomplete="current-password">
+            <button type="submit" class="btn-auth">Entrar al Portal</button>
         </form>
-        <p style="margin-top:15px; font-size: 0.9em;">¿No eres cliente? <a href="registro.php">Regístrate</a></p>
+
+        <p style="margin-top:20px; font-size: 0.9rem; color:#888;">
+            ¿Todavía no eres cliente? <br>
+            <a href="registro.php" style="color:var(--primary); font-weight:bold;">Regístrate aquí</a>
+        </p>
     </div>
+
 </body>
 </html>
