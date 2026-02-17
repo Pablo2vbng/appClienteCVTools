@@ -236,3 +236,98 @@ a { text-decoration: none; color: inherit; }
     display: flex; justify-content: center; align-items: center;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2); font-size: 1.5rem; z-index: 1000;
 }
+/* =========================================
+   REESTILIZADO DE BOTONES Y CONTROLES
+   ========================================= */
+
+/* 1. Contenedor de la cantidad y el botón */
+.add-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    align-items: center;
+}
+
+/* 2. Campo de cantidad (Input) */
+.qty-input {
+    width: 60px;
+    height: 45px;
+    text-align: center;
+    border: 2px solid #e1e4e8;
+    border-radius: 12px; /* Radio redondeado moderno */
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.qty-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+/* 3. Botón "+ Añadir" principal */
+.add-budget-btn {
+    flex-grow: 1;
+    height: 45px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 12px; /* Radio redondeado moderno */
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 122, 255, 0.15);
+}
+
+/* Efecto HOVER (Al pasar el ratón) */
+.add-budget-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px); /* Se eleva un poquito */
+    box-shadow: 0 8px 15px rgba(0, 122, 255, 0.25);
+}
+
+/* Efecto ACTIVE (Al pulsar) */
+.add-budget-btn:active {
+    transform: scale(0.96); /* Se hunde ligeramente al tocarlo */
+}
+
+/* 4. Botón de "Volver al menú" */
+.back-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #ffffff;
+    color: #666;
+    border: 1px solid #ddd;
+    border-radius: 50px; /* Estilo píldora */
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #f8f9fa;
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* 5. Ajuste para que los botones del Carrito (WhatsApp/Pedido) también sigan este estilo */
+.budget-actions button {
+    border-radius: 12px !important;
+    padding: 15px !important;
+    border: none;
+    transition: all 0.3s ease !important;
+}
+
+.budget-actions button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
