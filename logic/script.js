@@ -107,7 +107,10 @@ function displayResults(products) {
         const refKey = String(p.Referencia).trim().toUpperCase();
         const sInfo = stockMap.get(refKey);
 
-        let sHtml = '<div class="stock-badge stock-ko">📞 Consultar</div>';
+        // Estilo base para las etiquetas de stock
+        const baseBadgeStyle = "padding:6px 12px; border-radius:10px; font-weight:bold; font-size:0.8rem; display:inline-block; margin-top:5px; text-align:center; height:auto; width:auto; line-height:1.2;";
+        
+        let sHtml = `<div style="${baseBadgeStyle} background:#f5f5f5; color:#777; border:1px solid #ddd;">📞 Consultar</div>`;
         let stockDisponibleNum = 0; 
         let stockTextoParaPresupuesto = "Consultar";
 
@@ -116,17 +119,19 @@ function displayResults(products) {
             let estadoRaw = String(sInfo.Estado).toLowerCase().trim();
 
             if (estadoRaw === 'si') {
-                sHtml = '<div class="stock-badge stock-ok">✅ En stock</div>';
+                sHtml = `<div style="${baseBadgeStyle} background:#e8f5e9; color:#2e7d32; border:1px solid #c8e6c9;">✅ En stock</div>`;
                 stockTextoParaPresupuesto = "En stock";
             } else if (estadoRaw === 'fab' || estadoRaw === 'fab2') {
-                sHtml = '<div class="stock-badge stock-fab">🏭 3-5 días</div>';
+                sHtml = `<div style="${baseBadgeStyle} background:#fff3e0; color:#e65100; border:1px solid #ffe0b2;">🏭 3-5 días</div>`;
                 stockTextoParaPresupuesto = "3-5 días";
                 stockDisponibleNum = 999999;
             } else if (estadoRaw !== "" && !isNaN(estadoRaw)) {
-                // FORMATO CORREGIDO PARA DÍAS (Número)
-                // Se añade width:fit-content y padding para evitar el recuadro gigante
-                sHtml = `<div class="stock-badge stock-ko" style="background:#ffebee; color:#c62828; border:1px solid #ffcdd2; width: fit-content; height: auto; padding: 5px 10px; font-size: 0.8rem; line-height: 1.1;">❌ SIN STOCK (Plazo aprox. ${estadoRaw} días)</div>`;
+                // DISEÑO "CHULO" PARA PLAZO APROXIMADO
+                sHtml = `<div style="${baseBadgeStyle} background:#ffebee; color:#c62828; border:1px solid #ffcdd2;">❌ SIN STOCK<br><span style="font-size:0.7rem; font-weight:normal;">Plazo aprox. ${estadoRaw} días</span></div>`;
                 stockTextoParaPresupuesto = estadoRaw; 
+            } else {
+                sHtml = `<div style="${baseBadgeStyle} background:#ffebee; color:#c62828; border:1px solid #ffcdd2;">❌ Sin stock</div>`;
+                stockTextoParaPresupuesto = "Sin stock";
             }
         }
 
@@ -141,7 +146,9 @@ function displayResults(products) {
                         <h2>${p.Descripcion}</h2>
                         <span class="ref-text">Ref: ${p.Referencia}</span>
                     </div>
-                    ${sHtml}
+                    <div class="stock-container" style="margin-left:auto;">
+                        ${sHtml}
+                    </div>
                 </div>
                 <div class="price-box">
                     <div class="row-price">Tu Coste: <strong>${precioStd.toFixed(2)} €</strong></div>
