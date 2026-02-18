@@ -25,12 +25,10 @@ btnToTop.onclick = function() {
     window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
-// --- Variables y Mapas ---
 let allProducts = [];
 let stockMap = new Map();
 let photosMap = new Map();
 
-// --- Utilidades ---
 function extractMinQty(text) {
     if (!text || typeof text !== 'string') return 0;
     const match = text.toLowerCase().match(/(\d+)\s*(uds?|unid|pzs?|pza|cjs?)/);
@@ -42,7 +40,6 @@ function extractNetPrice(text) {
     return match ? parseFloat(match[1].replace(',', '.')) : 0;
 }
 
-// --- Carga de Datos ---
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const [stockRes, tariffRes, photosRes] = await Promise.all([
@@ -86,12 +83,17 @@ searchInput.addEventListener('input', () => {
     const filtered = allProducts.filter(p => {
         const d = p.Descripcion ? p.Descripcion.toLowerCase() : '';
         const r = p.Referencia ? String(p.Referencia).toLowerCase() : '';
+        
+        // FILTRO DE ESTADO "NO"
+        const refKey = String(p.Referencia).trim().toUpperCase();
+        const sInfo = stockMap.get(refKey);
+        if (sInfo && String(sInfo.Estado).toLowerCase() === 'no') return false;
+
         return d.includes(query) || r.includes(query);
     });
     displayResults(filtered);
 });
 
-// --- Renderizado de Resultados ---
 function displayResults(products) {
     if (!products.length) { 
         resultsContainer.innerHTML = '<p style="text-align:center; padding:20px;">Sin resultados.</p>'; 
@@ -107,31 +109,33 @@ function displayResults(products) {
         const refKey = String(p.Referencia).trim().toUpperCase();
         const sInfo = stockMap.get(refKey);
 
-        // Estilo base para las etiquetas de stock
-        const baseBadgeStyle = "padding:6px 12px; border-radius:10px; font-weight:bold; font-size:0.8rem; display:inline-block; margin-top:5px; text-align:center; height:auto; width:auto; line-height:1.2;";
+        const baseBadgeStyle = "padding:6px 12px; border-radius:10px; font-weight:bold; font-size:0.8rem; display:inline-block; margin-top:5px; text-align:center; height:auto; width:fit-content; line-height:1.2; border:1px solid;";
         
-        let sHtml = `<div style="${baseBadgeStyle} background:#f5f5f5; color:#777; border:1px solid #ddd;">📞 Consultar</div>`;
+        let sHtml = `<div style="${baseBadgeStyle} background:#f5f5f5; color:#777; border-color:#ddd;">📞 Consultar</div>`;
         let stockDisponibleNum = 0; 
         let stockTextoParaPresupuesto = "Consultar";
 
         if (sInfo) {
-            stockDisponibleNum = parseInt(String(sInfo.Stock).replace(/\D/g, '')) || 0;
+            stockDisponibleNum = parseInt(sInfo.Stock) || 0;
             let estadoRaw = String(sInfo.Estado).toLowerCase().trim();
 
-            if (estadoRaw === 'si') {
-                sHtml = `<div style="${baseBadgeStyle} background:#e8f5e9; color:#2e7d32; border:1px solid #c8e6c9;">✅ En stock</div>`;
-                stockTextoParaPresupuesto = "En stock";
-            } else if (estadoRaw === 'fab' || estadoRaw === 'fab2') {
-                sHtml = `<div style="${baseBadgeStyle} background:#fff3e0; color:#e65100; border:1px solid #ffe0b2;">🏭 3-5 días</div>`;
+            if (estadoRaw === 'fab') {
+                sHtml = `<div style="${baseBadgeStyle} background:#fff3e0; color:#e65100; border-color:#ffe0b2;">🏭 Plazo entrega aprox. 3-5 días</div>`;
                 stockTextoParaPresupuesto = "3-5 días";
-                stockDisponibleNum = 999999;
-            } else if (estadoRaw !== "" && !isNaN(estadoRaw)) {
-                // DISEÑO "CHULO" PARA PLAZO APROXIMADO
-                sHtml = `<div style="${baseBadgeStyle} background:#ffebee; color:#c62828; border:1px solid #ffcdd2;">❌ SIN STOCK<br><span style="font-size:0.7rem; font-weight:normal;">Plazo aprox. ${estadoRaw} días</span></div>`;
-                stockTextoParaPresupuesto = estadoRaw; 
-            } else {
-                sHtml = `<div style="${baseBadgeStyle} background:#ffebee; color:#c62828; border:1px solid #ffcdd2;">❌ Sin stock</div>`;
-                stockTextoParaPresupuesto = "Sin stock";
+            } 
+            else if (estadoRaw === 'fab2') {
+                sHtml = `<div style="${baseBadgeStyle} background:#fff3e0; color:#e65100; border-color:#ffe0b2;">🏭 Plazo entrega aprox. 10-15 días</div>`;
+                stockTextoParaPresupuesto = "10-15 días";
+            }
+            else if (!isNaN(estadoRaw) && estadoRaw !== "") {
+                // CASO NÚMERO: Depende del valor de Stock
+                if (stockDisponibleNum > 0) {
+                    sHtml = `<div style="${baseBadgeStyle} background:#e8f5e9; color:#2e7d32; border-color:#c8e6c9;">✅ En stock</div>`;
+                    stockTextoParaPresupuesto = "En stock";
+                } else {
+                    sHtml = `<div style="${baseBadgeStyle} background:#ffebee; color:#c62828; border-color:#ffcdd2;">❌ SIN STOCK<br><span style="font-size:0.7rem; font-weight:normal;">Plazo aprox. ${estadoRaw} días</span></div>`;
+                    stockTextoParaPresupuesto = estadoRaw; // Pasamos el número para que presupuesto.js lo formatee
+                }
             }
         }
 
@@ -150,7 +154,7 @@ function displayResults(products) {
                         ${sHtml}
                     </div>
                 </div>
-                <div class="price-box">
+                <div class="price-box" style="border-radius:12px;">
                     <div class="row-price">Tu Coste: <strong>${precioStd.toFixed(2)} €</strong></div>
                     ${netVal > 0 ? `<div class="row-neto">Neto: ${netVal.toFixed(2)} € <small>(${netoRaw})</small></div>` : ''}
                 </div>
