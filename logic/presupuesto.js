@@ -24,24 +24,32 @@ function saveCartToStorage() {
     localStorage.setItem('cvtools_cart', JSON.stringify(budget));
 }
 
-function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal, stockText, realStock) {
+// --- FUNCIÓN AÑADIR CON REGLA DEL 50% ---
+function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal, stockValue, realStock) {
     let qty = parseInt(qtyInput) || 1;
     let available = parseInt(realStock) || 0;
-    let finalStockText = stockText;
+    let finalStockText = stockValue;
     let mostrarAviso = false;
 
-    // FORMATEAR EL TEXTO SI ES UN NÚMERO
-    if (!isNaN(stockText) && stockText !== "" && stockText !== null && typeof stockText !== 'boolean' && stockText !== "En stock" && !stockText.includes("días")) {
-        finalStockText = `❌ SIN STOCK (Plazo aprox. ${stockText} días)`;
+    // 1. Formatear texto si es un número (días de entrega)
+    if (!isNaN(stockValue) && stockValue !== "" && stockValue !== "En stock" && !String(stockValue).includes("días")) {
+        finalStockText = `❌ SIN STOCK (Plazo aprox. ${stockValue} días)`;
     }
 
-    // VALIDACIÓN DE AVISO DE DISPONIBILIDAD
+    // 2. REGLA DE ORO DEL 50%
     if (available < 900000) { 
-        let limiteMaximo = Math.floor(available / 2);
-        if (qty > limiteMaximo || available === 0) {
-            // Si el stock es insuficiente o es 0, mostramos el aviso
-            if (finalStockText !== "En stock") {
+        let limiteSeguridad = Math.floor(available / 2);
+        
+        // Si pide más de la mitad o el almacén está a cero
+        if (qty > limiteSeguridad || available <= 0) {
+            // Solo avisamos si no es un producto que ya sabíamos que venía con plazo (fab)
+            if (stockValue === "En stock" || !isNaN(stockValue)) {
                 mostrarAviso = true;
+                if (stockValue === "En stock") {
+                    finalStockText = "❌ SIN STOCK (Consultar por cantidad)";
+                } else {
+                    finalStockText = `❌ SIN STOCK (Plazo aprox. ${stockValue} días)`;
+                }
             }
         }
     }
@@ -53,6 +61,10 @@ function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal
     const existing = budget.find(i => i.ref === String(ref));
     if (existing) { 
         existing.qty += qty;
+        // Re-validar 50% al acumular
+        if (available < 900000 && existing.qty > Math.floor(available / 2)) {
+             if (existing.stockText === "En stock") existing.stockText = "❌ SIN STOCK (Consultar por cantidad)";
+        }
     } else {
         budget.push({ 
             ref: String(ref), 
@@ -95,24 +107,23 @@ function calculateItemCost(item) {
 
 function updateBudgetUI() {
     if (budgetCountSpan) budgetCountSpan.textContent = budget.length;
-    let subtotal = 0;
-    let html = '';
+    let subtotal = 0, html = '';
     budget.forEach((item, index) => {
         const cost = calculateItemCost(item);
         subtotal += cost.total;
         const stockStyle = String(item.stockText).includes("SIN STOCK") ? 'color:#d9534f; font-weight:bold;' : 'color:#555;';
         
         html += `
-        <div class="budget-item">
+        <div class="budget-item" style="border-radius:12px; border:1px solid #eee; padding:10px; margin-bottom:8px; background:white;">
             <div class="budget-item-info">
-                <strong>${item.desc}</strong><br>
-                <span style="font-size:0.85em; ${stockStyle}">${item.ref} | ${item.stockText}</span>
+                <strong style="display:block; font-size:0.9rem;">${item.desc}</strong>
+                <span style="font-size:0.8rem; ${stockStyle}">${item.ref} | ${item.stockText}</span>
             </div>
-            <div style="text-align:right">
-                <div>${item.qty} x ${cost.unit.toFixed(2)}€</div>
-                <strong>${cost.total.toFixed(2)} €</strong>
+            <div style="text-align:right; min-width:85px;">
+                <div style="font-size:0.75rem;">${item.qty} x ${cost.unit.toFixed(2)}€</div>
+                <strong style="font-size:0.9rem;">${cost.total.toFixed(2)} €</strong>
             </div>
-            <button class="remove-btn" onclick="removeFromBudget(${index})">&times;</button>
+            <button class="remove-btn" onclick="removeFromBudget(${index})" style="cursor:pointer;">&times;</button>
         </div>`;
     });
     
@@ -128,6 +139,14 @@ function animateFab() {
     const fab = document.getElementById('budget-fab');
     if(fab) { fab.style.transform = 'scale(1.2)'; setTimeout(() => fab.style.transform = 'scale(1)', 200); }
 }
+
+function openMarginModal(action) {
+    if (budget.length === 0) return alert("El carrito está vacío.");
+    pendingAction = action; 
+    if(marginModal) marginModal.classList.remove('hidden');
+}
+
+function closeMarginModal() { if(marginModal) marginModal.classList.add('hidden'); }
 
 async function confirmMarginAction() {
     const input = document.getElementById('margin-input');
@@ -145,7 +164,7 @@ async function confirmMarginAction() {
     if (pendingAction === 'whatsapp') {
         const text = generateClientText(margin);
         navigator.clipboard.writeText(text).then(() => {
-            alert("✅ Presupuesto guardado y COPIADO.\n\nPégalo ahora en el WhatsApp de tu cliente.");
+            alert("✅ Presupuesto registrado y COPIADO.\n\nPégalo ahora en el WhatsApp de tu cliente.");
             closeMarginModal();
         });
     } else {
@@ -157,14 +176,14 @@ async function confirmMarginAction() {
 
 function generateClientText(margin) {
     const now = new Date();
-    let text = `*📄 PRESUPUESTO COMERCIAL*\n*📅 Fecha:* ${now.toLocaleDateString()} ${now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}\n------------------------------------------\n\n`;
+    let text = `📑 *PRESUPUESTO COMERCIAL*\n📅 Fecha: ${now.toLocaleDateString()}\n------------------------------------------\n\n`;
     let totalPVP = 0;
     budget.forEach(item => {
         const cost = calculateItemCost(item);
         const pvpUnit = cost.unit * (1 + (margin / 100));
         const pvpTotal = pvpUnit * item.qty;
         totalPVP += pvpTotal;
-        text += `📦 *${item.desc}*\n   Ref: \`${item.ref}\`\n   Cant: ${item.qty} uds x ${pvpUnit.toFixed(2)} €\n   Disponibilidad: ${item.stockText}\n   *Subtotal: ${pvpTotal.toFixed(2)} €*\n\n`;
+        text += `🔹 *${item.desc}*\n   Ref: \`${item.ref}\`\n   Cant: ${item.qty} uds x ${pvpUnit.toFixed(2)} €\n   Stock: ${item.stockText}\n   *Subtotal: ${pvpTotal.toFixed(2)} €*\n\n`;
     });
     text += `------------------------------------------\n💰 *TOTAL: ${totalPVP.toFixed(2)} €*\n_(Impuestos no incluidos)_\n\n📥 *Fichas Técnicas:*\n${URL_FICHAS_WEB}`;
     return text;

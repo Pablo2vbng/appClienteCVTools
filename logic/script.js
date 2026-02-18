@@ -5,7 +5,7 @@ const searchInput = document.getElementById('searchInput');
 const resultsContainer = document.getElementById('resultsContainer');
 const PHOTOS_FILE = 'Foto_Articulos.json';
 
-// --- Botón Volver Arriba ---
+// --- Botón Volver Arriba (Inyectado dinámicamente) ---
 const btnToTop = document.createElement('button');
 btnToTop.innerHTML = '↑';
 btnToTop.id = 'backToTop';
@@ -84,7 +84,7 @@ searchInput.addEventListener('input', () => {
         const d = p.Descripcion ? p.Descripcion.toLowerCase() : '';
         const r = p.Referencia ? String(p.Referencia).toLowerCase() : '';
         
-        // FILTRO DE ESTADO "NO"
+        // REGLA 1: ESTADO "NO" OCULTA EL PRODUCTO
         const refKey = String(p.Referencia).trim().toUpperCase();
         const sInfo = stockMap.get(refKey);
         if (sInfo && String(sInfo.Estado).toLowerCase() === 'no') return false;
@@ -95,10 +95,7 @@ searchInput.addEventListener('input', () => {
 });
 
 function displayResults(products) {
-    if (!products.length) { 
-        resultsContainer.innerHTML = '<p style="text-align:center; padding:20px;">Sin resultados.</p>'; 
-        return; 
-    }
+    if (!products.length) { resultsContainer.innerHTML = '<p style="text-align:center; padding:20px;">Sin resultados.</p>'; return; }
     let html = '';
     
     products.forEach((p, idx) => {
@@ -109,7 +106,7 @@ function displayResults(products) {
         const refKey = String(p.Referencia).trim().toUpperCase();
         const sInfo = stockMap.get(refKey);
 
-        const baseBadgeStyle = "padding:6px 12px; border-radius:10px; font-weight:bold; font-size:0.8rem; display:inline-block; margin-top:5px; text-align:center; height:auto; width:fit-content; line-height:1.2; border:1px solid;";
+        const baseBadgeStyle = "padding:6px 12px; border-radius:10px; font-weight:bold; font-size:0.75rem; display:inline-block; margin-top:5px; text-align:center; height:auto; width:fit-content; line-height:1.2; border:1px solid;";
         
         let sHtml = `<div style="${baseBadgeStyle} background:#f5f5f5; color:#777; border-color:#ddd;">📞 Consultar</div>`;
         let stockDisponibleNum = 0; 
@@ -120,21 +117,25 @@ function displayResults(products) {
             let estadoRaw = String(sInfo.Estado).toLowerCase().trim();
 
             if (estadoRaw === 'fab') {
+                // REGLA 2: FAB (3-5 días)
                 sHtml = `<div style="${baseBadgeStyle} background:#fff3e0; color:#e65100; border-color:#ffe0b2;">🏭 Plazo entrega aprox. 3-5 días</div>`;
                 stockTextoParaPresupuesto = "3-5 días";
+                stockDisponibleNum = 999999;
             } 
             else if (estadoRaw === 'fab2') {
+                // REGLA 3: FAB2 (10-15 días)
                 sHtml = `<div style="${baseBadgeStyle} background:#fff3e0; color:#e65100; border-color:#ffe0b2;">🏭 Plazo entrega aprox. 10-15 días</div>`;
                 stockTextoParaPresupuesto = "10-15 días";
+                stockDisponibleNum = 999999;
             }
             else if (!isNaN(estadoRaw) && estadoRaw !== "") {
-                // CASO NÚMERO: Depende del valor de Stock
+                // REGLA 4: NÚMERO (Depende de cantidad real)
                 if (stockDisponibleNum > 0) {
                     sHtml = `<div style="${baseBadgeStyle} background:#e8f5e9; color:#2e7d32; border-color:#c8e6c9;">✅ En stock</div>`;
                     stockTextoParaPresupuesto = "En stock";
                 } else {
-                    sHtml = `<div style="${baseBadgeStyle} background:#ffebee; color:#c62828; border-color:#ffcdd2;">❌ SIN STOCK<br><span style="font-size:0.7rem; font-weight:normal;">Plazo aprox. ${estadoRaw} días</span></div>`;
-                    stockTextoParaPresupuesto = estadoRaw; // Pasamos el número para que presupuesto.js lo formatee
+                    sHtml = `<div style="${baseBadgeStyle} background:#ffebee; color:#c62828; border-color:#ffcdd2;">❌ SIN STOCK<br><span style="font-size:0.65rem; font-weight:normal;">Plazo aprox. ${estadoRaw} días</span></div>`;
+                    stockTextoParaPresupuesto = estadoRaw; 
                 }
             }
         }
@@ -154,7 +155,7 @@ function displayResults(products) {
                         ${sHtml}
                     </div>
                 </div>
-                <div class="price-box" style="border-radius:12px;">
+                <div class="price-box" style="border-radius:15px; background: rgba(0,0,0,0.02); border: 1px solid #eee; padding: 12px; margin: 10px 0;">
                     <div class="row-price">Tu Coste: <strong>${precioStd.toFixed(2)} €</strong></div>
                     ${netVal > 0 ? `<div class="row-neto">Neto: ${netVal.toFixed(2)} € <small>(${netoRaw})</small></div>` : ''}
                 </div>
