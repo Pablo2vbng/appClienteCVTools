@@ -9,7 +9,6 @@ const PHOTOS_FILE = 'Foto_Articulos.json';
 const btnToTop = document.createElement('button');
 btnToTop.innerHTML = '↑';
 btnToTop.id = 'backToTop';
-// Estilos integrados para no depender del CSS de fuera
 btnToTop.style.cssText = "display:none; position:fixed; bottom:90px; right:20px; z-index:99; background:#007aff; color:white; border:none; width:50px; height:50px; border-radius:50%; font-size:24px; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,0.3); transition: 0.3s; opacity: 0.9;";
 
 document.body.appendChild(btnToTop);
@@ -51,13 +50,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         ]);
 
         const stockData = await stockRes.json();
-        if(stockData.Stock) stockData.Stock.forEach(i => stockMap.set(String(i.Artículo), i));
+        // NORMALIZACIÓN: Guardamos las llaves del stock en Mayúsculas y sin espacios
+        if(stockData.Stock) {
+            stockData.Stock.forEach(i => {
+                const key = String(i.Artículo).trim().toUpperCase();
+                stockMap.set(key, i);
+            });
+        }
 
         const photosData = await photosRes.json();
         if (Array.isArray(photosData)) {
             photosData.forEach(item => {
                 const id = item.url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-                if(id) photosMap.set(item.nombre.split('.')[0].toUpperCase(), `https://lh3.googleusercontent.com/d/${id[1]}`);
+                if(id) photosMap.set(item.nombre.split('.')[0].toUpperCase().trim(), `https://lh3.googleusercontent.com/d/${id[1]}`);
             });
         }
 
@@ -91,26 +96,35 @@ function displayResults(products) {
         let netoRaw = p.CONDICIONES_NETO || p.CONDICION_NETO_GC || '';
         let netVal = extractNetPrice(netoRaw);
 
-        const sInfo = stockMap.get(String(p.Referencia));
+        // BUSQUEDA NORMALIZADA EN EL MAPA DE STOCK
+        const refKey = String(p.Referencia).trim().toUpperCase();
+        const sInfo = stockMap.get(refKey);
+
         let sHtml = '<div class="stock-badge stock-ko">📞 Consultar</div>';
         let stockDisponibleNum = 0; 
         let stockTextoParaPresupuesto = "Consultar";
 
         if (sInfo) {
             stockDisponibleNum = parseInt(String(sInfo.Stock).replace(/\D/g, '')) || 0;
-            if (sInfo.Estado === 'si') {
+            let estadoRaw = String(sInfo.Estado).toLowerCase().trim();
+
+            if (estadoRaw === 'si') {
                 sHtml = stockDisponibleNum > 0 
                     ? '<div class="stock-badge stock-ok">✅ En stock</div>' 
                     : '<div class="stock-badge stock-ko">❌ Sin stock</div>';
                 stockTextoParaPresupuesto = stockDisponibleNum > 0 ? "En stock" : "Sin stock";
-            } else if (sInfo.Estado === 'fab') {
+            } else if (estadoRaw === 'fab' || estadoRaw === 'fab2') {
                 sHtml = '<div class="stock-badge stock-fab">🏭 3-5 días</div>';
                 stockTextoParaPresupuesto = "3-5 días";
                 stockDisponibleNum = 999999;
+            } else if (estadoRaw !== "" && !isNaN(estadoRaw)) {
+                // DETECCIÓN DE NÚMERO (DÍAS DE ENTREGA)
+                sHtml = `<div class="stock-badge stock-ko" style="background:#ffebee; color:#c62828; border:1px solid #ffcdd2; white-space:nowrap;">❌ ${estadoRaw} días</div>`;
+                stockTextoParaPresupuesto = estadoRaw; 
             }
         }
 
-        const imgUrl = photosMap.get(String(p.Referencia).toUpperCase());
+        const imgUrl = photosMap.get(refKey);
         const imgHtml = imgUrl ? `<img src="${imgUrl}" class="product-img">` : '<span>Sin foto</span>';
 
         html += `
