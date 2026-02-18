@@ -12,7 +12,6 @@ const budgetItemsContainer = document.getElementById('budget-items-container');
 
 let pendingAction = null; 
 
-// Cargar carrito de localStorage al iniciar
 document.addEventListener('DOMContentLoaded', () => {
     const savedCart = localStorage.getItem('cvtools_cart');
     if (savedCart) {
@@ -25,25 +24,22 @@ function saveCartToStorage() {
     localStorage.setItem('cvtools_cart', JSON.stringify(budget));
 }
 
-// --- FUNCIÓN AÑADIR (CORREGIDA) ---
 function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal, stockText, realStock) {
     let qty = parseInt(qtyInput) || 1;
     let available = parseInt(realStock) || 0;
     let finalStockText = stockText;
     let mostrarAviso = false;
 
-    // Detectar si stockText es un número de días y formatear para el carrito
+    // Lógica de detección de días numéricos
     if (!isNaN(stockText) && stockText !== "" && stockText !== null && typeof stockText !== 'boolean') {
         finalStockText = `❌ SIN STOCK (Entrega aprox ${stockText} días)`;
     }
 
-    // Validación de disponibilidad
     if (available < 900000) { 
         let limiteMaximo = Math.floor(available / 2);
         if (qty > limiteMaximo || available === 0) {
             mostrarAviso = true;
-            // Solo sobreescribimos si no venía ya formateado como días
-            if (!String(finalStockText).includes("Entrega aprox")) {
+            if (!String(finalStockText).includes("Entrega aprox") && finalStockText !== "En stock") {
                 finalStockText = "❌ SIN STOCK (Consultar plazo)";
             }
         }
@@ -132,15 +128,6 @@ function animateFab() {
     if(fab) { fab.style.transform = 'scale(1.2)'; setTimeout(() => fab.style.transform = 'scale(1)', 200); }
 }
 
-function openMarginModal(action) {
-    if (budget.length === 0) return alert("El carrito está vacío.");
-    pendingAction = action; 
-    marginModal.classList.remove('hidden');
-}
-
-function closeMarginModal() { marginModal.classList.add('hidden'); }
-
-// --- GUARDAR Y ENVIAR ---
 async function confirmMarginAction() {
     const input = document.getElementById('margin-input');
     const margin = parseFloat(input.value) || 0;
@@ -204,8 +191,7 @@ async function sendOrderToCVTools() {
     });
     text += `\n💰 TOTAL NETO PEDIDO: ${totalNeto.toFixed(2)} €\n\nGenerado desde el Portal Profesional CV Tools.`;
     
-    const subject = `NUEVO PEDIDO WEB - ${clientName}`;
-    window.location.href = `mailto:${EMAIL_PEDIDOS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+    window.location.href = `mailto:${EMAIL_PEDIDOS}?subject=${encodeURIComponent("NUEVO PEDIDO WEB - " + clientName)}&body=${encodeURIComponent(text)}`;
 
     budget = [];
     localStorage.removeItem('cvtools_cart');

@@ -25,12 +25,10 @@ btnToTop.onclick = function() {
     window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
-// --- Variables y Mapas ---
 let allProducts = [];
 let stockMap = new Map();
 let photosMap = new Map();
 
-// --- Utilidades ---
 function extractMinQty(text) {
     if (!text || typeof text !== 'string') return 0;
     const match = text.toLowerCase().match(/(\d+)\s*(uds?|unid|pzs?|pza|cjs?)/);
@@ -42,7 +40,6 @@ function extractNetPrice(text) {
     return match ? parseFloat(match[1].replace(',', '.')) : 0;
 }
 
-// --- Carga de Datos ---
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const [stockRes, tariffRes, photosRes] = await Promise.all([
@@ -91,12 +88,8 @@ searchInput.addEventListener('input', () => {
     displayResults(filtered);
 });
 
-// --- Renderizado de Resultados ---
 function displayResults(products) {
-    if (!products.length) { 
-        resultsContainer.innerHTML = '<p style="text-align:center; padding:20px;">Sin resultados.</p>'; 
-        return; 
-    }
+    if (!products.length) { resultsContainer.innerHTML = '<p style="text-align:center; padding:20px;">Sin resultados.</p>'; return; }
     let html = '';
     
     products.forEach((p, idx) => {
@@ -115,17 +108,15 @@ function displayResults(products) {
             stockDisponibleNum = parseInt(String(sInfo.Stock).replace(/\D/g, '')) || 0;
             let estadoRaw = String(sInfo.Estado).toLowerCase().trim();
 
+            // --- LÓGICA CORREGIDA ---
             if (estadoRaw === 'si') {
-                sHtml = stockDisponibleNum > 0 
-                    ? '<div class="stock-badge stock-ok">✅ En stock</div>' 
-                    : '<div class="stock-badge stock-ko">❌ Sin stock</div>';
-                stockTextoParaPresupuesto = stockDisponibleNum > 0 ? "En stock" : "Sin stock";
+                sHtml = '<div class="stock-badge stock-ok">✅ En stock</div>';
+                stockTextoParaPresupuesto = "En stock";
             } else if (estadoRaw === 'fab' || estadoRaw === 'fab2') {
                 sHtml = '<div class="stock-badge stock-fab">🏭 3-5 días</div>';
                 stockTextoParaPresupuesto = "3-5 días";
-                stockDisponibleNum = 999999;
             } else if (estadoRaw !== "" && !isNaN(estadoRaw)) {
-                // Lógica de días numéricos corregida visualmente
+                // Si es un número (los días que pusiste en lugar del "no")
                 sHtml = `<div class="stock-badge stock-ko" style="background:#ffebee; color:#c62828; border:1px solid #ffcdd2;">❌ ${estadoRaw} días</div>`;
                 stockTextoParaPresupuesto = estadoRaw; 
             }
