@@ -23,7 +23,10 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
                 <h2>🛒 Pedidos y Stock</h2>
                 <p>Consulta precios netos, disponibilidad y crea presupuestos para tus clientes.</p>
             </a>
-
+            <a href="mis_pedidos_cliente.php" class="menu-card" style="border: 2px solid #007aff; background: #f0f7ff;">
+                <h2>📦 Mis Pedidos y Presupuestos</h2>
+                <p>Consulta tus pedidos enviados a CV Tools y tus presupuestos de WhatsApp.</p>
+            </a>
             <a href="fichas.php" class="menu-card">
                 <h2>📄 Fichas Técnicas</h2>
                 <p>Descarga toda la documentación y certificados de nuestros productos.</p>
