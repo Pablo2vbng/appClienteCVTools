@@ -450,3 +450,125 @@ a { text-decoration: none; color: inherit; }
         order: -1; /* Pone el botón volver a la izquierda en PC */
     }
 }
+
+/* --- ESTILOS ESPECÍFICOS PARA GARANTÍAS --- */
+
+.page-garantias .content-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.warranty-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5px solid #eee;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Asegura que el padding no ensanche el input */
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: #007aff;
+    box-shadow: 0 0 0 4px rgba(0,122,255,0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.upload-area {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px dashed #dee2e6;
+}
+
+.upload-area h4 {
+    color: #007aff;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.upload-area input[type="file"] {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-top: 5px;
+    font-size: 0.85rem;
+}
+
+/* Estilo del botón de generación de PDF */
+.download-button.pdf {
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.2s, background 0.3s;
+    width: 100%;
+}
+
+.download-button.pdf:hover {
+    background: #333;
+}
+
+.download-button.pdf:active {
+    transform: scale(0.98);
+}
+
+.download-button.pdf:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 480px) {
+    .page-garantias .content-box {
+        padding: 20px;
+        margin: 10px;
+        border-radius: 15px;
+    }
+    
+    .main-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-input, .form-input::placeholder {
+        font-size: 0.9rem;
+    }
+}
