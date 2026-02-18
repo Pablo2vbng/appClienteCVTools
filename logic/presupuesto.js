@@ -31,11 +31,19 @@ function addToBudget(ref, desc, stdPrice, qtyInput, netInfo, minQty, netPriceVal
     let finalStockText = stockText;
     let mostrarAviso = false;
 
+    // --- NUEVA LÓGICA: Detectar si stockText es un número (días) ---
+    if (!isNaN(stockText) && stockText !== "" && stockText !== null && typeof stockText !== 'boolean') {
+        finalStockText = `❌ SIN STOCK (Entrega aprox ${stockText} días)`;
+    }
+
     if (available < 900000) { 
         let limiteMaximo = Math.floor(available / 2);
         if (qty > limiteMaximo || available === 0) {
             mostrarAviso = true;
-            finalStockText = "❌ SIN STOCK (Consultar plazo)";
+            // Solo sobreescribimos si no venía ya formateado con los días
+            if (!finalStockText.includes("Entrega aprox")) {
+                finalStockText = "❌ SIN STOCK (Consultar plazo)";
+            }
         }
     }
 
@@ -152,7 +160,7 @@ function generateClientText(margin) {
         const pvpUnit = cost.unit * (1 + (margin / 100));
         const pvpTotal = pvpUnit * item.qty;
         totalPVP += pvpTotal;
-        text += `📦 *${item.desc}*\n   Ref: \`${item.ref}\`\n   Cant: ${item.qty} uds x ${pvpUnit.toFixed(2)} €\n   *Subtotal: ${pvpTotal.toFixed(2)} €*\n\n`;
+        text += `📦 *${item.desc}*\n   Ref: \`${item.ref}\`\n   Cant: ${item.qty} uds x ${pvpUnit.toFixed(2)} €\n   Disponibilidad: ${item.stockText}\n   *Subtotal: ${pvpTotal.toFixed(2)} €*\n\n`;
     });
     text += `------------------------------------------\n💰 *TOTAL: ${totalPVP.toFixed(2)} €*\n_(Impuestos no incluidos)_\n\n📥 *Fichas Técnicas:*\n${URL_FICHAS_WEB}`;
     return text;

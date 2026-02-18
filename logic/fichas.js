@@ -1,84 +1,145 @@
-// Apuntamos al archivo local de fichas técnicas
-const DATA_FILE = 'src/Fichas_Tecnicas.json';
+// logic/script.js
 
+const TARIFF_FILE = window.USER_TARIFF || 'Tarifa_General.json'; 
 const searchInput = document.getElementById('searchInput');
 const resultsContainer = document.getElementById('resultsContainer');
+const PHOTOS_FILE = 'Foto_Articulos.json';
 
-let allTechSheets = [];
+// --- NUEVO: Botón Volver Arriba (Inyectado dinámicamente) ---
+const btnToTop = document.createElement('button');
+btnToTop.innerHTML = '↑';
+btnToTop.id = 'backToTop';
+// Estilos integrados para no depender del CSS de fuera
+btnToTop.style.cssText = "display:none; position:fixed; bottom:90px; right:20px; z-index:99; background:#007aff; color:white; border:none; width:50px; height:50px; border-radius:50%; font-size:24px; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,0.3); transition: 0.3s; opacity: 0.9;";
 
-// Cargar los datos al iniciar la página
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const response = await fetch(`${DATA_FILE}?v=${new Date().getTime()}`);
-        if (!response.ok) throw new Error(`HTTP error! Estado: ${response.status}`);
-        const dataObject = await response.json();
-        if (dataObject && dataObject.Fichas_Tecnicas) {
-            allTechSheets = dataObject.Fichas_Tecnicas;
-            searchInput.placeholder = "Buscar por referencia o descripción...";
-        } else {
-            throw new Error("El formato del archivo JSON no es correcto.");
-        }
-    } catch (error) {
-        searchInput.placeholder = "Error al cargar las fichas técnicas.";
-        console.error('Error fetching data:', error);
+document.body.appendChild(btnToTop);
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        btnToTop.style.display = "block";
+    } else {
+        btnToTop.style.display = "none";
     }
-});
+};
 
-// Evento de búsqueda
-searchInput.addEventListener('input', () => {
-    const query = searchInput.value.toLowerCase().trim();
-    if (query.length < 2) {
-        resultsContainer.innerHTML = '';
-        return;
-    }
-    const filteredResults = allTechSheets.filter(item => {
-        const descripcion = item.Descripcion ? item.Descripcion.toLowerCase() : '';
-        const referencia = item.Referencia ? item.Referencia.toString().toLowerCase() : '';
-        return descripcion.includes(query) || referencia.includes(query);
-    });
-    displayResults(filteredResults);
-});
+btnToTop.onclick = function() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+};
+// -----------------------------------------------------------
 
-// --- FUNCIÓN PARA EXTRAER EL ID DE CUALQUIER ENLACE DE GOOGLE DRIVE ---
-function getDriveIdFromUrl(url) {
-    if (!url) return null;
-    // Expresión regular para encontrar el ID en diferentes formatos de URL de Drive
-    const match = url.match(/[-\w]{25,}/);
-    return match ? match[0] : null;
+let allProducts = [];
+let stockMap = new Map();
+let photosMap = new Map();
+
+function extractMinQty(text) {
+    if (!text || typeof text !== 'string') return 0;
+    const match = text.toLowerCase().match(/(\d+)\s*(uds?|unid|pzs?|pza|cjs?)/);
+    return match ? parseInt(match[1]) : 0;
+}
+function extractNetPrice(text) {
+    if (!text || typeof text !== 'string') return 0;
+    let match = text.match(/(\d+[.,]?\d*)/);
+    return match ? parseFloat(match[1].replace(',', '.')) : 0;
 }
 
-// Función para mostrar los resultados en pantalla
-function displayResults(results) {
-    if (results.length === 0) {
-        resultsContainer.innerHTML = '<p style="text-align: center; color: var(--subtle-text);">No se encontraron fichas técnicas.</p>';
-        return;
-    }
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const [stockRes, tariffRes, photosRes] = await Promise.all([
+            fetch(`src/Stock.json?v=${Date.now()}`),
+            fetch(`src/${TARIFF_FILE}?v=${Date.now()}`),
+            fetch(`src/${PHOTOS_FILE}?v=${Date.now()}`)
+        ]);
 
-    const iconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>`;
+        const stockData = await stockRes.json();
+        if(stockData.Stock) stockData.Stock.forEach(i => stockMap.set(String(i.Artículo), i));
+
+        const photosData = await photosRes.json();
+        if (Array.isArray(photosData)) {
+            photosData.forEach(item => {
+                const id = item.url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+                if(id) photosMap.set(item.nombre.split('.')[0].toUpperCase(), `https://lh3.googleusercontent.com/d/${id[1]}`);
+            });
+        }
+
+        const tariffData = await tariffRes.json();
+        const sheet = Object.keys(tariffData)[0];
+        allProducts = tariffData[sheet];
+
+    } catch (error) {
+        console.error(error);
+        resultsContainer.innerHTML = '<p style="text-align:center; padding:20px; color:red;">Error cargando datos.</p>';
+    }
+});
+
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    if (query.length < 2) { resultsContainer.innerHTML = ''; return; }
+    const filtered = allProducts.filter(p => {
+        const d = p.Descripcion ? p.Descripcion.toLowerCase() : '';
+        const r = p.Referencia ? String(p.Referencia).toLowerCase() : '';
+        return d.includes(query) || r.includes(query);
+    });
+    displayResults(filtered);
+});
+
+function displayResults(products) {
+    if (!products.length) { resultsContainer.innerHTML = '<p style="text-align:center; padding:20px;">Sin resultados.</p>'; return; }
     let html = '';
     
-    results.forEach(item => {
-        const originalUrl = item['Ficha Tecnica'];
-        const fileId = getDriveIdFromUrl(originalUrl);
-        // Construimos el enlace de descarga directa, que es el más fiable
-        const downloadUrl = fileId ? `https://drive.google.com/uc?export=download&id=${fileId}` : null;
+    products.forEach((p, idx) => {
+        let precioStd = parseFloat(p.PRECIO_GRUPO1 || p.PRECIO_ESTANDAR || p.PRECIO_GRUPO3 || p.PRECIO_CECOFERSA || p.PRECIO || 0);
+        let netoRaw = p.CONDICIONES_NETO || p.CONDICION_NETO_GC || '';
+        let netVal = extractNetPrice(netoRaw);
+
+        const sInfo = stockMap.get(String(p.Referencia));
+        let sHtml = '<div class="stock-badge stock-ko">📞 Consultar</div>';
+        let stockDisponibleNum = 0; 
+        let stockTextoParaPresupuesto = "Consultar";
+
+        if (sInfo) {
+            stockDisponibleNum = parseInt(String(sInfo.Stock).replace(/\D/g, '')) || 0;
+            let estadoRaw = String(sInfo.Estado).toLowerCase().trim();
+
+            if (estadoRaw === 'si') {
+                sHtml = stockDisponibleNum > 0 
+                    ? '<div class="stock-badge stock-ok">✅ En stock</div>' 
+                    : '<div class="stock-badge stock-ko">❌ Sin stock</div>';
+                stockTextoParaPresupuesto = stockDisponibleNum > 0 ? "En stock" : "Sin stock";
+            } else if (estadoRaw === 'fab') {
+                sHtml = '<div class="stock-badge stock-fab">🏭 3-5 días</div>';
+                stockTextoParaPresupuesto = "3-5 días";
+                stockDisponibleNum = 999999;
+            } else if (!isNaN(estadoRaw) && estadoRaw !== "") {
+                // NUEVA LÓGICA: Si es un número (días)
+                sHtml = `<div class="stock-badge stock-ko" style="background:#ffebee; color:#c62828; border:1px solid #ffcdd2;">❌ ${estadoRaw} días</div>`;
+                stockTextoParaPresupuesto = estadoRaw; // Pasamos el número bruto al presupuesto
+            }
+        }
+
+        const imgUrl = photosMap.get(String(p.Referencia).toUpperCase());
+        const imgHtml = imgUrl ? `<img src="${imgUrl}" class="product-img">` : '<span>Sin foto</span>';
 
         html += `
-            <div class="tech-sheet-card">
-                <h2>${item.Descripcion || 'Sin descripción'}</h2>
-                <div class="tech-sheet-info">
-                    <p><strong>Referencia:</strong> ${item.Referencia || 'N/A'}</p>
-                    <p><strong>PVP:</strong> ${(item.PVP || 0).toFixed(2)} €</p>
-                    <p><strong>EAN13:</strong> ${item.EAN13 || 'N/A'}</p>
+            <div class="product-card-single">
+                <div class="card-header">
+                    <div class="product-image-container">${imgHtml}</div>
+                    <div class="header-text">
+                        <h2>${p.Descripcion}</h2>
+                        <span class="ref-text">Ref: ${p.Referencia}</span>
+                    </div>
+                    ${sHtml}
                 </div>
-                ${downloadUrl ? `
-                <a href="${downloadUrl}" class="tech-sheet-button" target="_blank">
-                    ${iconSVG}
-                    <span>Descargar Ficha Técnica</span>
-                </a>` : '<p class="tech-sheet-status">Enlace de ficha no válido.</p>'}
-            </div>
-        `;
+                <div class="price-box">
+                    <div class="row-price">Tu Coste: <strong>${precioStd.toFixed(2)} €</strong></div>
+                    ${netVal > 0 ? `<div class="row-neto">Neto: ${netVal.toFixed(2)} € <small>(${netoRaw})</small></div>` : ''}
+                </div>
+                <div class="add-controls">
+                    <input type="number" id="qty_${idx}" class="qty-input" value="1" min="1">
+                    <button class="add-budget-btn" onclick="addToBudget('${p.Referencia}', '${p.Descripcion.replace(/'/g, "")}', ${precioStd}, document.getElementById('qty_${idx}').value, '${netoRaw}', ${extractMinQty(netoRaw)}, ${netVal}, '${stockTextoParaPresupuesto}', ${stockDisponibleNum})">
+                        + Añadir
+                    </button>
+                </div>
+            </div>`;
     });
-
     resultsContainer.innerHTML = html;
 }
