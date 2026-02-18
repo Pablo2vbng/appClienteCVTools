@@ -5,7 +5,7 @@ const searchInput = document.getElementById('searchInput');
 const resultsContainer = document.getElementById('resultsContainer');
 const PHOTOS_FILE = 'Foto_Articulos.json';
 
-// --- NUEVO: Botón Volver Arriba (Inyectado dinámicamente) ---
+// --- Botón Volver Arriba ---
 const btnToTop = document.createElement('button');
 btnToTop.innerHTML = '↑';
 btnToTop.id = 'backToTop';
@@ -24,12 +24,13 @@ window.onscroll = function() {
 btnToTop.onclick = function() {
     window.scrollTo({top: 0, behavior: 'smooth'});
 };
-// -----------------------------------------------------------
 
+// --- Variables y Mapas ---
 let allProducts = [];
 let stockMap = new Map();
 let photosMap = new Map();
 
+// --- Utilidades ---
 function extractMinQty(text) {
     if (!text || typeof text !== 'string') return 0;
     const match = text.toLowerCase().match(/(\d+)\s*(uds?|unid|pzs?|pza|cjs?)/);
@@ -41,6 +42,7 @@ function extractNetPrice(text) {
     return match ? parseFloat(match[1].replace(',', '.')) : 0;
 }
 
+// --- Carga de Datos ---
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const [stockRes, tariffRes, photosRes] = await Promise.all([
@@ -50,7 +52,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         ]);
 
         const stockData = await stockRes.json();
-        // NORMALIZACIÓN: Guardamos las llaves del stock en Mayúsculas y sin espacios
         if(stockData.Stock) {
             stockData.Stock.forEach(i => {
                 const key = String(i.Artículo).trim().toUpperCase();
@@ -62,7 +63,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (Array.isArray(photosData)) {
             photosData.forEach(item => {
                 const id = item.url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-                if(id) photosMap.set(item.nombre.split('.')[0].toUpperCase().trim(), `https://lh3.googleusercontent.com/d/${id[1]}`);
+                if(id) {
+                    const key = item.nombre.split('.')[0].toUpperCase().trim();
+                    photosMap.set(key, `https://lh3.googleusercontent.com/d/${id[1]}`);
+                }
             });
         }
 
@@ -87,8 +91,12 @@ searchInput.addEventListener('input', () => {
     displayResults(filtered);
 });
 
+// --- Renderizado de Resultados ---
 function displayResults(products) {
-    if (!products.length) { resultsContainer.innerHTML = '<p style="text-align:center; padding:20px;">Sin resultados.</p>'; return; }
+    if (!products.length) { 
+        resultsContainer.innerHTML = '<p style="text-align:center; padding:20px;">Sin resultados.</p>'; 
+        return; 
+    }
     let html = '';
     
     products.forEach((p, idx) => {
@@ -96,7 +104,6 @@ function displayResults(products) {
         let netoRaw = p.CONDICIONES_NETO || p.CONDICION_NETO_GC || '';
         let netVal = extractNetPrice(netoRaw);
 
-        // BUSQUEDA NORMALIZADA EN EL MAPA DE STOCK
         const refKey = String(p.Referencia).trim().toUpperCase();
         const sInfo = stockMap.get(refKey);
 
@@ -118,8 +125,8 @@ function displayResults(products) {
                 stockTextoParaPresupuesto = "3-5 días";
                 stockDisponibleNum = 999999;
             } else if (estadoRaw !== "" && !isNaN(estadoRaw)) {
-                // DETECCIÓN DE NÚMERO (DÍAS DE ENTREGA)
-                sHtml = `<div class="stock-badge stock-ko" style="background:#ffebee; color:#c62828; border:1px solid #ffcdd2; white-space:nowrap;">❌ ${estadoRaw} días</div>`;
+                // Lógica de días numéricos corregida visualmente
+                sHtml = `<div class="stock-badge stock-ko" style="background:#ffebee; color:#c62828; border:1px solid #ffcdd2;">❌ ${estadoRaw} días</div>`;
                 stockTextoParaPresupuesto = estadoRaw; 
             }
         }
