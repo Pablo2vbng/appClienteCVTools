@@ -1,6 +1,6 @@
 // logic/presupuesto.js
 
-const URL_FICHAS_WEB = "https://cvtoolssl.github.io/App_Cliente/fichas.html"; 
+const URL_FICHAS_WEB = "https://www.innovai.es/CvTools/appCliente/fichas.php"; 
 const EMAIL_PEDIDOS = "pedidos@cvtools.es"; 
 
 let budget = [];
