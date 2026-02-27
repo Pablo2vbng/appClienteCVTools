@@ -138,7 +138,7 @@ if(!isset($_SESSION['cliente_id'])) { header("Location: login.php"); exit(); }
                  <input type="text" id="searchInput" placeholder="Buscar por referencia o descripción...">
             </div>
             <div id="resultsContainer"></div>
-            <a href="index.php" class="back-link">← Volver al menú principal</a>
+        
         </main>
     </div>
     <script src="logic/fichas.js"></script>
