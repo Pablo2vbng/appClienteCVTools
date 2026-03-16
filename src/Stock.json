@@ -3,7 +3,7 @@
     {
       "Artículo": 2,
       "Nombre artículo": "Pallet 120x80 recuperado",
-      "Stock": 1630,
+      "Stock": 1738,
       "Estado": "no"
     },
     {
@@ -15,7 +15,7 @@
     {
       "Artículo": 4,
       "Nombre artículo": "Pallet Americano Cajas",
-      "Stock": 1579,
+      "Stock": 1729,
       "Estado": "no"
     },
     {
@@ -39,7 +39,7 @@
     {
       "Artículo": 101,
       "Nombre artículo": "Cartel PVC 21x29 Fotolum. SALIDA FLECHA IZQ.",
-      "Stock": 38,
+      "Stock": 18,
       "Estado": "fab"
     },
     {
@@ -63,7 +63,7 @@
     {
       "Artículo": 102,
       "Nombre artículo": "Cartel PVC 21x29 Fotolum. SALIDA FLECHA IZQ.",
-      "Stock": -34,
+      "Stock": -60,
       "Estado": "fab"
     },
     {
@@ -159,13 +159,13 @@
     {
       "Artículo": 106,
       "Nombre artículo": "Cartel PVC 21x29 Fotolum. SALIDA EMERG. FLECHA DCHA",
-      "Stock": 131,
+      "Stock": 126,
       "Estado": "fab"
     },
     {
       "Artículo": "0106A",
       "Nombre artículo": "Cartel PVC 32x16 Fotolum. Salida de emergencia + flecha dcha",
-      "Stock": -20,
+      "Stock": -30,
       "Estado": "fab"
     },
     {
@@ -189,7 +189,7 @@
     {
       "Artículo": "0107A",
       "Nombre artículo": "Cartel PVC 32x16 Fotolum. Salida de emergencia + flecha izq",
-      "Stock": -15,
+      "Stock": -25,
       "Estado": "fab"
     },
     {
@@ -261,7 +261,7 @@
     {
       "Artículo": "0116V",
       "Nombre artículo": "Vinilo Adhesivo suelo Dir. Peatonal 40 cm",
-      "Stock": 10,
+      "Stock": 6,
       "Estado": "fab"
     },
     {
@@ -309,7 +309,7 @@
     {
       "Artículo": 152,
       "Nombre artículo": "Cartel PVC 21x21 Fotolum. EXTINTOR ABAJO",
-      "Stock": -2,
+      "Stock": -12,
       "Estado": "fab"
     },
     {
@@ -333,7 +333,7 @@
     {
       "Artículo": 153,
       "Nombre artículo": "Cartel PVC 21x21 Fotolum. PULSADOR",
-      "Stock": 149,
+      "Stock": 134,
       "Estado": "fab"
     },
     {
@@ -459,7 +459,7 @@
     {
       "Artículo": 163,
       "Nombre artículo": "Cartel PVC 21x21 Fotolum. PUERTA-ESCALERA EMERG. DCHA",
-      "Stock": 13,
+      "Stock": 12,
       "Estado": "fab"
     },
     {
@@ -483,7 +483,7 @@
     {
       "Artículo": 164,
       "Nombre artículo": "Cartel PVC 21x21 Fotolum. EMPUJAR BARRA APERTURA",
-      "Stock": 28,
+      "Stock": 3,
       "Estado": "fab"
     },
     {
@@ -495,19 +495,19 @@
     {
       "Artículo": 175,
       "Nombre artículo": "Cartel PVC 30x10 Fotolum. SALIDA",
-      "Stock": -254,
+      "Stock": -312,
       "Estado": "fab"
     },
     {
       "Artículo": 176,
       "Nombre artículo": "Cartel PVC 30x10 Fotolum. SALIDA FLECHA DCHA",
-      "Stock": -31,
+      "Stock": -53,
       "Estado": "fab"
     },
     {
       "Artículo": 177,
       "Nombre artículo": "Cartel PVC 30x10 Fotolum. SALIDA FLECHA IZQ.",
-      "Stock": -18,
+      "Stock": -34,
       "Estado": "fab"
     },
     {
@@ -561,7 +561,7 @@
     {
       "Artículo": "0199A",
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. ducha de emergencia",
-      "Stock": 0,
+      "Stock": -8,
       "Estado": "fab"
     },
     {
@@ -573,13 +573,13 @@
     {
       "Artículo": 200,
       "Nombre artículo": "Cartel PVC",
-      "Stock": 14448.98,
+      "Stock": 15162.98,
       "Estado": "no"
     },
     {
       "Artículo": "0200 40X30",
       "Nombre artículo": "Cartel PVC personalizado 40x30",
-      "Stock": -3168,
+      "Stock": -3210,
       "Estado": "no"
     },
     {
@@ -597,13 +597,13 @@
     {
       "Artículo": "0200S2130",
       "Nombre artículo": "Soperte Acero Inox para cartel 21x29 cm",
-      "Stock": 78,
+      "Stock": 67,
       "Estado": 45
     },
     {
       "Artículo": "0200S4030",
       "Nombre artículo": "Soporte Acero Inox para Cartel 40x30 cm",
-      "Stock": 85,
+      "Stock": 80,
       "Estado": 45
     },
     {
@@ -657,7 +657,7 @@
     {
       "Artículo": "0206A",
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Lavaojos de emergencia",
-      "Stock": -34,
+      "Stock": -42,
       "Estado": "fab"
     },
     {
@@ -699,7 +699,7 @@
     {
       "Artículo": 210,
       "Nombre artículo": "Cartel PVC 40x30 Riesgo electrico",
-      "Stock": 353,
+      "Stock": 341,
       "Estado": "fab"
     },
     {
@@ -711,7 +711,7 @@
     {
       "Artículo": "0210P",
       "Nombre artículo": "Cartel PVC 21x29 RIESGO ELECTRICO",
-      "Stock": -71,
+      "Stock": -99,
       "Estado": "fab"
     },
     {
@@ -729,13 +729,13 @@
     {
       "Artículo": "0211P",
       "Nombre artículo": "Cartel PVC 21x29 RIESGO CARGA SUSPENDIDA",
-      "Stock": 139,
+      "Stock": 137,
       "Estado": "fab"
     },
     {
       "Artículo": 212,
       "Nombre artículo": "Cartel PVC 40x30 Materias corrosivas",
-      "Stock": 126,
+      "Stock": 123,
       "Estado": "fab"
     },
     {
@@ -747,7 +747,7 @@
     {
       "Artículo": "0212P",
       "Nombre artículo": "Cartel PVC 21x29 RIESGO MATERIAS CORROSIVAS",
-      "Stock": 94,
+      "Stock": 86,
       "Estado": "fab"
     },
     {
@@ -771,7 +771,7 @@
     {
       "Artículo": 214,
       "Nombre artículo": "Cartel PVC 40x30 Caida distinto nivel",
-      "Stock": -827,
+      "Stock": -863,
       "Estado": "fab"
     },
     {
@@ -783,7 +783,7 @@
     {
       "Artículo": "0214P",
       "Nombre artículo": "Cartel PVC 21x29 CAIDA A DISTINTO NIVEL",
-      "Stock": 9,
+      "Stock": 6,
       "Estado": "fab"
     },
     {
@@ -867,7 +867,7 @@
     {
       "Artículo": 220,
       "Nombre artículo": "Cartel PVC 40x30 OBLIG.USO CASC+",
-      "Stock": 588,
+      "Stock": 586,
       "Estado": "fab"
     },
     {
@@ -879,7 +879,7 @@
     {
       "Artículo": "0220P",
       "Nombre artículo": "Cartel PVC 21x29 USO OBLIGATORIO DEL CASCO",
-      "Stock": 338,
+      "Stock": 326,
       "Estado": "fab"
     },
     {
@@ -897,13 +897,13 @@
     {
       "Artículo": "0221P",
       "Nombre artículo": "Cartel PVC 21x29 USO OBLIGATORIO DE LAS BOTAS",
-      "Stock": 362,
+      "Stock": 351,
       "Estado": "fab"
     },
     {
       "Artículo": 222,
       "Nombre artículo": "Cartel PVC 40x30 OBLIG.USO GUAN+E",
-      "Stock": 705,
+      "Stock": 703,
       "Estado": "fab"
     },
     {
@@ -915,13 +915,13 @@
     {
       "Artículo": "0222P",
       "Nombre artículo": "Cartel PVC 21x29 USO OBLIGATORIO DE GUANTES",
-      "Stock": 18,
+      "Stock": -18,
       "Estado": "fab"
     },
     {
       "Artículo": 223,
       "Nombre artículo": "Cartel PVC 40x30 OBLIG.PROT.ACU+T",
-      "Stock": 71,
+      "Stock": 61,
       "Estado": "fab"
     },
     {
@@ -933,7 +933,7 @@
     {
       "Artículo": "0223P",
       "Nombre artículo": "Cartel PVC 21x29 USO OBLIGATORIO PROTECCION ACUSTICA",
-      "Stock": -121,
+      "Stock": -139,
       "Estado": "fab"
     },
     {
@@ -951,7 +951,7 @@
     {
       "Artículo": "0224P",
       "Nombre artículo": "Cartel PVC 21x29 OBLIGATORIO EL USO DE LA MASCARA",
-      "Stock": 53,
+      "Stock": 33,
       "Estado": "fab"
     },
     {
@@ -969,13 +969,13 @@
     {
       "Artículo": "0225P",
       "Nombre artículo": "Cartel PVC 21x29 OBLIGATORIO USO PANTALLA PROTECTORA",
-      "Stock": 299,
+      "Stock": 289,
       "Estado": "fab"
     },
     {
       "Artículo": 226,
       "Nombre artículo": "Cartel PVC 40x30 OBLIG.GAFAS PROT",
-      "Stock": 674,
+      "Stock": 672,
       "Estado": "fab"
     },
     {
@@ -987,13 +987,13 @@
     {
       "Artículo": "0226P",
       "Nombre artículo": "Cartel PVC 21x29 OBLIGATORIO EL USO GAFAS PROTECTORAS",
-      "Stock": 84,
+      "Stock": 66,
       "Estado": "fab"
     },
     {
       "Artículo": 227,
       "Nombre artículo": "Cartel PVC 40x30 OBLIG.ARNES SEGUR.",
-      "Stock": -20,
+      "Stock": -30,
       "Estado": "fab"
     },
     {
@@ -1005,7 +1005,7 @@
     {
       "Artículo": "0227P",
       "Nombre artículo": "Cartel PVC 21x29 OBLIGATORIO EL USO ARNES SEGURIDAD",
-      "Stock": 25,
+      "Stock": 15,
       "Estado": "fab"
     },
     {
@@ -1023,7 +1023,7 @@
     {
       "Artículo": "0228P",
       "Nombre artículo": "Cartel PVC 21x29 USO PROTECCION OBLIGATORIA DEL CUERPO",
-      "Stock": 15,
+      "Stock": -5,
       "Estado": "fab"
     },
     {
@@ -1047,7 +1047,7 @@
     {
       "Artículo": 230,
       "Nombre artículo": "Cartel PVC 40x30 PROHIBIDO FUMA+",
-      "Stock": 308,
+      "Stock": 296,
       "Estado": "fab"
     },
     {
@@ -1059,13 +1059,13 @@
     {
       "Artículo": "0230P",
       "Nombre artículo": "Cartel 21X29 PROHIBIDO FUMAR",
-      "Stock": 4,
+      "Stock": -4,
       "Estado": "fab"
     },
     {
       "Artículo": 231,
       "Nombre artículo": "Cartel PVC 40x30 PROHIBIDO PASO+",
-      "Stock": -555,
+      "Stock": -585,
       "Estado": "fab"
     },
     {
@@ -1095,7 +1095,7 @@
     {
       "Artículo": 233,
       "Nombre artículo": "Cartel PVC 40x30 Proh. Fumar y encender fuego",
-      "Stock": 24,
+      "Stock": 1,
       "Estado": "fab"
     },
     {
@@ -1173,7 +1173,7 @@
     {
       "Artículo": "0238P",
       "Nombre artículo": "Cartel PVC 21x29 ATENCION PUESTA A TIERRA",
-      "Stock": 27,
+      "Stock": 26,
       "Estado": "fab"
     },
     {
@@ -1191,7 +1191,7 @@
     {
       "Artículo": 240,
       "Nombre artículo": "Cartel PVC 40x30 Maquin.pesada en movim",
-      "Stock": 141,
+      "Stock": 135,
       "Estado": "fab"
     },
     {
@@ -1239,7 +1239,7 @@
     {
       "Artículo": 244,
       "Nombre artículo": "Cartel PVC de 1x0.70 Combinado",
-      "Stock": -395,
+      "Stock": -615,
       "Estado": "fab"
     },
     {
@@ -1263,13 +1263,13 @@
     {
       "Artículo": "0244P",
       "Nombre artículo": "Cartel 0244 + personalizacion",
-      "Stock": -42,
+      "Stock": -122,
       "Estado": "fab"
     },
     {
       "Artículo": 247,
       "Nombre artículo": "Cartel PVC 40x30 (Salida Camiones)",
-      "Stock": 56,
+      "Stock": 22,
       "Estado": "fab"
     },
     {
@@ -1287,7 +1287,7 @@
     {
       "Artículo": 248,
       "Nombre artículo": "Cartel PVC 40x30 (Prohibido Aparcar)",
-      "Stock": -14,
+      "Stock": -44,
       "Estado": "fab"
     },
     {
@@ -1317,7 +1317,7 @@
     {
       "Artículo": 250,
       "Nombre artículo": "Cartel PVC 40x30 (Peligro Indefinido)",
-      "Stock": 590,
+      "Stock": 580,
       "Estado": "fab"
     },
     {
@@ -1347,7 +1347,7 @@
     {
       "Artículo": "0251P",
       "Nombre artículo": "Cartel PVC 21x29 VADO PERMANENTE",
-      "Stock": 262,
+      "Stock": 252,
       "Estado": "fab"
     },
     {
@@ -1365,7 +1365,7 @@
     {
       "Artículo": 253,
       "Nombre artículo": "Cartel PVC 40x30 (Proh. paso empresa)",
-      "Stock": 257,
+      "Stock": 247,
       "Estado": "fab"
     },
     {
@@ -1401,7 +1401,7 @@
     {
       "Artículo": 256,
       "Nombre artículo": "Cartel PVC 40x30 Fotolum. Botiquin",
-      "Stock": -101,
+      "Stock": -108,
       "Estado": "fab"
     },
     {
@@ -1425,7 +1425,7 @@
     {
       "Artículo": "0258A",
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Pulsador de Alarma",
-      "Stock": -98,
+      "Stock": -110,
       "Estado": "fab"
     },
     {
@@ -1461,19 +1461,19 @@
     {
       "Artículo": "0260P",
       "Nombre artículo": "Cartel PVC 21x29 PELIGRO CAIDA DE OBJETOS",
-      "Stock": 61,
+      "Stock": 58,
       "Estado": "fab"
     },
     {
       "Artículo": 261,
       "Nombre artículo": "Cartel PVC 40x30 Fotolum. Aseos Mujeres",
-      "Stock": 210,
+      "Stock": 200,
       "Estado": "fab"
     },
     {
       "Artículo": 262,
       "Nombre artículo": "Cartel PVC 40x30 Fotolum. Aseos hombres",
-      "Stock": 160,
+      "Stock": 150,
       "Estado": "fab"
     },
     {
@@ -1581,7 +1581,7 @@
     {
       "Artículo": 271,
       "Nombre artículo": "Cartel PVC 40x30 EX 40x30 cm",
-      "Stock": -19,
+      "Stock": -24,
       "Estado": "fab"
     },
     {
@@ -1677,7 +1677,7 @@
     {
       "Artículo": 278,
       "Nombre artículo": "Cartel PVC 40x30 Prohib. la entrada con perros",
-      "Stock": -14,
+      "Stock": -34,
       "Estado": "fab"
     },
     {
@@ -1707,7 +1707,7 @@
     {
       "Artículo": 280,
       "Nombre artículo": "Cartel PVC 40x30 Alto No Pasar",
-      "Stock": 615,
+      "Stock": 597,
       "Estado": "fab"
     },
     {
@@ -1719,13 +1719,13 @@
     {
       "Artículo": "0280P",
       "Nombre artículo": "Cartel PVC 21x29 ALTO NO PASAR",
-      "Stock": 40,
+      "Stock": 20,
       "Estado": "fab"
     },
     {
       "Artículo": 281,
       "Nombre artículo": "Cartel PVC 40x30 Agua no Potable",
-      "Stock": 239,
+      "Stock": 231,
       "Estado": "fab"
     },
     {
@@ -1737,13 +1737,13 @@
     {
       "Artículo": "0281P",
       "Nombre artículo": "Cartel PVC 21x29 AGUA NO POTABLE",
-      "Stock": -1,
+      "Stock": -6,
       "Estado": "fab"
     },
     {
       "Artículo": 282,
       "Nombre artículo": "Cartel PVC 40x30 Prohibido El Paso",
-      "Stock": -533,
+      "Stock": -557,
       "Estado": "fab"
     },
     {
@@ -2007,7 +2007,7 @@
     {
       "Artículo": 300,
       "Nombre artículo": "Cartel PVC 40x30 Via oblig. peatones",
-      "Stock": -71,
+      "Stock": -87,
       "Estado": "fab"
     },
     {
@@ -2241,7 +2241,7 @@
     {
       "Artículo": 316,
       "Nombre artículo": "Cartel PVC 40x30 Solo Personal Autorizado",
-      "Stock": 471,
+      "Stock": 461,
       "Estado": "fab"
     },
     {
@@ -2253,7 +2253,7 @@
     {
       "Artículo": "0316P",
       "Nombre artículo": "Cartel PVC 21x29 SOLO PERSONAL AUTORIZADO",
-      "Stock": -134,
+      "Stock": -172,
       "Estado": "fab"
     },
     {
@@ -2325,7 +2325,7 @@
     {
       "Artículo": 320,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Salida escalera arriba izq.",
-      "Stock": 197,
+      "Stock": 192,
       "Estado": "fab"
     },
     {
@@ -2367,7 +2367,7 @@
     {
       "Artículo": 321,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum.Salida escalera abajo izq.",
-      "Stock": -23,
+      "Stock": -28,
       "Estado": "fab"
     },
     {
@@ -2409,7 +2409,7 @@
     {
       "Artículo": 322,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Salida escalera arriba dcha.",
-      "Stock": 101,
+      "Stock": 86,
       "Estado": "fab"
     },
     {
@@ -2451,7 +2451,7 @@
     {
       "Artículo": 323,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Salida escalera abajo dcha",
-      "Stock": 118,
+      "Stock": 113,
       "Estado": "fab"
     },
     {
@@ -2499,7 +2499,7 @@
     {
       "Artículo": 325,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Salida puerta izq.",
-      "Stock": -374,
+      "Stock": -376,
       "Estado": "fab"
     },
     {
@@ -2625,7 +2625,7 @@
     {
       "Artículo": 328,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Aseos hombres",
-      "Stock": 14,
+      "Stock": -1,
       "Estado": "fab"
     },
     {
@@ -2649,7 +2649,7 @@
     {
       "Artículo": 329,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Aseos mujeres",
-      "Stock": 325,
+      "Stock": 310,
       "Estado": "fab"
     },
     {
@@ -2703,7 +2703,7 @@
     {
       "Artículo": 332,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Salida Emerg. puerta dcha",
-      "Stock": -325,
+      "Stock": -365,
       "Estado": "fab"
     },
     {
@@ -2727,7 +2727,7 @@
     {
       "Artículo": 334,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Salida Emerg. puerta izq.",
-      "Stock": -274,
+      "Stock": -294,
       "Estado": "fab"
     },
     {
@@ -2739,7 +2739,7 @@
     {
       "Artículo": 336,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Salida Emerg. escalera abajo izq.",
-      "Stock": -41,
+      "Stock": -61,
       "Estado": "fab"
     },
     {
@@ -2787,7 +2787,7 @@
     {
       "Artículo": 338,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Salida Emerg. escalera abajo dcha",
-      "Stock": -2,
+      "Stock": -10,
       "Estado": "fab"
     },
     {
@@ -2859,7 +2859,7 @@
     {
       "Artículo": 343,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Extintor",
-      "Stock": -1215,
+      "Stock": -1350,
       "Estado": "fab"
     },
     {
@@ -2883,7 +2883,7 @@
     {
       "Artículo": 344,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Salida",
-      "Stock": -450,
+      "Stock": -484,
       "Estado": "fab"
     },
     {
@@ -2967,7 +2967,7 @@
     {
       "Artículo": 349,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Boca Incendios",
-      "Stock": -59,
+      "Stock": -72,
       "Estado": "fab"
     },
     {
@@ -3039,7 +3039,7 @@
     {
       "Artículo": 353,
       "Nombre artículo": "Cartel PVC 21x21 Fotolum. Extintor",
-      "Stock": -26,
+      "Stock": -36,
       "Estado": "fab"
     },
     {
@@ -3063,7 +3063,7 @@
     {
       "Artículo": 354,
       "Nombre artículo": "Cartel PVC 21x15 Fotolum. Flecha Salida",
-      "Stock": 19,
+      "Stock": 17,
       "Estado": "fab"
     },
     {
@@ -3087,13 +3087,13 @@
     {
       "Artículo": 355,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Botiquin",
-      "Stock": -409,
+      "Stock": -438,
       "Estado": "fab"
     },
     {
       "Artículo": "0355A",
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Botiquín",
-      "Stock": -49,
+      "Stock": -62,
       "Estado": "fab"
     },
     {
@@ -3207,13 +3207,13 @@
     {
       "Artículo": "0362B",
       "Nombre artículo": "Cartel PVC 40x30 Fotolum. Punto de reunión",
-      "Stock": -6,
+      "Stock": -11,
       "Estado": "fab"
     },
     {
       "Artículo": 363,
       "Nombre artículo": "Cartel PVC 40x30 Atencion salida de camiones",
-      "Stock": 148,
+      "Stock": 138,
       "Estado": "fab"
     },
     {
@@ -3261,7 +3261,7 @@
     {
       "Artículo": 367,
       "Nombre artículo": "Cartel PVC 21x30 Fotolum. Salida de Emergencia",
-      "Stock": -364,
+      "Stock": -392,
       "Estado": "fab"
     },
     {
@@ -3303,7 +3303,7 @@
     {
       "Artículo": 369,
       "Nombre artículo": "Cartel PVC 21x29 Zona video vigilada",
-      "Stock": -744,
+      "Stock": -754,
       "Estado": "fab"
     },
     {
@@ -3375,7 +3375,7 @@
     {
       "Artículo": "0374P",
       "Nombre artículo": "Cartel PVC 21x29 PROHIBIDO EL PASO",
-      "Stock": -86,
+      "Stock": -111,
       "Estado": "fab"
     },
     {
@@ -3399,7 +3399,7 @@
     {
       "Artículo": 376,
       "Nombre artículo": "Cartel PVC 40x30 Peligro Zona de Obras",
-      "Stock": 281,
+      "Stock": 267,
       "Estado": "fab"
     },
     {
@@ -3423,7 +3423,7 @@
     {
       "Artículo": "0377P",
       "Nombre artículo": "Cartel PVC 21x29 USO DE MINUSVALIDOS",
-      "Stock": 174,
+      "Stock": 164,
       "Estado": "fab"
     },
     {
@@ -3477,7 +3477,7 @@
     {
       "Artículo": 381,
       "Nombre artículo": "Cartel PVC 40x30 Estrechamiento de calzada",
-      "Stock": 328,
+      "Stock": 316,
       "Estado": "fab"
     },
     {
@@ -3513,7 +3513,7 @@
     {
       "Artículo": 384,
       "Nombre artículo": "Cartel PVC 40x30 Peligro cable suspendido",
-      "Stock": 127,
+      "Stock": 107,
       "Estado": "fab"
     },
     {
@@ -3579,13 +3579,13 @@
     {
       "Artículo": "0389P",
       "Nombre artículo": "Panel Polipropileno celular amarillo 50x70 cm para señal 0389",
-      "Stock": -429,
+      "Stock": -473,
       "Estado": "fab"
     },
     {
       "Artículo": 390,
       "Nombre artículo": "Cartel PVC 50x70 Combinado",
-      "Stock": 1664,
+      "Stock": 1555,
       "Estado": "fab"
     },
     {
@@ -3615,13 +3615,13 @@
     {
       "Artículo": 391,
       "Nombre artículo": "Señal PVC suelo plegable",
-      "Stock": 5834,
+      "Stock": 5800,
       "Estado": "fab"
     },
     {
       "Artículo": 392,
       "Nombre artículo": "Cartel PVC 40x30 Limite vel. 10",
-      "Stock": 51,
+      "Stock": 46,
       "Estado": "fab"
     },
     {
@@ -3639,7 +3639,7 @@
     {
       "Artículo": 393,
       "Nombre artículo": "Cartel PVC 40x30 Limite vel. 20",
-      "Stock": -62,
+      "Stock": -77,
       "Estado": "fab"
     },
     {
@@ -3651,7 +3651,7 @@
     {
       "Artículo": 394,
       "Nombre artículo": "Cartel PVC 40x30 Limite vel. 30",
-      "Stock": 310,
+      "Stock": 300,
       "Estado": "fab"
     },
     {
@@ -3693,13 +3693,13 @@
     {
       "Artículo": 397,
       "Nombre artículo": "Cartel PVC 21x29 Fotolum. Sin salida",
-      "Stock": -66,
+      "Stock": -107,
       "Estado": "fab"
     },
     {
       "Artículo": "0397A",
       "Nombre artículo": "Cartel PVC 32x16 Fotolum. Sin Salida",
-      "Stock": -3,
+      "Stock": -23,
       "Estado": "fab"
     },
     {
@@ -3717,7 +3717,7 @@
     {
       "Artículo": 398,
       "Nombre artículo": "Cartel PVC 21x29 Fotolum. Flecha",
-      "Stock": -198,
+      "Stock": -238,
       "Estado": "fab"
     },
     {
@@ -3783,19 +3783,19 @@
     {
       "Artículo": 403,
       "Nombre artículo": "Señal Bolsa de plastico nº 3 DIR. OBL. DERECHA",
-      "Stock": 1365,
+      "Stock": 1340,
       "Estado": 15
     },
     {
       "Artículo": 404,
       "Nombre artículo": "Señal Bolsa de plastico nº 4 PELIGRO INDEF",
-      "Stock": 2304,
+      "Stock": 2294,
       "Estado": 15
     },
     {
       "Artículo": 405,
       "Nombre artículo": "Señal Bolsa de plastico nº 5 OBRAS",
-      "Stock": 2049,
+      "Stock": 2017,
       "Estado": 15
     },
     {
@@ -3825,19 +3825,19 @@
     {
       "Artículo": 410,
       "Nombre artículo": "Señal Bolsa de plastico nº 10 PRIORIDAD",
-      "Stock": 1588,
+      "Stock": 1583,
       "Estado": 15
     },
     {
       "Artículo": 411,
       "Nombre artículo": "Señal Bolsa de plastico nº 11 PROHIB. APARCAR",
-      "Stock": 951,
+      "Stock": 819,
       "Estado": 15
     },
     {
       "Artículo": 412,
       "Nombre artículo": "Señal Bolsa de plastico nº 12 ESCALON LATERAL",
-      "Stock": 4023,
+      "Stock": 4003,
       "Estado": 15
     },
     {
@@ -3849,7 +3849,7 @@
     {
       "Artículo": 414,
       "Nombre artículo": "Señal Bolsa de plastico nº 14 VEL 20",
-      "Stock": 2060,
+      "Stock": 2058,
       "Estado": 15
     },
     {
@@ -3861,13 +3861,13 @@
     {
       "Artículo": 416,
       "Nombre artículo": "Señal Bolsa de plastico nº 16 SALIDA CAMIONES",
-      "Stock": 874,
+      "Stock": 864,
       "Estado": 15
     },
     {
       "Artículo": 417,
       "Nombre artículo": "Señal Bolsa de plastico nº 17 CALLE CORTADA",
-      "Stock": 65,
+      "Stock": 53,
       "Estado": 15
     },
     {
@@ -3885,13 +3885,13 @@
     {
       "Artículo": 420,
       "Nombre artículo": "Señal Bolsa de plastico nº 20 ACERA EN OBRAS",
-      "Stock": 1831,
+      "Stock": 1801,
       "Estado": 15
     },
     {
       "Artículo": 421,
       "Nombre artículo": "Señal Bolsa de plastico nº 21 ESTRECH. IZQ.",
-      "Stock": 1612,
+      "Stock": 1602,
       "Estado": 15
     },
     {
@@ -3903,7 +3903,7 @@
     {
       "Artículo": 423,
       "Nombre artículo": "Señal Bolsa de plastico nº 23 VEL 10",
-      "Stock": 919,
+      "Stock": 918,
       "Estado": 15
     },
     {
@@ -3927,7 +3927,7 @@
     {
       "Artículo": 427,
       "Nombre artículo": "Señal Bolsa de plastico nº 27 DIR. OBLI. IZQ.",
-      "Stock": 635,
+      "Stock": 629,
       "Estado": 15
     },
     {
@@ -3993,25 +3993,25 @@
     {
       "Artículo": 563,
       "Nombre artículo": "Tensa Cono 9 Mts A/N",
-      "Stock": 28,
+      "Stock": 24,
       "Estado": 45
     },
     {
       "Artículo": 564,
       "Nombre artículo": "Tensa Cono 9 Mts R/B",
-      "Stock": 788,
+      "Stock": 713,
       "Estado": 45
     },
     {
       "Artículo": 565,
       "Nombre artículo": "Tensa Cono 3 Mts R/B",
-      "Stock": 668,
+      "Stock": 661,
       "Estado": 45
     },
     {
       "Artículo": 566,
       "Nombre artículo": "Tensa Cono 3 Mts A/N",
-      "Stock": 223,
+      "Stock": 222,
       "Estado": 45
     },
     {
@@ -4023,13 +4023,13 @@
     {
       "Artículo": 569,
       "Nombre artículo": "Bolardo Acero 100 cm x 8 cm diámetro fijo",
-      "Stock": 17,
+      "Stock": 5,
       "Estado": 15
     },
     {
       "Artículo": "0569/PLATO",
       "Nombre artículo": "Bolardo Acero 100 cm x 8 cm diam. c/plato",
-      "Stock": 20,
+      "Stock": 16,
       "Estado": 15
     },
     {
@@ -4053,19 +4053,19 @@
     {
       "Artículo": 570,
       "Nombre artículo": "LLave para colocacion HIto H75",
-      "Stock": 32,
+      "Stock": 17,
       "Estado": 7
     },
     {
       "Artículo": 571,
       "Nombre artículo": "Hito 75 cm c/base basculante Mod. B Verde",
-      "Stock": 98,
+      "Stock": 94,
       "Estado": 7
     },
     {
       "Artículo": "0571A",
       "Nombre artículo": "Hito 75 cm c/base basculante Mod. B Azul",
-      "Stock": 306,
+      "Stock": 252,
       "Estado": 7
     },
     {
@@ -4077,7 +4077,7 @@
     {
       "Artículo": 574,
       "Nombre artículo": "Hito H-75 Polietileno azul Mod. A",
-      "Stock": 120,
+      "Stock": 109,
       "Estado": 7
     },
     {
@@ -4125,13 +4125,13 @@
     {
       "Artículo": 576,
       "Nombre artículo": "Hito H-75 fijo Polietileno verde Mod. A",
-      "Stock": 286,
+      "Stock": 14,
       "Estado": 7
     },
     {
       "Artículo": "0576P",
       "Nombre artículo": "Hito H-50 fijo Polietileno verde Mod. A",
-      "Stock": 78,
+      "Stock": 8,
       "Estado": 7
     },
     {
@@ -4155,7 +4155,7 @@
     {
       "Artículo": 577,
       "Nombre artículo": "Señal Obra con mango STOP-PASO",
-      "Stock": 6464,
+      "Stock": 6283,
       "Estado": 15
     },
     {
@@ -4167,7 +4167,7 @@
     {
       "Artículo": "0577A",
       "Nombre artículo": "Señal Stop/Paso con Mango Reforzada aluminio",
-      "Stock": 567,
+      "Stock": 565,
       "Estado": 15
     },
     {
@@ -4179,7 +4179,7 @@
     {
       "Artículo": 578,
       "Nombre artículo": "Soporte metálica para señal bolsa",
-      "Stock": 193,
+      "Stock": 156,
       "Estado": 10
     },
     {
@@ -4245,7 +4245,7 @@
     {
       "Artículo": "0580V",
       "Nombre artículo": "Pilona fija PVC-EVA 810 mm Verde con peana",
-      "Stock": 3,
+      "Stock": 0,
       "Estado": 7
     },
     {
@@ -4269,7 +4269,7 @@
     {
       "Artículo": "0581AM",
       "Nombre artículo": "Hito 100 cm PVC blando Amarillo Mod.J",
-      "Stock": 100,
+      "Stock": 92,
       "Estado": 30
     },
     {
@@ -4281,7 +4281,7 @@
     {
       "Artículo": "0581NE",
       "Nombre artículo": "Hito 100 cm PVC blando Negro Mod.J",
-      "Stock": 80,
+      "Stock": 62,
       "Estado": 30
     },
     {
@@ -4299,7 +4299,7 @@
     {
       "Artículo": 582,
       "Nombre artículo": "Hito H-75 flexible E.V.A. verde Mod. C Plus",
-      "Stock": 103,
+      "Stock": 93,
       "Estado": 7
     },
     {
@@ -4311,7 +4311,7 @@
     {
       "Artículo": 583,
       "Nombre artículo": "Hito H-75 flexible E.V.A. azul Mod. C Plus",
-      "Stock": 58,
+      "Stock": 48,
       "Estado": 7
     },
     {
@@ -4323,7 +4323,7 @@
     {
       "Artículo": 584,
       "Nombre artículo": "Hito H-75 flexible E.V.A. rojo Mod. C Plus",
-      "Stock": 79,
+      "Stock": 64,
       "Estado": 7
     },
     {
@@ -4335,7 +4335,7 @@
     {
       "Artículo": 585,
       "Nombre artículo": "Hito H-75 flexible E.V.A. amarillo Mod. C plus",
-      "Stock": 59,
+      "Stock": 47,
       "Estado": 7
     },
     {
@@ -4347,13 +4347,13 @@
     {
       "Artículo": 586,
       "Nombre artículo": "Hito H-75 fijo Polietileno rojo Mod. A",
-      "Stock": 85,
+      "Stock": 49,
       "Estado": 7
     },
     {
       "Artículo": "0586P",
       "Nombre artículo": "Hito H-50 fijo Polietilieno rojo Mod. A",
-      "Stock": 18,
+      "Stock": -2,
       "Estado": 7
     },
     {
@@ -4371,7 +4371,7 @@
     {
       "Artículo": 587,
       "Nombre artículo": "Hito H-75 fijo Polietileno amarillo Mod. A",
-      "Stock": 78,
+      "Stock": 40,
       "Estado": 7
     },
     {
@@ -4395,19 +4395,19 @@
     {
       "Artículo": 588,
       "Nombre artículo": "Hito 75 cm PVC blando Naranja Mod. E",
-      "Stock": 168,
+      "Stock": 135,
       "Estado": 30
     },
     {
       "Artículo": "0588A",
       "Nombre artículo": "Hito 75 cm PVC blando Azul Mod. E",
-      "Stock": 948,
+      "Stock": 928,
       "Estado": 30
     },
     {
       "Artículo": "0588AM",
       "Nombre artículo": "Hito 75 cm PVC blando Amarillo Mod. E",
-      "Stock": 127,
+      "Stock": 120,
       "Estado": 30
     },
     {
@@ -4419,31 +4419,31 @@
     {
       "Artículo": "0588NE",
       "Nombre artículo": "Hito 75 cm PVC blando Negro Mod. E",
-      "Stock": 100,
+      "Stock": 79,
       "Estado": 30
     },
     {
       "Artículo": "0588R",
       "Nombre artículo": "Hito 75 cm PVC blando Rojo Mod. E",
-      "Stock": 290,
+      "Stock": 287,
       "Estado": 30
     },
     {
       "Artículo": "0588V",
       "Nombre artículo": "Hito 75 cm PVC blando Verde Mod. E",
-      "Stock": 1094,
+      "Stock": 1360,
       "Estado": 30
     },
     {
       "Artículo": 589,
       "Nombre artículo": "Hito 45 cm PVC blando Naranja Mod. F",
-      "Stock": 0,
+      "Stock": 479,
       "Estado": 30
     },
     {
       "Artículo": 590,
       "Nombre artículo": "Captafaros flexible p/muro doble lente blanco/amarillo",
-      "Stock": 624,
+      "Stock": 524,
       "Estado": 15
     },
     {
@@ -4491,7 +4491,7 @@
     {
       "Artículo": 593,
       "Nombre artículo": "Hito Basculante Flexible 75 cm Mod. G + base",
-      "Stock": 131,
+      "Stock": 99,
       "Estado": 25
     },
     {
@@ -4533,7 +4533,7 @@
     {
       "Artículo": 600,
       "Nombre artículo": "Señal metalica TP-3",
-      "Stock": -53,
+      "Stock": -59,
       "Estado": "fab"
     },
     {
@@ -4653,7 +4653,7 @@
     {
       "Artículo": 605,
       "Nombre artículo": "Señal metalica TP-15",
-      "Stock": -12,
+      "Stock": -14,
       "Estado": "fab"
     },
     {
@@ -4677,7 +4677,7 @@
     {
       "Artículo": 606,
       "Nombre artículo": "Señal metalica TP-15a",
-      "Stock": -53,
+      "Stock": -63,
       "Estado": "fab"
     },
     {
@@ -4695,7 +4695,7 @@
     {
       "Artículo": "0606D",
       "Nombre artículo": "Señal metalica P-15a",
-      "Stock": -59,
+      "Stock": -65,
       "Estado": "fab"
     },
     {
@@ -4725,13 +4725,13 @@
     {
       "Artículo": 608,
       "Nombre artículo": "Señal metalica TP-17",
-      "Stock": -804,
+      "Stock": -857,
       "Estado": "fab"
     },
     {
       "Artículo": "0608A",
       "Nombre artículo": "Adhesivo triangular 0608",
-      "Stock": 1570,
+      "Stock": 1884,
       "Estado": "no"
     },
     {
@@ -4749,7 +4749,7 @@
     {
       "Artículo": 609,
       "Nombre artículo": "Señal metalica TP-17b",
-      "Stock": -373,
+      "Stock": -409,
       "Estado": "fab"
     },
     {
@@ -4773,7 +4773,7 @@
     {
       "Artículo": 610,
       "Nombre artículo": "Señal metalica TP-17a",
-      "Stock": -353,
+      "Stock": -377,
       "Estado": "fab"
     },
     {
@@ -4797,7 +4797,7 @@
     {
       "Artículo": 611,
       "Nombre artículo": "Señal metalica TP-18",
-      "Stock": -1743,
+      "Stock": -1903,
       "Estado": "fab"
     },
     {
@@ -4821,7 +4821,7 @@
     {
       "Artículo": 612,
       "Nombre artículo": "Señal metalica TP-19",
-      "Stock": -35,
+      "Stock": -40,
       "Estado": "fab"
     },
     {
@@ -4845,7 +4845,7 @@
     {
       "Artículo": 613,
       "Nombre artículo": "Señal metalica TP-25",
-      "Stock": -97,
+      "Stock": -99,
       "Estado": "fab"
     },
     {
@@ -4863,7 +4863,7 @@
     {
       "Artículo": "0613D",
       "Nombre artículo": "Señal metalica P-25",
-      "Stock": -13,
+      "Stock": -15,
       "Estado": "fab"
     },
     {
@@ -4953,7 +4953,7 @@
     {
       "Artículo": 617,
       "Nombre artículo": "Señal metalica TP-50",
-      "Stock": -353,
+      "Stock": -358,
       "Estado": "fab"
     },
     {
@@ -5001,7 +5001,7 @@
     {
       "Artículo": 620,
       "Nombre artículo": "Señal metalica TR-1",
-      "Stock": -8,
+      "Stock": -18,
       "Estado": "fab"
     },
     {
@@ -5019,7 +5019,7 @@
     {
       "Artículo": "0620D",
       "Nombre artículo": "Señal metalica R-1",
-      "Stock": -140,
+      "Stock": -141,
       "Estado": "fab"
     },
     {
@@ -5031,13 +5031,13 @@
     {
       "Artículo": 625,
       "Nombre artículo": "Señal metalica S-13",
-      "Stock": -119,
+      "Stock": -122,
       "Estado": "fab"
     },
     {
       "Artículo": 628,
       "Nombre artículo": "Señal metalica R-402",
-      "Stock": -21,
+      "Stock": -22,
       "Estado": "fab"
     },
     {
@@ -5067,13 +5067,13 @@
     {
       "Artículo": "0629D",
       "Nombre artículo": "Señal metalica R-100",
-      "Stock": -47,
+      "Stock": -50,
       "Estado": "fab"
     },
     {
       "Artículo": 630,
       "Nombre artículo": "Señal metalica TR-305",
-      "Stock": 192,
+      "Stock": 187,
       "Estado": "fab"
     },
     {
@@ -5097,7 +5097,7 @@
     {
       "Artículo": 641,
       "Nombre artículo": "Señal metalica TR-101",
-      "Stock": -509,
+      "Stock": -562,
       "Estado": "fab"
     },
     {
@@ -5151,7 +5151,7 @@
     {
       "Artículo": "0643D",
       "Nombre artículo": "Señal metalica R-201",
-      "Stock": -3,
+      "Stock": -7,
       "Estado": "fab"
     },
     {
@@ -5205,7 +5205,7 @@
     {
       "Artículo": 647,
       "Nombre artículo": "Señal metalica TR-303",
-      "Stock": 205,
+      "Stock": 189,
       "Estado": "fab"
     },
     {
@@ -5229,31 +5229,31 @@
     {
       "Artículo": 648,
       "Nombre artículo": "Señal metalica TR-301/20",
-      "Stock": -1115,
+      "Stock": -1212,
       "Estado": "fab"
     },
     {
       "Artículo": "0648A",
       "Nombre artículo": "Adhesivo circular 0648",
-      "Stock": 2550,
+      "Stock": 2863,
       "Estado": "no"
     },
     {
       "Artículo": "0648D",
       "Nombre artículo": "Señal metalica R-301/20",
-      "Stock": -482,
+      "Stock": -486,
       "Estado": "fab"
     },
     {
       "Artículo": 649,
       "Nombre artículo": "Señal metalica TR-301/30",
-      "Stock": -230,
+      "Stock": -259,
       "Estado": "fab"
     },
     {
       "Artículo": "0649A",
       "Nombre artículo": "Adhesivo circular 0649",
-      "Stock": 591,
+      "Stock": 905,
       "Estado": "no"
     },
     {
@@ -5265,13 +5265,13 @@
     {
       "Artículo": "0649D",
       "Nombre artículo": "Señal metalica R-301/30",
-      "Stock": -39,
+      "Stock": -42,
       "Estado": "fab"
     },
     {
       "Artículo": 650,
       "Nombre artículo": "Señal metalica TR-301/40",
-      "Stock": -210,
+      "Stock": -218,
       "Estado": "fab"
     },
     {
@@ -5295,7 +5295,7 @@
     {
       "Artículo": 651,
       "Nombre artículo": "Señal metalica TR-301/50",
-      "Stock": -48,
+      "Stock": -52,
       "Estado": "fab"
     },
     {
@@ -5319,7 +5319,7 @@
     {
       "Artículo": 652,
       "Nombre artículo": "Señal metalica TR-301/60",
-      "Stock": -30,
+      "Stock": -45,
       "Estado": "fab"
     },
     {
@@ -5343,13 +5343,13 @@
     {
       "Artículo": 653,
       "Nombre artículo": "Señal metalica R-307",
-      "Stock": -487,
+      "Stock": -546,
       "Estado": "fab"
     },
     {
       "Artículo": 654,
       "Nombre artículo": "Señal metalica TR-301/10",
-      "Stock": -2,
+      "Stock": -12,
       "Estado": "fab"
     },
     {
@@ -5379,7 +5379,7 @@
     {
       "Artículo": 656,
       "Nombre artículo": "Señal metalica TR-302",
-      "Stock": -12,
+      "Stock": -24,
       "Estado": "fab"
     },
     {
@@ -5433,7 +5433,7 @@
     {
       "Artículo": 661,
       "Nombre artículo": "meñal metalica R2 Stop",
-      "Stock": -70,
+      "Stock": -90,
       "Estado": "fab"
     },
     {
@@ -5451,13 +5451,13 @@
     {
       "Artículo": 662,
       "Nombre artículo": "Señal metalica R-308",
-      "Stock": -1980,
+      "Stock": -2150,
       "Estado": "fab"
     },
     {
       "Artículo": 663,
       "Nombre artículo": "Señal metalica TR-400a",
-      "Stock": -666,
+      "Stock": -735,
       "Estado": "fab"
     },
     {
@@ -5469,7 +5469,7 @@
     {
       "Artículo": 664,
       "Nombre artículo": "Señal metalica R-400a",
-      "Stock": -582,
+      "Stock": -611,
       "Estado": "fab"
     },
     {
@@ -5487,7 +5487,7 @@
     {
       "Artículo": 665,
       "Nombre artículo": "Señal metalica S-17 Parking",
-      "Stock": -15,
+      "Stock": -17,
       "Estado": "fab"
     },
     {
@@ -5499,7 +5499,7 @@
     {
       "Artículo": 666,
       "Nombre artículo": "Señal metalica S-15a Calle Cortada",
-      "Stock": -190,
+      "Stock": -200,
       "Estado": "fab"
     },
     {
@@ -5511,13 +5511,13 @@
     {
       "Artículo": 667,
       "Nombre artículo": "Placa carga Sobresaliente V20 50x50",
-      "Stock": 143,
+      "Stock": 104,
       "Estado": 10
     },
     {
       "Artículo": 668,
       "Nombre artículo": "Señal metalica R-101",
-      "Stock": -549,
+      "Stock": -591,
       "Estado": "fab"
     },
     {
@@ -5541,7 +5541,7 @@
     {
       "Artículo": 670,
       "Nombre artículo": "Señal metalica TR-5",
-      "Stock": -68,
+      "Stock": -83,
       "Estado": "fab"
     },
     {
@@ -5559,13 +5559,13 @@
     {
       "Artículo": "0670D",
       "Nombre artículo": "Señal metalica R-5",
-      "Stock": -66,
+      "Stock": -68,
       "Estado": "fab"
     },
     {
       "Artículo": 671,
       "Nombre artículo": "Señal metalica TR-500",
-      "Stock": -140,
+      "Stock": -142,
       "Estado": "fab"
     },
     {
@@ -5661,13 +5661,13 @@
     {
       "Artículo": "0674EA",
       "Nombre artículo": "Adhesivo señal 0674 recarga eléctrica",
-      "Stock": 165,
+      "Stock": 153,
       "Estado": "no"
     },
     {
       "Artículo": 675,
       "Nombre artículo": "Tripode tubular naranja señal metalica mod. A",
-      "Stock": 793,
+      "Stock": 516,
       "Estado": 7
     },
     {
@@ -5679,25 +5679,25 @@
     {
       "Artículo": "0676/15",
       "Nombre artículo": "Tubo 80x40 para señal metalica 1,5 metros",
-      "Stock": 286,
+      "Stock": 177,
       "Estado": 7
     },
     {
       "Artículo": "0676/20",
       "Nombre artículo": "Tubo 80x40 para señal metalica 2 metros",
-      "Stock": 36,
+      "Stock": 8,
       "Estado": 7
     },
     {
       "Artículo": "0676/25",
       "Nombre artículo": "Tubo 80x40 para señal metalica 2,5 metros",
-      "Stock": 15,
+      "Stock": 10,
       "Estado": 7
     },
     {
       "Artículo": "0676/30",
       "Nombre artículo": "Tubo 80x40 para señal metalica 3 metros",
-      "Stock": 72,
+      "Stock": 11,
       "Estado": 7
     },
     {
@@ -5733,13 +5733,13 @@
     {
       "Artículo": 677,
       "Nombre artículo": "Cruceta tubo para señales metalicas",
-      "Stock": 1287,
+      "Stock": 1200,
       "Estado": 7
     },
     {
       "Artículo": 678,
       "Nombre artículo": "Señal metalica R- 6 Prioridad",
-      "Stock": -17,
+      "Stock": -20,
       "Estado": "fab"
     },
     {
@@ -5757,7 +5757,7 @@
     {
       "Artículo": 680,
       "Nombre artículo": "Placa informativa 40x20 blanca",
-      "Stock": -212,
+      "Stock": -217,
       "Estado": "fab"
     },
     {
@@ -5871,13 +5871,13 @@
     {
       "Artículo": 687,
       "Nombre artículo": "Placa econ. informat. 55x35 cm f.amarillo",
-      "Stock": 42,
+      "Stock": 18,
       "Estado": "fab"
     },
     {
       "Artículo": 688,
       "Nombre artículo": "Placa econ. informat. 55x35 cm f.blanco",
-      "Stock": 16,
+      "Stock": 13,
       "Estado": "fab"
     },
     {
@@ -5889,19 +5889,19 @@
     {
       "Artículo": 690,
       "Nombre artículo": "Base caucho multiperfil",
-      "Stock": 252,
+      "Stock": 124,
       "Estado": 25
     },
     {
       "Artículo": "0690B",
       "Nombre artículo": "Base multiperfil para valla y señales 18 kg",
-      "Stock": 675,
+      "Stock": 595,
       "Estado": 25
     },
     {
       "Artículo": "0690D",
       "Nombre artículo": "Base de caucho multiperfil mod D",
-      "Stock": 324,
+      "Stock": 204,
       "Estado": 7
     },
     {
@@ -5925,7 +5925,7 @@
     {
       "Artículo": 692,
       "Nombre artículo": "Poste aluminio 3 mtros señ. urbana Diam 60",
-      "Stock": 287,
+      "Stock": 286,
       "Estado": 45
     },
     {
@@ -5937,7 +5937,7 @@
     {
       "Artículo": "0692E",
       "Nombre artículo": "Abrazadera poste aluminio 60 mm estriado",
-      "Stock": 1186,
+      "Stock": 1185,
       "Estado": 45
     },
     {
@@ -5949,7 +5949,7 @@
     {
       "Artículo": 694,
       "Nombre artículo": "Poste redondo diam. 50 galvan. 3 mt para espejo 4100",
-      "Stock": 29,
+      "Stock": 27,
       "Estado": 7
     },
     {
@@ -5961,7 +5961,7 @@
     {
       "Artículo": "0694/M",
       "Nombre artículo": "Poste redondo diam. 60 galva. 3 mt. p/espejos Giotto-Rafaello-Icaro",
-      "Stock": 13,
+      "Stock": 11,
       "Estado": 7
     },
     {
@@ -5979,7 +5979,7 @@
     {
       "Artículo": 695,
       "Nombre artículo": "Tripode angular señal metalica mod. B",
-      "Stock": 1993,
+      "Stock": 1717,
       "Estado": 7
     },
     {
@@ -5991,13 +5991,13 @@
     {
       "Artículo": 697,
       "Nombre artículo": "Soporte pared p/ espejo 60 cm Mod. Basic",
-      "Stock": 50,
+      "Stock": 40,
       "Estado": 7
     },
     {
       "Artículo": "0697/M",
       "Nombre artículo": "Soporte pared para espejo Giotto-Rafaello-Icaro",
-      "Stock": 15,
+      "Stock": 12,
       "Estado": 7
     },
     {
@@ -6009,7 +6009,7 @@
     {
       "Artículo": "0697G",
       "Nombre artículo": "Soporte pared p/ espejo 80 cm Mod. Basic",
-      "Stock": 53,
+      "Stock": 45,
       "Estado": 7
     },
     {
@@ -6075,7 +6075,7 @@
     {
       "Artículo": "0702-02-01T00:14:44.000Z",
       "Nombre artículo": "Barrera protectora 100 cm largo x 100 cm altura tubo de 50x3 mm",
-      "Stock": 0,
+      "Stock": 5,
       "Estado": "fab2"
     },
     {
@@ -6093,7 +6093,7 @@
     {
       "Artículo": "0702-05-01T00:14:44.000Z",
       "Nombre artículo": "Barrera protectora 200 cm largo x 100 cm altura tubo de 50x2mm",
-      "Stock": 0,
+      "Stock": 12,
       "Estado": "fab2"
     },
     {
@@ -6171,7 +6171,7 @@
     {
       "Artículo": "0704-02-01T00:14:44.000Z",
       "Nombre artículo": "Bolardo acero N/A 100 cm altura tubo de 80x2mm",
-      "Stock": 5,
+      "Stock": -1,
       "Estado": "fab2"
     },
     {
@@ -6393,7 +6393,7 @@
     {
       "Artículo": 750,
       "Nombre artículo": "Señal plástica 60 cm reflectante triangular para conos",
-      "Stock": 87,
+      "Stock": 40,
       "Estado": "fab"
     },
     {
@@ -6405,7 +6405,7 @@
     {
       "Artículo": 752,
       "Nombre artículo": "Señal plástica 60 cm reflectante circular para conos",
-      "Stock": 92,
+      "Stock": 76,
       "Estado": "fab"
     },
     {
@@ -6681,7 +6681,7 @@
     {
       "Artículo": 813,
       "Nombre artículo": "Adhesivo 100 mm líquidos inflamables B",
-      "Stock": 0,
+      "Stock": -12,
       "Estado": "fab"
     },
     {
@@ -6873,7 +6873,7 @@
     {
       "Artículo": 830,
       "Nombre artículo": "Adhesivo 100 mm Materias peligrosas para el medio ambiente",
-      "Stock": 0,
+      "Stock": -12,
       "Estado": "fab"
     },
     {
@@ -8301,7 +8301,7 @@
     {
       "Artículo": 1024880,
       "Nombre artículo": "Tijeras Classic U. Premiun 21 cm Diestros",
-      "Stock": 60,
+      "Stock": 59,
       "Estado": "no"
     },
     {
@@ -8373,7 +8373,7 @@
     {
       "Artículo": 1027205,
       "Nombre artículo": "Tijeras PowerArc 26 mm",
-      "Stock": 52,
+      "Stock": 51,
       "Estado": "no"
     },
     {
@@ -8397,7 +8397,7 @@
     {
       "Artículo": 1027209,
       "Nombre artículo": "Tijeras cortachapas PowerGear corte izquierda",
-      "Stock": 65,
+      "Stock": 64,
       "Estado": "no"
     },
     {
@@ -8571,7 +8571,7 @@
     {
       "Artículo": "1029Z",
       "Nombre artículo": "Maletín 6 uds baliza AZUL led powerflare con cargador",
-      "Stock": 27,
+      "Stock": 26,
       "Estado": 45
     },
     {
@@ -8589,7 +8589,7 @@
     {
       "Artículo": 1032,
       "Nombre artículo": "Baliza Señalizacion intermitente para 1 bateria",
-      "Stock": 1651,
+      "Stock": 1499,
       "Estado": 45
     },
     {
@@ -8601,7 +8601,7 @@
     {
       "Artículo": "1033/B",
       "Nombre artículo": "Baliza Señalizacion Basic intermitente 2 baterias",
-      "Stock": 531,
+      "Stock": 170,
       "Estado": 45
     },
     {
@@ -8619,7 +8619,7 @@
     {
       "Artículo": 1034,
       "Nombre artículo": "Bateria baliza 6V 4R25 7 Ah. Alta Capacidad",
-      "Stock": 13746,
+      "Stock": 11648,
       "Estado": 30
     },
     {
@@ -8637,13 +8637,13 @@
     {
       "Artículo": 1036,
       "Nombre artículo": "Baliza Señalización luz roja VEGA",
-      "Stock": 1505,
+      "Stock": 1495,
       "Estado": 45
     },
     {
       "Artículo": 1037,
       "Nombre artículo": "Baliza Señalizacion solar",
-      "Stock": -253,
+      "Stock": -161,
       "Estado": 45
     },
     {
@@ -8751,13 +8751,13 @@
     {
       "Artículo": 1125,
       "Nombre artículo": "Poste señaliz. 1 m Rojo/Blanco p/cadena plastica",
-      "Stock": 6428,
+      "Stock": 6277,
       "Estado": 45
     },
     {
       "Artículo": "1125AN",
       "Nombre artículo": "Poste señaliz. 1 m Amarillo/negro p/cadena plastica",
-      "Stock": 161,
+      "Stock": 123,
       "Estado": 45
     },
     {
@@ -8775,7 +8775,7 @@
     {
       "Artículo": 1126,
       "Nombre artículo": "Mts. Cadena Plástico 5.5 m/m R/B",
-      "Stock": 16900,
+      "Stock": 15800,
       "Estado": 45
     },
     {
@@ -8835,7 +8835,7 @@
     {
       "Artículo": 1127,
       "Nombre artículo": "Mts. Cadena plastico 7.5 mm R/B",
-      "Stock": 36489,
+      "Stock": 35789,
       "Estado": 45
     },
     {
@@ -8853,7 +8853,7 @@
     {
       "Artículo": "1127V",
       "Nombre artículo": "Mts. cadena Plástico 7.5 mm Verde",
-      "Stock": 975,
+      "Stock": 950,
       "Estado": 45
     },
     {
@@ -8865,13 +8865,13 @@
     {
       "Artículo": 1128,
       "Nombre artículo": "Mts. Cadena plastico 5.5mm N/A",
-      "Stock": 10325,
+      "Stock": 10025,
       "Estado": 45
     },
     {
       "Artículo": 1129,
       "Nombre artículo": "Mts. Cadena plastico 7.5 mm N/A",
-      "Stock": 12850,
+      "Stock": 12475,
       "Estado": 45
     },
     {
@@ -8889,7 +8889,7 @@
     {
       "Artículo": 1132,
       "Nombre artículo": "Poste plata con cinturón retráctil rojo 2 m",
-      "Stock": 557,
+      "Stock": 553,
       "Estado": 45
     },
     {
@@ -8949,19 +8949,19 @@
     {
       "Artículo": "1133N",
       "Nombre artículo": "Cinturón Retráctil Pared negro 2m",
-      "Stock": 85,
+      "Stock": 84,
       "Estado": 45
     },
     {
       "Artículo": "1133N5M",
       "Nombre artículo": "Cinturón Retráctil Pared negro 5 m",
-      "Stock": 100,
+      "Stock": 98,
       "Estado": 45
     },
     {
       "Artículo": 1134,
       "Nombre artículo": "Poste Negro con cinturón retráctil rojo 2 m",
-      "Stock": 669,
+      "Stock": 657,
       "Estado": 45
     },
     {
@@ -8985,7 +8985,7 @@
     {
       "Artículo": "1134RB",
       "Nombre artículo": "Poste negro con cinturón retráctil rojo/blanco 5 m",
-      "Stock": 79,
+      "Stock": 75,
       "Estado": 45
     },
     {
@@ -8997,7 +8997,7 @@
     {
       "Artículo": 1136,
       "Nombre artículo": "Poste R/B para cadena con base hexagonal pesada",
-      "Stock": 358,
+      "Stock": 328,
       "Estado": 30
     },
     {
@@ -9015,7 +9015,7 @@
     {
       "Artículo": 1138,
       "Nombre artículo": "Poste señaliz. R/B p/cadena plastica base caucho 3 kg",
-      "Stock": 210,
+      "Stock": 202,
       "Estado": 45
     },
     {
@@ -9093,19 +9093,19 @@
     {
       "Artículo": 1539,
       "Nombre artículo": "Rollo Cinta 10cm x 200 m bomberos Roja/blanca",
-      "Stock": 505,
+      "Stock": 433,
       "Estado": 7
     },
     {
       "Artículo": 1540,
       "Nombre artículo": "Rollo cinta antideslizante negra 5cm x 18 mt",
-      "Stock": 975,
+      "Stock": 970,
       "Estado": 45
     },
     {
       "Artículo": 1541,
       "Nombre artículo": "Rollo cinta antideslizante N/A 5 cm x 18 mt",
-      "Stock": 124,
+      "Stock": 119,
       "Estado": 45
     },
     {
@@ -9159,7 +9159,7 @@
     {
       "Artículo": 1549,
       "Nombre artículo": "Rollo cinta amarilla 55MM x50metros DG983-71 ECE 104 1/CTN",
-      "Stock": 3,
+      "Stock": 2,
       "Estado": 15
     },
     {
@@ -9171,7 +9171,7 @@
     {
       "Artículo": 1550,
       "Nombre artículo": "Rollo cinta reflectante adhesiva blanca 5 cm x 46 metros",
-      "Stock": 739,
+      "Stock": 738,
       "Estado": 45
     },
     {
@@ -9207,7 +9207,7 @@
     {
       "Artículo": 1558,
       "Nombre artículo": "Rollo cinta 10 cm reflectante adhesiva N/A 45 metros",
-      "Stock": 602,
+      "Stock": 585,
       "Estado": 45
     },
     {
@@ -9273,13 +9273,13 @@
     {
       "Artículo": 1562,
       "Nombre artículo": "Rollo Cinta Señal. N/A 10cm x 200m. G300 2 caras",
-      "Stock": 392,
+      "Stock": 356,
       "Estado": 15
     },
     {
       "Artículo": 1563,
       "Nombre artículo": "Rollo Cinta Adhesiva N/A 5cm x132 mts",
-      "Stock": 974,
+      "Stock": 968,
       "Estado": 15
     },
     {
@@ -9291,19 +9291,19 @@
     {
       "Artículo": 1565,
       "Nombre artículo": "Rollo cinta Señal. R/B 10cm X 200m. plata",
-      "Stock": 184,
+      "Stock": 165,
       "Estado": 25
     },
     {
       "Artículo": 1566,
       "Nombre artículo": "Rollo cinta Señal. R/B10cmx200m. c/caja G400",
-      "Stock": -1495,
+      "Stock": -1639,
       "Estado": 10
     },
     {
       "Artículo": 1567,
       "Nombre artículo": "Rollo cinta R/B 10cm x 200m. G400",
-      "Stock": 2758,
+      "Stock": 2850,
       "Estado": 10
     },
     {
@@ -9315,19 +9315,19 @@
     {
       "Artículo": 1568,
       "Nombre artículo": "Rollo cinta Señal. R/B 7cm x 200m. c/caja",
-      "Stock": 7762,
+      "Stock": 6430,
       "Estado": 15
     },
     {
       "Artículo": "1568C",
       "Nombre artículo": "Rollo cinta señalización 7x200 c/caja",
-      "Stock": -2546,
+      "Stock": -2618,
       "Estado": 15
     },
     {
       "Artículo": 1570,
       "Nombre artículo": "Rollo cinta Señal.R-B 10cm x 200m. G300 2 caras",
-      "Stock": 3373,
+      "Stock": 2828,
       "Estado": 25
     },
     {
@@ -9351,31 +9351,31 @@
     {
       "Artículo": "1570P",
       "Nombre artículo": "Rollo cinta Señal. R/B 10cm x 200m. G300 PERSONALIZADA",
-      "Stock": 5558,
+      "Stock": 5548,
       "Estado": 25
     },
     {
       "Artículo": "1570V",
       "Nombre artículo": "Rollo cinta Señal.V/B 10cm x 200 m G300 2 caras",
-      "Stock": 420,
+      "Stock": 410,
       "Estado": 15
     },
     {
       "Artículo": "1570Z",
       "Nombre artículo": "Rollo cinta Señal. B/A 10 cm x 200m. G300 2 caras",
-      "Stock": 201,
+      "Stock": 185,
       "Estado": 15
     },
     {
       "Artículo": 1571,
       "Nombre artículo": "Rollo cinta Señal. 7cm x 200m. s/caja",
-      "Stock": 17497,
+      "Stock": 17065,
       "Estado": 15
     },
     {
       "Artículo": 1572,
       "Nombre artículo": "Rollo cinta Señal. 15cm x 200m. TELECOMUNICACIONES",
-      "Stock": 272,
+      "Stock": 247,
       "Estado": 15
     },
     {
@@ -9387,7 +9387,7 @@
     {
       "Artículo": 1573,
       "Nombre artículo": "Rollo cinta Señal. 15cm x 200m. AGUA",
-      "Stock": 540,
+      "Stock": 493,
       "Estado": 15
     },
     {
@@ -9399,7 +9399,7 @@
     {
       "Artículo": 1574,
       "Nombre artículo": "Rollo cinta Señal. 15cm x 200m. GAS",
-      "Stock": 42,
+      "Stock": 39,
       "Estado": 15
     },
     {
@@ -9411,7 +9411,7 @@
     {
       "Artículo": 1575,
       "Nombre artículo": "Rollo cinta Señal. 15cm x 200m. ELECTRI",
-      "Stock": 438,
+      "Stock": 244,
       "Estado": 15
     },
     {
@@ -9429,7 +9429,7 @@
     {
       "Artículo": 1576,
       "Nombre artículo": "Rollo cinta Señal. 10cm x 200m. POLICIA",
-      "Stock": 618,
+      "Stock": 503,
       "Estado": 15
     },
     {
@@ -9453,13 +9453,13 @@
     {
       "Artículo": 1579,
       "Nombre artículo": "Rollo cinta Señal. N/A 10cm. x 200m. G400",
-      "Stock": 180,
+      "Stock": 120,
       "Estado": 15
     },
     {
       "Artículo": 1580,
       "Nombre artículo": "Mts. Banderola Quitamiedos c/reflec",
-      "Stock": 10910,
+      "Stock": 10590,
       "Estado": 7
     },
     {
@@ -9549,7 +9549,7 @@
     {
       "Artículo": 1601,
       "Nombre artículo": "Camisa reflec. N.2 cono 75 cm OXFORD",
-      "Stock": 1582,
+      "Stock": 1581,
       "Estado": 25
     },
     {
@@ -9753,31 +9753,31 @@
     {
       "Artículo": 1635,
       "Nombre artículo": "Cono Señalizacion 32 cm. Flurescent",
-      "Stock": 3473,
+      "Stock": 3194,
       "Estado": 45
     },
     {
       "Artículo": 1636,
       "Nombre artículo": "Cono Señaliz. 50 cm fluor.bandas reflectantes",
-      "Stock": 4301,
+      "Stock": 3225,
       "Estado": 45
     },
     {
       "Artículo": "1636AZUL",
       "Nombre artículo": "Cono Señaliz. 50 cm Azul bandas reflectantes",
-      "Stock": 4676,
+      "Stock": 4406,
       "Estado": 45
     },
     {
       "Artículo": 1637,
       "Nombre artículo": "Cono señaliz. 50 cm camisas réflex pvc Blando Bicolor",
-      "Stock": 1592,
+      "Stock": 1580,
       "Estado": 25
     },
     {
       "Artículo": 1638,
       "Nombre artículo": "Cono Señaliz. 50 cm. camisa reflec.2 P. CVT",
-      "Stock": 4441,
+      "Stock": 3573,
       "Estado": 45
     },
     {
@@ -9801,7 +9801,7 @@
     {
       "Artículo": "1640B",
       "Nombre artículo": "Cono Señaizl. 75 cm.camisa reflect.2p. CVT Basic",
-      "Stock": 2269,
+      "Stock": 1305,
       "Estado": 45
     },
     {
@@ -9825,19 +9825,19 @@
     {
       "Artículo": 1645,
       "Nombre artículo": "Cono Señaliz. 100 cm camisa reflec.2 P.MELBA",
-      "Stock": 283,
+      "Stock": 204,
       "Estado": 25
     },
     {
       "Artículo": 1646,
       "Nombre artículo": "Cono 80cm PVC blando Reflect. MOD B",
-      "Stock": 316,
+      "Stock": 208,
       "Estado": 30
     },
     {
       "Artículo": "1646A",
       "Nombre artículo": "Cono 80 cm PVC blando Reflect. Mod B AMARILLO",
-      "Stock": 104,
+      "Stock": 94,
       "Estado": 30
     },
     {
@@ -9849,19 +9849,19 @@
     {
       "Artículo": "1646Z",
       "Nombre artículo": "Cono 80 cm PVC blando Reflect. Mod B AZUL",
-      "Stock": 4,
+      "Stock": 513,
       "Estado": 30
     },
     {
       "Artículo": 1647,
       "Nombre artículo": "Cono 54cm PVC blando Reflect. MOD B",
-      "Stock": 2833,
+      "Stock": 2823,
       "Estado": 30
     },
     {
       "Artículo": "1647A",
       "Nombre artículo": "Cono 54 cm PVC blando Reflect. Mod B AMARILLO",
-      "Stock": -9,
+      "Stock": 559,
       "Estado": 30
     },
     {
@@ -9891,19 +9891,19 @@
     {
       "Artículo": 1650,
       "Nombre artículo": "Cono 1 pza 50 cm 2 bandas Reflect. Melba",
-      "Stock": 2040,
+      "Stock": 1874,
       "Estado": 25
     },
     {
       "Artículo": 1651,
       "Nombre artículo": "Cono 1 pza 75 cm 2 bandas Reflect. Melba",
-      "Stock": 1202,
+      "Stock": 747,
       "Estado": 25
     },
     {
       "Artículo": 1652,
       "Nombre artículo": "Cono 2 pza 75 cm 2 bandas Reflect. Melba STARLITE",
-      "Stock": 704,
+      "Stock": 504,
       "Estado": 25
     },
     {
@@ -9969,7 +9969,7 @@
     {
       "Artículo": 1672,
       "Nombre artículo": "Pareja semaforos portatiles desmontables Leds mod. B",
-      "Stock": 1,
+      "Stock": 6,
       "Estado": 25
     },
     {
@@ -9987,7 +9987,7 @@
     {
       "Artículo": 1674,
       "Nombre artículo": "Pareja semaforos portatiles plegables Led mod. C",
-      "Stock": 3,
+      "Stock": 8,
       "Estado": 25
     },
     {
@@ -10017,7 +10017,7 @@
     {
       "Artículo": "1674/V",
       "Nombre artículo": "Visera amarilla semaforo B - C 430126009",
-      "Stock": 1,
+      "Stock": 18,
       "Estado": 25
     },
     {
@@ -10107,7 +10107,7 @@
     {
       "Artículo": 1679,
       "Nombre artículo": "Juego centralitas electronicas semaforo mod. B y C",
-      "Stock": -6,
+      "Stock": -2,
       "Estado": 25
     },
     {
@@ -10137,7 +10137,7 @@
     {
       "Artículo": 1684,
       "Nombre artículo": "Rotativo Halogeno magnet. Mod. BASIC",
-      "Stock": 497,
+      "Stock": 495,
       "Estado": 45
     },
     {
@@ -10167,7 +10167,7 @@
     {
       "Artículo": 1689,
       "Nombre artículo": "Linterna Super-led Basic 12/220v 3 W+ cono amarillo",
-      "Stock": 686,
+      "Stock": 634,
       "Estado": 45
     },
     {
@@ -10191,7 +10191,7 @@
     {
       "Artículo": 1691,
       "Nombre artículo": "Paleta difusora Stop-Paso p/linterna profesional",
-      "Stock": 1,
+      "Stock": 16,
       "Estado": 45
     },
     {
@@ -10209,7 +10209,7 @@
     {
       "Artículo": 1694,
       "Nombre artículo": "Rotativo Led 12V base magnetica + ventosa",
-      "Stock": 128,
+      "Stock": 134,
       "Estado": "no"
     },
     {
@@ -10227,7 +10227,7 @@
     {
       "Artículo": 1697,
       "Nombre artículo": "Baston luminoso LED ambar",
-      "Stock": 966,
+      "Stock": 945,
       "Estado": 45
     },
     {
@@ -10245,13 +10245,13 @@
     {
       "Artículo": 1900,
       "Nombre artículo": "Reductor veloc. proteccion cables 90x50x5cm",
-      "Stock": 691,
+      "Stock": 667,
       "Estado": 45
     },
     {
       "Artículo": "1900B",
       "Nombre artículo": "Reductor veloc. proteccion cables 90x25x4,5 cm",
-      "Stock": 389,
+      "Stock": 333,
       "Estado": 45
     },
     {
@@ -10287,7 +10287,7 @@
     {
       "Artículo": 1903,
       "Nombre artículo": "Reductor Velocidad 50x60x5 cm. Mod. A",
-      "Stock": 2114,
+      "Stock": 2105,
       "Estado": 45
     },
     {
@@ -10341,7 +10341,7 @@
     {
       "Artículo": 1908,
       "Nombre artículo": "Reductor Velocidad 50x50x5 cm Mod. B",
-      "Stock": 14,
+      "Stock": 8,
       "Estado": 7
     },
     {
@@ -10359,7 +10359,7 @@
     {
       "Artículo": 1910,
       "Nombre artículo": "Reductor velocidad - salva cables 50x60x5",
-      "Stock": 11,
+      "Stock": 81,
       "Estado": "no"
     },
     {
@@ -10383,7 +10383,7 @@
     {
       "Artículo": 1912,
       "Nombre artículo": "Reductor Lenticular 22x4",
-      "Stock": 103,
+      "Stock": 83,
       "Estado": 7
     },
     {
@@ -10437,13 +10437,13 @@
     {
       "Artículo": 1915,
       "Nombre artículo": "Valla extensible PVC 2,50 metros N/A",
-      "Stock": 69,
+      "Stock": 68,
       "Estado": 45
     },
     {
       "Artículo": "1915/R",
       "Nombre artículo": "Valla extensible PVC R/B",
-      "Stock": 174,
+      "Stock": 172,
       "Estado": 45
     },
     {
@@ -10455,13 +10455,13 @@
     {
       "Artículo": 1916,
       "Nombre artículo": "Reductor velocidad 50x50x4,5 MOD C",
-      "Stock": 646,
+      "Stock": 764,
       "Estado": 30
     },
     {
       "Artículo": 1917,
       "Nombre artículo": "Extremo reductor velocidad 50x25x4,5 MOD C",
-      "Stock": 6,
+      "Stock": -14,
       "Estado": 30
     },
     {
@@ -10509,7 +10509,7 @@
     {
       "Artículo": "1924A",
       "Nombre artículo": "Valla señal. Gate Barrier 2 mtros Amarilla",
-      "Stock": -16,
+      "Stock": 76,
       "Estado": 25
     },
     {
@@ -10521,7 +10521,7 @@
     {
       "Artículo": "1924N",
       "Nombre artículo": "Valla señal. Gate Barrier 2 mtros Naranja",
-      "Stock": 237,
+      "Stock": 353,
       "Estado": 25
     },
     {
@@ -10539,25 +10539,25 @@
     {
       "Artículo": "1924Z",
       "Nombre artículo": "Valla señal. Gate Barrier 2 mtros Azul",
-      "Stock": 72,
+      "Stock": 22,
       "Estado": 25
     },
     {
       "Artículo": 1925,
       "Nombre artículo": "Placa salva-zanjas 120x80 Mod. Basic",
-      "Stock": 1,
+      "Stock": 60,
       "Estado": 25
     },
     {
       "Artículo": "1925B",
       "Nombre artículo": "Placa salva-zanjas 120 x 80 antideslizante",
-      "Stock": 7,
+      "Stock": 1,
       "Estado": 25
     },
     {
       "Artículo": "1925C",
       "Nombre artículo": "Placa salva-zanjas 120x160 antideslizante",
-      "Stock": 83,
+      "Stock": 75,
       "Estado": 25
     },
     {
@@ -10605,13 +10605,13 @@
     {
       "Artículo": "1929A",
       "Nombre artículo": "Valla 1 mt Gate barrier amarilla",
-      "Stock": 10,
+      "Stock": 0,
       "Estado": 25
     },
     {
       "Artículo": "1929B",
       "Nombre artículo": "Valla 1 mt Gate Barrier Blanca",
-      "Stock": 362,
+      "Stock": 352,
       "Estado": 25
     },
     {
@@ -10635,25 +10635,25 @@
     {
       "Artículo": 1931,
       "Nombre artículo": "Reductor Velocidad 50x44x5 cm Mod. D negro",
-      "Stock": 196,
+      "Stock": 189,
       "Estado": 25
     },
     {
       "Artículo": 1932,
       "Nombre artículo": "Reductor Velocidad 50x44X5cm Mod. D Amarillo",
-      "Stock": 332,
+      "Stock": 325,
       "Estado": 25
     },
     {
       "Artículo": 1933,
       "Nombre artículo": "Extremo reductor velocidad 21x42.5x5 cm Mod. D Negro",
-      "Stock": 8,
+      "Stock": 7,
       "Estado": 25
     },
     {
       "Artículo": 1934,
       "Nombre artículo": "Extremo reductor velocidad 21x42.5x5 cm Mod. D Amarillo",
-      "Stock": 17,
+      "Stock": 16,
       "Estado": 25
     },
     {
@@ -10953,7 +10953,7 @@
     {
       "Artículo": 2033,
       "Nombre artículo": "Lápiz bicolor Dúo Marker Rojo/azul (Display 100 uds)",
-      "Stock": 19,
+      "Stock": 17,
       "Estado": 35
     },
     {
@@ -10965,7 +10965,7 @@
     {
       "Artículo": "2034B",
       "Nombre artículo": "Tiza hexagonal 120 x12 mm blanco (12 uds)",
-      "Stock": 93,
+      "Stock": 83,
       "Estado": 35
     },
     {
@@ -10995,13 +10995,13 @@
     {
       "Artículo": 2035,
       "Nombre artículo": "Caja Lapiceros carpintero 180 (144 unid)",
-      "Stock": 921,
+      "Stock": 919,
       "Estado": 45
     },
     {
       "Artículo": 2036,
       "Nombre artículo": "Lapiz Recargable Metalico",
-      "Stock": 3819,
+      "Stock": 3815,
       "Estado": 45
     },
     {
@@ -11019,13 +11019,13 @@
     {
       "Artículo": 2038,
       "Nombre artículo": "Tirolesa",
-      "Stock": 541,
+      "Stock": 537,
       "Estado": 45
     },
     {
       "Artículo": 2039,
       "Nombre artículo": "Octometro nueva generacion con mochila de transporte",
-      "Stock": 617,
+      "Stock": 614,
       "Estado": 45
     },
     {
@@ -11079,13 +11079,13 @@
     {
       "Artículo": 2050,
       "Nombre artículo": "Toldo polietileno 2x3 verde 120 gr.",
-      "Stock": 43,
+      "Stock": 42,
       "Estado": 45
     },
     {
       "Artículo": 2051,
       "Nombre artículo": "Toldo polietileno 3x4 verde 120 gr.",
-      "Stock": 59,
+      "Stock": 57,
       "Estado": 45
     },
     {
@@ -11103,25 +11103,25 @@
     {
       "Artículo": 2054,
       "Nombre artículo": "Toldo polietileno 6x10 verde 120 gr.",
-      "Stock": 292,
+      "Stock": 289,
       "Estado": 45
     },
     {
       "Artículo": 2058,
       "Nombre artículo": "Toldo polietileno 3x5 azul 80 gr",
-      "Stock": 228,
+      "Stock": 226,
       "Estado": 45
     },
     {
       "Artículo": 2059,
       "Nombre artículo": "Toldo polietileno 4x5 azul 80 gr",
-      "Stock": 417,
+      "Stock": 405,
       "Estado": 45
     },
     {
       "Artículo": 2060,
       "Nombre artículo": "Toldo polietileno 2x3 azul 80 gr.",
-      "Stock": 998,
+      "Stock": 988,
       "Estado": 45
     },
     {
@@ -11133,31 +11133,31 @@
     {
       "Artículo": 2062,
       "Nombre artículo": "Toldo polietileno 4x6 azul 80 gr",
-      "Stock": 507,
+      "Stock": 461,
       "Estado": 45
     },
     {
       "Artículo": 2063,
       "Nombre artículo": "Toldo polietileno 5x8 azul 80 gr.",
-      "Stock": 526,
+      "Stock": 498,
       "Estado": 45
     },
     {
       "Artículo": 2064,
       "Nombre artículo": "Toldo polietileno 6x10 azul 80 gr.",
-      "Stock": 188,
+      "Stock": 167,
       "Estado": 45
     },
     {
       "Artículo": 2065,
       "Nombre artículo": "Toldo polietileno 8x12 azul 80 gr.",
-      "Stock": 154,
+      "Stock": 131,
       "Estado": 45
     },
     {
       "Artículo": 2066,
       "Nombre artículo": "Toldo polietileno 10x15 azul 80 gr.",
-      "Stock": 274,
+      "Stock": 273,
       "Estado": 45
     },
     {
@@ -11265,7 +11265,7 @@
     {
       "Artículo": 2134,
       "Nombre artículo": "Tope parking Mod D 183 cm",
-      "Stock": 295,
+      "Stock": 693,
       "Estado": 45
     },
     {
@@ -11307,7 +11307,7 @@
     {
       "Artículo": 2238,
       "Nombre artículo": "Azulete Gaviota caja 1 Kg",
-      "Stock": 117,
+      "Stock": 62,
       "Estado": 7
     },
     {
@@ -11319,7 +11319,7 @@
     {
       "Artículo": 2240,
       "Nombre artículo": "Tiralíneas Gigante 50 Mts.",
-      "Stock": 129,
+      "Stock": 128,
       "Estado": 35
     },
     {
@@ -11337,7 +11337,7 @@
     {
       "Artículo": 2244,
       "Nombre artículo": "Expositor 12 tiralineas Normo 30 metros + 12 botes polvo 100 gr.",
-      "Stock": 40,
+      "Stock": 38,
       "Estado": 35
     },
     {
@@ -11397,7 +11397,7 @@
     {
       "Artículo": 2530,
       "Nombre artículo": "Juego rodilleras alicatador",
-      "Stock": 716,
+      "Stock": 710,
       "Estado": 45
     },
     {
@@ -11565,7 +11565,7 @@
     {
       "Artículo": "270242N",
       "Nombre artículo": "Capazo de goma 42 l Negro",
-      "Stock": 748,
+      "Stock": 436,
       "Estado": 15
     },
     {
@@ -11583,7 +11583,7 @@
     {
       "Artículo": "270255N",
       "Nombre artículo": "Capazo de goma 55 l Negro",
-      "Stock": 1,
+      "Stock": 0,
       "Estado": 15
     },
     {
@@ -11601,7 +11601,7 @@
     {
       "Artículo": 2704,
       "Nombre artículo": "Cubre cable portatil 1 metro Mod. B",
-      "Stock": 190,
+      "Stock": 176,
       "Estado": 45
     },
     {
@@ -11679,7 +11679,7 @@
     {
       "Artículo": 2785,
       "Nombre artículo": "Rodillo de marcar de 180",
-      "Stock": 81,
+      "Stock": 80,
       "Estado": 30
     },
     {
@@ -11697,7 +11697,7 @@
     {
       "Artículo": 2901,
       "Nombre artículo": "Clavo yesero 250",
-      "Stock": 4299,
+      "Stock": 4289,
       "Estado": 45
     },
     {
@@ -11745,7 +11745,7 @@
     {
       "Artículo": 3033,
       "Nombre artículo": "Cono c/tapa para Guardacuerpos",
-      "Stock": 37200,
+      "Stock": 22800,
       "Estado": 7
     },
     {
@@ -11763,7 +11763,7 @@
     {
       "Artículo": 3036,
       "Nombre artículo": "Base horca-pescante 60x40 ( 114 unid)",
-      "Stock": 53,
+      "Stock": 52,
       "Estado": 7
     },
     {
@@ -11781,7 +11781,7 @@
     {
       "Artículo": 3039,
       "Nombre artículo": "Seta protectora Varilla 12-20",
-      "Stock": 63900,
+      "Stock": 40700,
       "Estado": 7
     },
     {
@@ -11811,19 +11811,19 @@
     {
       "Artículo": 3100,
       "Nombre artículo": "Junta de dilatación 4 cm M.Lineal",
-      "Stock": 600,
+      "Stock": 300,
       "Estado": 10
     },
     {
       "Artículo": 3101,
       "Nombre artículo": "Junta de dilatación 8 cm M.Lineal",
-      "Stock": 400,
+      "Stock": 250,
       "Estado": 10
     },
     {
       "Artículo": 3102,
       "Nombre artículo": "Conexión para cadena y cinta poste ref 1136",
-      "Stock": 730,
+      "Stock": 718,
       "Estado": 30
     },
     {
@@ -11889,7 +11889,7 @@
     {
       "Artículo": 3301,
       "Nombre artículo": "Mt.Tubo encofrado 22/26 -( En 2 mts)",
-      "Stock": 2500,
+      "Stock": 1100,
       "Estado": 7
     },
     {
@@ -11901,43 +11901,43 @@
     {
       "Artículo": 3303,
       "Nombre artículo": "Mts. Berengeno Pequeño 27,2mm Base x 20mm Alt.",
-      "Stock": 2500,
+      "Stock": 2250,
       "Estado": 7
     },
     {
       "Artículo": 3304,
       "Nombre artículo": "Mts. Berengeno Mediano 34mm Base x 25mm Alt.",
-      "Stock": 875,
+      "Stock": 7125,
       "Estado": 7
     },
     {
       "Artículo": 3305,
       "Nombre artículo": "Mts. Berengeno Grande 41mm Base x 30mm Alt,",
-      "Stock": 2575,
+      "Stock": 2325,
       "Estado": 7
     },
     {
       "Artículo": 3306,
       "Nombre artículo": "Tubo ETUBAX 20 cm",
-      "Stock": 3800,
+      "Stock": 2200,
       "Estado": 7
     },
     {
       "Artículo": 3307,
       "Nombre artículo": "Tubo ETUBAX 25 cm",
-      "Stock": 2250,
+      "Stock": 15050,
       "Estado": 7
     },
     {
       "Artículo": 3308,
       "Nombre artículo": "Tubo ETUBAX 30 cm",
-      "Stock": 14940,
+      "Stock": 10640,
       "Estado": 7
     },
     {
       "Artículo": 3309,
       "Nombre artículo": "Tubo ETUBAX 35 cm",
-      "Stock": 3650,
+      "Stock": 3050,
       "Estado": 7
     },
     {
@@ -11961,31 +11961,31 @@
     {
       "Artículo": 3370,
       "Nombre artículo": "Separador rueda 25 m/m (1000 Unid)",
-      "Stock": 83,
+      "Stock": 73,
       "Estado": 7
     },
     {
       "Artículo": 3371,
       "Nombre artículo": "Separador rueda 30 m/m (1000 Unid)",
-      "Stock": 111,
+      "Stock": 107,
       "Estado": 7
     },
     {
       "Artículo": 3372,
       "Nombre artículo": "Separador rueda 35 m/m (500 Unid)",
-      "Stock": 144,
+      "Stock": 140,
       "Estado": 7
     },
     {
       "Artículo": 3373,
       "Nombre artículo": "Separador rueda 40 m/m (500 Unid)",
-      "Stock": 159,
+      "Stock": 157,
       "Estado": 7
     },
     {
       "Artículo": 3374,
       "Nombre artículo": "Separador rueda 50 m/m (250 Unid)",
-      "Stock": 66,
+      "Stock": 65,
       "Estado": 7
     },
     {
@@ -12027,7 +12027,7 @@
     {
       "Artículo": 3391,
       "Nombre artículo": "Cono para tubo 22/26 bolsa 1000 uds",
-      "Stock": 79,
+      "Stock": 73,
       "Estado": 7
     },
     {
@@ -12045,7 +12045,7 @@
     {
       "Artículo": 3394,
       "Nombre artículo": "Tapon estanco 4 aletas tubo 22 (500 unid)",
-      "Stock": 16,
+      "Stock": 73.6,
       "Estado": 7
     },
     {
@@ -12093,7 +12093,7 @@
     {
       "Artículo": 4004,
       "Nombre artículo": "Mts. cuerda CERVINO 4 m/m",
-      "Stock": 1400,
+      "Stock": 1200,
       "Estado": 7
     },
     {
@@ -12111,7 +12111,7 @@
     {
       "Artículo": 4010,
       "Nombre artículo": "Mts. cuerda CERVINO 10 m/m",
-      "Stock": 1700,
+      "Stock": 1500,
       "Estado": 7
     },
     {
@@ -12153,7 +12153,7 @@
     {
       "Artículo": 4080,
       "Nombre artículo": "Tope parking 59 L x 12 Anc. x 10 Alt. Mod. B",
-      "Stock": 150,
+      "Stock": 1332,
       "Estado": 45
     },
     {
@@ -12189,25 +12189,25 @@
     {
       "Artículo": 4098,
       "Nombre artículo": "Cepo parking Mod. A 49,5 cm x 49,5 cm x 9 cm con llave",
-      "Stock": 148,
+      "Stock": 147,
       "Estado": 45
     },
     {
       "Artículo": 4099,
       "Nombre artículo": "Cepo parking Mod. B 76 cm x 47 cm c/candado",
-      "Stock": 1279,
+      "Stock": 1244,
       "Estado": 45
     },
     {
       "Artículo": 4100,
       "Nombre artículo": "Espejo trafico 600 mm Mod. Basic c/ visera",
-      "Stock": 402,
+      "Stock": 373,
       "Estado": 45
     },
     {
       "Artículo": 4101,
       "Nombre artículo": "Espejo Trafico 800 mm Mod. Basic c visera",
-      "Stock": 668,
+      "Stock": 630,
       "Estado": 45
     },
     {
@@ -12219,13 +12219,13 @@
     {
       "Artículo": 4103,
       "Nombre artículo": "Esquinera proteccion columna 80 cm mod. B",
-      "Stock": 2557,
+      "Stock": 2519,
       "Estado": 45
     },
     {
       "Artículo": 4104,
       "Nombre artículo": "Tope parking 55 x 15 Anc. x 10 Alt Mod. A",
-      "Stock": 1746,
+      "Stock": 1614,
       "Estado": 45
     },
     {
@@ -12315,13 +12315,13 @@
     {
       "Artículo": 4150,
       "Nombre artículo": "Espejo 60 cm Mod. Icaro",
-      "Stock": 25,
+      "Stock": 24,
       "Estado": 25
     },
     {
       "Artículo": 4151,
       "Nombre artículo": "Espejo 80 cm Mod. Icaro",
-      "Stock": 3,
+      "Stock": 21,
       "Estado": 25
     },
     {
@@ -12333,13 +12333,13 @@
     {
       "Artículo": 4181,
       "Nombre artículo": "Protector parking FOAM N/A columna 30X25X1,5 cm",
-      "Stock": 515,
+      "Stock": 510,
       "Estado": 45
     },
     {
       "Artículo": 4182,
       "Nombre artículo": "Protector parking FOAM R/B columna 100x200x1,5 cm",
-      "Stock": 482,
+      "Stock": 479,
       "Estado": 45
     },
     {
@@ -12363,13 +12363,13 @@
     {
       "Artículo": 4186,
       "Nombre artículo": "Protector parking FOAM R/B esquina 50x(15+15)x1,5 cm",
-      "Stock": 494,
+      "Stock": 490,
       "Estado": 45
     },
     {
       "Artículo": 4187,
       "Nombre artículo": "Protector parking FOAM N/A esquina 50x(15+15)x1,5 cm",
-      "Stock": 669,
+      "Stock": 654,
       "Estado": 45
     },
     {
@@ -12387,7 +12387,7 @@
     {
       "Artículo": 4190,
       "Nombre artículo": "Protector parking FOAM R/B plano 50x25x2,5cm",
-      "Stock": 313,
+      "Stock": 309,
       "Estado": 45
     },
     {
@@ -12417,19 +12417,19 @@
     {
       "Artículo": 4200,
       "Nombre artículo": "Esq. protec.N/A 100 cm anti-golpe Foam Mod A",
-      "Stock": 1610,
+      "Stock": 1552,
       "Estado": 45
     },
     {
       "Artículo": "4200B",
       "Nombre artículo": "Esq. protec.N/A 100 cm anti-golpe Foam Mod B",
-      "Stock": 776,
+      "Stock": 755,
       "Estado": 45
     },
     {
       "Artículo": "4200C",
       "Nombre artículo": "Esq. protec.N/A 100 cm anti-golpe Foam Mod C",
-      "Stock": 864,
+      "Stock": 852,
       "Estado": 45
     },
     {
@@ -12447,13 +12447,13 @@
     {
       "Artículo": "4200F",
       "Nombre artículo": "Esq. protec.N/A 100 cm anti-golpe Foam Mod. F",
-      "Stock": 918,
+      "Stock": 914,
       "Estado": 45
     },
     {
       "Artículo": "4200G",
       "Nombre artículo": "Esq. protec.N/A 100 cm anti-golpe Foam Mod. G",
-      "Stock": 1139,
+      "Stock": 1114,
       "Estado": 45
     },
     {
@@ -12471,7 +12471,7 @@
     {
       "Artículo": 4204,
       "Nombre artículo": "Espejo Convexo 40 cm Interior Tolomeo",
-      "Stock": 7,
+      "Stock": 17,
       "Estado": 25
     },
     {
@@ -12483,7 +12483,7 @@
     {
       "Artículo": 4206,
       "Nombre artículo": "Espejo Convexo 60 cm Interior Tolomeo",
-      "Stock": 5,
+      "Stock": 19,
       "Estado": 25
     },
     {
@@ -12501,7 +12501,7 @@
     {
       "Artículo": 4209,
       "Nombre artículo": "Espejo Convexo 90 cm Interior Tolomeo",
-      "Stock": 2,
+      "Stock": 3,
       "Estado": 25
     },
     {
@@ -12519,19 +12519,19 @@
     {
       "Artículo": 4213,
       "Nombre artículo": "Espejo Hemisférico 360º 60 cm Michelangello",
-      "Stock": 4,
+      "Stock": 10,
       "Estado": 25
     },
     {
       "Artículo": 4214,
       "Nombre artículo": "Espejo Hemisférico 360º 90 cm Michelangello",
-      "Stock": 0,
+      "Stock": -3,
       "Estado": 25
     },
     {
       "Artículo": 4215,
       "Nombre artículo": "Espejo Hemisférico 360º 90 cm Michelangello",
-      "Stock": 16,
+      "Stock": 11,
       "Estado": 25
     },
     {
@@ -12609,7 +12609,7 @@
     {
       "Artículo": 4228,
       "Nombre artículo": "Espejo Convexo 60x80 cm Exterior Rafaello",
-      "Stock": -1,
+      "Stock": 2,
       "Estado": 25
     },
     {
@@ -12639,7 +12639,7 @@
     {
       "Artículo": 4233,
       "Nombre artículo": "Espejo Convexo Acero Exterior 800 mm",
-      "Stock": 4,
+      "Stock": 3,
       "Estado": 25
     },
     {
@@ -12663,7 +12663,7 @@
     {
       "Artículo": 4300,
       "Nombre artículo": "Big Bag 850x850x900 1000kg. 5:1",
-      "Stock": 623,
+      "Stock": 1113,
       "Estado": 7
     },
     {
@@ -12687,7 +12687,7 @@
     {
       "Artículo": 4304,
       "Nombre artículo": "Saco de rafia para escombros 55cmx85cm carga 25 Kg",
-      "Stock": 16303,
+      "Stock": 13103,
       "Estado": 7
     },
     {
@@ -12729,7 +12729,7 @@
     {
       "Artículo": 4700,
       "Nombre artículo": "Rollo Malla Protec Naranja (1x50mts.) 80 gr.",
-      "Stock": 427,
+      "Stock": 376,
       "Estado": 25
     },
     {
@@ -12759,19 +12759,19 @@
     {
       "Artículo": 4701,
       "Nombre artículo": "Rollo Malla Protec Naranja (1X50mts.) 100 gr.",
-      "Stock": 410,
+      "Stock": 379,
       "Estado": 25
     },
     {
       "Artículo": 4702,
       "Nombre artículo": "Rollo malla fibra de vidrio Mortero-Reboco azul 1x50 m",
-      "Stock": 28,
+      "Stock": 18,
       "Estado": 7
     },
     {
       "Artículo": 4703,
       "Nombre artículo": "Rollo malla fibra de vidrio Yeso Blanca 1x50 m",
-      "Stock": 38,
+      "Stock": 36,
       "Estado": 7
     },
     {
@@ -12783,7 +12783,7 @@
     {
       "Artículo": 4720,
       "Nombre artículo": "Tubo PVC señal. c/reflec. 1 mt",
-      "Stock": 3825,
+      "Stock": 275,
       "Estado": 7
     },
     {
@@ -12801,13 +12801,13 @@
     {
       "Artículo": 4740,
       "Nombre artículo": "Estaca madera 30x30x40",
-      "Stock": 4895,
+      "Stock": 4495,
       "Estado": 7
     },
     {
       "Artículo": 4750,
       "Nombre artículo": "Estaca madera 30x30x50",
-      "Stock": 3775,
+      "Stock": 3000,
       "Estado": 7
     },
     {
@@ -12825,7 +12825,7 @@
     {
       "Artículo": 4780,
       "Nombre artículo": "Ecopate 300",
-      "Stock": 512,
+      "Stock": 412,
       "Estado": 7
     },
     {
@@ -12843,7 +12843,7 @@
     {
       "Artículo": 4888,
       "Nombre artículo": "Mtro.cuadrado malla proteccion andamio Extra",
-      "Stock": 12449,
+      "Stock": 10330,
       "Estado": 7
     },
     {
@@ -12897,7 +12897,7 @@
     {
       "Artículo": 4894,
       "Nombre artículo": "Malla ocultacion negra/franjas 75% 3,50x1,90 blister",
-      "Stock": 50,
+      "Stock": 2,
       "Estado": 7
     },
     {
@@ -12915,7 +12915,7 @@
     {
       "Artículo": "4895/A",
       "Nombre artículo": "Malla señal. monofilamento 1x100 mts Amarilla",
-      "Stock": 0,
+      "Stock": 30,
       "Estado": 7
     },
     {
@@ -12987,7 +12987,7 @@
     {
       "Artículo": 5201,
       "Nombre artículo": "Cascos proteccion auditiva mod. A",
-      "Stock": 1656,
+      "Stock": 1646,
       "Estado": 45
     },
     {
@@ -13041,25 +13041,25 @@
     {
       "Artículo": 7000,
       "Nombre artículo": "Spray fluo 500 ml S MARK rojo",
-      "Stock": 64,
+      "Stock": 52,
       "Estado": 15
     },
     {
       "Artículo": 7001,
       "Nombre artículo": "Spray fluo 500 ml S MARK azul",
-      "Stock": 167,
+      "Stock": 155,
       "Estado": 15
     },
     {
       "Artículo": 7002,
       "Nombre artículo": "Spray fluo 500 ml S MARK amarillo",
-      "Stock": 170,
+      "Stock": 98,
       "Estado": 15
     },
     {
       "Artículo": 7003,
       "Nombre artículo": "Spray fluo 500 ml S MARK verde",
-      "Stock": 211,
+      "Stock": 199,
       "Estado": 15
     },
     {
@@ -13071,7 +13071,7 @@
     {
       "Artículo": 7004,
       "Nombre artículo": "Spray fluo 500 ml S MARK rosa",
-      "Stock": 67,
+      "Stock": 31,
       "Estado": 15
     },
     {
@@ -13083,7 +13083,7 @@
     {
       "Artículo": 7005,
       "Nombre artículo": "Spray fluo 500 ml S MARK naranja",
-      "Stock": 109,
+      "Stock": 97,
       "Estado": 15
     },
     {
@@ -13101,7 +13101,7 @@
     {
       "Artículo": 7012,
       "Nombre artículo": "Spray Fluo 360º 500 ml IDEAL amarillo",
-      "Stock": 95,
+      "Stock": 83,
       "Estado": 15
     },
     {
@@ -13173,7 +13173,7 @@
     {
       "Artículo": "8070N1",
       "Nombre artículo": "Triangulo MOPU TP 70 cm Reflex I",
-      "Stock": -378,
+      "Stock": -407,
       "Estado": "fab"
     },
     {
@@ -13263,7 +13263,7 @@
     {
       "Artículo": "8160N1",
       "Nombre artículo": "Disco MOPU TR 60 cm Reflex I",
-      "Stock": -360,
+      "Stock": -380,
       "Estado": "fab"
     },
     {
@@ -13317,7 +13317,7 @@
     {
       "Artículo": "8190N1",
       "Nombre artículo": "Disco MOPU TR 90 cm Reflex I",
-      "Stock": 12,
+      "Stock": 15,
       "Estado": "fab"
     },
     {
@@ -13395,7 +13395,7 @@
     {
       "Artículo": 8210,
       "Nombre artículo": "Adhesivo 11x15 Riesgo electrico",
-      "Stock": -1710,
+      "Stock": -1800,
       "Estado": "fab"
     },
     {
@@ -13491,7 +13491,7 @@
     {
       "Artículo": 8256,
       "Nombre artículo": "Adhesivo 11x15 Botiquin",
-      "Stock": -34,
+      "Stock": -44,
       "Estado": "fab"
     },
     {
@@ -13563,7 +13563,7 @@
     {
       "Artículo": "8360N1",
       "Nombre artículo": "Cuadrado MOPU TS 60x60 cm Reflex I",
-      "Stock": 6,
+      "Stock": 5,
       "Estado": "fab2"
     },
     {
@@ -13827,7 +13827,7 @@
     {
       "Artículo": "878040N1",
       "Nombre artículo": "Panel direccional estrecho R/B TB-2 80x40 cm Reflex I",
-      "Stock": 58,
+      "Stock": 41,
       "Estado": "fab"
     },
     {
@@ -13857,7 +13857,7 @@
     {
       "Artículo": "883010N1",
       "Nombre artículo": "Piqueta 30x10 cm TB-7 NI",
-      "Stock": 255,
+      "Stock": 303,
       "Estado": "fab6"
     },
     {
@@ -13911,13 +13911,13 @@
     {
       "Artículo": 9000,
       "Nombre artículo": "Reductor velocidad 60x50x4.5 cm Mod. G",
-      "Stock": 93,
+      "Stock": 83,
       "Estado": 30
     },
     {
       "Artículo": 9001,
       "Nombre artículo": "Extremo reductor veloc. 60x25x4,5 cm Mod. G",
-      "Stock": 188,
+      "Stock": 184,
       "Estado": 30
     },
     {
@@ -14049,13 +14049,13 @@
     {
       "Artículo": "9070N R1",
       "Nombre artículo": "Señal MOPU tri 70 cm Normal R1",
-      "Stock": 6,
+      "Stock": -8,
       "Estado": "no"
     },
     {
       "Artículo": "9070N1",
       "Nombre artículo": "Señal MOPU T.D. 70 cm NI",
-      "Stock": 43,
+      "Stock": 141,
       "Estado": "fab"
     },
     {
@@ -14145,7 +14145,7 @@
     {
       "Artículo": "9160N R100",
       "Nombre artículo": "Señal MOPU circ 60 cm Normal R100",
-      "Stock": -271,
+      "Stock": -286,
       "Estado": "no"
     },
     {
@@ -14193,7 +14193,7 @@
     {
       "Artículo": "9160N1",
       "Nombre artículo": "Señal MOPU R.D. 60 cm NI",
-      "Stock": -144,
+      "Stock": -64,
       "Estado": "fab"
     },
     {
@@ -14361,7 +14361,7 @@
     {
       "Artículo": "9260N1",
       "Nombre artículo": "Señal MOPU R2 60 cm NI",
-      "Stock": 58,
+      "Stock": 49,
       "Estado": "fab2"
     },
     {
@@ -14385,7 +14385,7 @@
     {
       "Artículo": "9290N1",
       "Nombre artículo": "Señal MOPU R2 90 cm NI",
-      "Stock": 4,
+      "Stock": 6,
       "Estado": "fab2"
     },
     {
@@ -14487,7 +14487,7 @@
     {
       "Artículo": "94120180N1",
       "Nombre artículo": "Rectangulo MOPU 120x180 cm Reflex I",
-      "Stock": 0,
+      "Stock": -4,
       "Estado": "fab2"
     },
     {
@@ -14571,7 +14571,7 @@
     {
       "Artículo": "946090N",
       "Nombre artículo": "Rectangulo MOPU 60x90 cm Normal",
-      "Stock": 150,
+      "Stock": 170,
       "Estado": "fab"
     },
     {
@@ -14661,7 +14661,7 @@
     {
       "Artículo": "956020N1",
       "Nombre artículo": "Señal MOPU complementaria 60x20 cm Reflex I",
-      "Stock": 7,
+      "Stock": 6,
       "Estado": "fab2"
     },
     {
@@ -15153,19 +15153,19 @@
     {
       "Artículo": "ABRAZADERA50-60",
       "Nombre artículo": "Abrazadera completa para poste 50/60",
-      "Stock": 188,
+      "Stock": 183,
       "Estado": "si"
     },
     {
       "Artículo": "ABRAZADERA60",
       "Nombre artículo": "Abrazadera completa para poste 60",
-      "Stock": -1,
+      "Stock": -2,
       "Estado": "si"
     },
     {
       "Artículo": "ABRAZADERA80X40",
       "Nombre artículo": "Abrazadera para poste de 80x40",
-      "Stock": -8,
+      "Stock": 141,
       "Estado": "si"
     },
     {
@@ -15321,7 +15321,7 @@
     {
       "Artículo": "BASE25X70",
       "Nombre artículo": "Base señal 25 x 70 pintada de negro con garras",
-      "Stock": -9,
+      "Stock": -10,
       "Estado": "no"
     },
     {
@@ -15549,7 +15549,7 @@
     {
       "Artículo": "BASECIRC",
       "Nombre artículo": "Base metalica señal redonda eco roja",
-      "Stock": 10102,
+      "Stock": 10086,
       "Estado": "no"
     },
     {
@@ -15633,13 +15633,13 @@
     {
       "Artículo": "BASECUADRADA",
       "Nombre artículo": "Base metalica cuadrada eco azul",
-      "Stock": 414,
+      "Stock": 409,
       "Estado": "no"
     },
     {
       "Artículo": "BASECUAVER50",
       "Nombre artículo": "Base cuadrada 50 cm verde",
-      "Stock": 0,
+      "Stock": -12,
       "Estado": "no"
     },
     {
@@ -15675,7 +15675,7 @@
     {
       "Artículo": "BASEREC40X20",
       "Nombre artículo": "Base rectangulo MOPT 20x40 Galvan.",
-      "Stock": -39,
+      "Stock": -46,
       "Estado": "no"
     },
     {
@@ -15759,7 +15759,7 @@
     {
       "Artículo": "BASERECT60X90PINTA",
       "Nombre artículo": "Base Rectang. 60x90 MOPU pintada negro",
-      "Stock": 56,
+      "Stock": 51,
       "Estado": "no"
     },
     {
@@ -15831,7 +15831,7 @@
     {
       "Artículo": "CCP00100",
       "Nombre artículo": "Caja cinta pequeña 100",
-      "Stock": 9580,
+      "Stock": 9436,
       "Estado": "no"
     },
     {
@@ -15903,19 +15903,19 @@
     {
       "Artículo": "ESCRUADRA 80X80",
       "Nombre artículo": "Escuadra 9x8x1,8 cm. señal MOPU",
-      "Stock": 65,
+      "Stock": -59,
       "Estado": "no"
     },
     {
       "Artículo": "ESCUADRA 140X80",
       "Nombre artículo": "Escuadra 14x8x1,8 cm señal MOPU",
-      "Stock": 180,
+      "Stock": 160,
       "Estado": "no"
     },
     {
       "Artículo": "EXPOSIT SEÑAL MET",
       "Nombre artículo": "Expositor Señalización SIN SEÑALES",
-      "Stock": 4,
+      "Stock": 3,
       "Estado": "no"
     },
     {
@@ -15939,25 +15939,25 @@
     {
       "Artículo": "IMP 100X70",
       "Nombre artículo": "Impresión cartelería personalizada 100x70",
-      "Stock": -113,
+      "Stock": -161,
       "Estado": "no"
     },
     {
       "Artículo": "IMP 21X29",
       "Nombre artículo": "Impresión cartelería personalizada 21x29",
-      "Stock": -1456,
+      "Stock": -1610,
       "Estado": "no"
     },
     {
       "Artículo": "IMP 40X30",
       "Nombre artículo": "Impresión cartelería personalizada 40x30",
-      "Stock": -1366,
+      "Stock": -1408,
       "Estado": "no"
     },
     {
       "Artículo": "IMP 50X70",
       "Nombre artículo": "Impresión carteleria personalizada 50x70",
-      "Stock": -1153,
+      "Stock": -1181,
       "Estado": "no"
     },
     {
@@ -16173,7 +16173,7 @@
     {
       "Artículo": "PERSONCARTEL",
       "Nombre artículo": "Personalizacion cartel",
-      "Stock": 715,
+      "Stock": 635,
       "Estado": "no"
     },
     {
@@ -16191,7 +16191,7 @@
     {
       "Artículo": "PORTES",
       "Nombre artículo": "Portes hasta destino",
-      "Stock": -12832,
+      "Stock": -12974,
       "Estado": "no"
     },
     {
@@ -16245,25 +16245,25 @@
     {
       "Artículo": "PVC 100X70",
       "Nombre artículo": "Panel PVC 100x70 0.7 mm",
-      "Stock": 4829,
+      "Stock": 4825,
       "Estado": "no"
     },
     {
       "Artículo": "PVC 21X29",
       "Nombre artículo": "Panel PVC 21x29 0.7mm",
-      "Stock": 18465,
+      "Stock": 18311,
       "Estado": "no"
     },
     {
       "Artículo": "PVC 40X30",
       "Nombre artículo": "Panel PVC 40x30 0.7mm",
-      "Stock": 12807,
+      "Stock": 12765,
       "Estado": "no"
     },
     {
       "Artículo": "PVC 50X70",
       "Nombre artículo": "Panel PVC 50x70 0.7 mm",
-      "Stock": 1833,
+      "Stock": 1815,
       "Estado": "no"
     },
     {
@@ -16293,7 +16293,7 @@
     {
       "Artículo": "PVCR A2",
       "Nombre artículo": "6laca PVC Rígido 3mm espumado A2 (594x420 mm)",
-      "Stock": -677,
+      "Stock": -687,
       "Estado": "fab2"
     },
     {
@@ -16377,19 +16377,19 @@
     {
       "Artículo": "VIN 40X20",
       "Nombre artículo": "Vinilo corte 40x20 para econóimca",
-      "Stock": 163,
+      "Stock": 157,
       "Estado": "no"
     },
     {
       "Artículo": "VIN 50 PER",
       "Nombre artículo": "Vinilo personalizado señal eco 50",
-      "Stock": -240,
+      "Stock": -256,
       "Estado": "no"
     },
     {
       "Artículo": "VIN 50 PER CUA",
       "Nombre artículo": "Vinilo personalizad cuadrada eco 50",
-      "Stock": -242,
+      "Stock": -247,
       "Estado": "no"
     },
     {
@@ -16461,7 +16461,7 @@
     {
       "Artículo": "VINILOCORTE",
       "Nombre artículo": "Vinilo Corte personalizado",
-      "Stock": -650,
+      "Stock": -692,
       "Estado": "no"
     },
     {
